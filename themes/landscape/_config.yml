@@ -1,0 +1,48 @@
+# Header
+menu:
+  首页: /
+  文章列表: /archives
+  关于: /about
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+#- tag
+#- tagcloud
+- archive
+- recent_posts
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'monthly'
+show_count: false
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+#### Author information
+author: # 作者的信息
+  intro_line1:  "刘放,网易前端工程师"  # 介绍作者的话  ## your introduction on the bottom of the page
+  intro_line2:  "人一定要靠自己." #　同上  ## the 2nd line
+  email: brizer@foxmail.com # 邮箱    ## e.g. imjark@gmail.com
+## if you set them, the corresponding  share button will show on the footer
+#### Links 个人博客底边栏的链接
+links:
+  我的GitHub: https://github.com/yangruihan,杨睿涵的个人GitHub
+  我的微博: http://weibo.com/3767425381,杨睿涵的个人新浪微博
+  我的知乎: http://www.zhihu.com/people/yang-rui-han-68,杨睿涵的个人知乎
