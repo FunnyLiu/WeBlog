@@ -246,7 +246,7 @@ $(window).on('scroll',function(){
 ```
 
 效果展示:
-[demo](http://brizer.github.io/demo/slider.html)
+[demo](/demo/pagesDemo/slider.html)
 
 
 
@@ -335,7 +335,7 @@ $(document).ready(function() {
 自己做了一个插件，原理就是利用translateY进行变换来显示不同的屏幕。
 目前只是监听了鼠标滚轮事件，后期可以拓展键盘事件和移动端事件。
 
-[demo](http://brizer.github.io/demo/fullpage.html)
+[demo](/demo/pagesDemo/fullpage.html)
    
 插件代码：
 
@@ -443,6 +443,28 @@ $(document).ready(function() {
         myFullPage.initFullPage();  
     }  
 })(jQuery,window)
+```
+
+### **全局ajax等待效果**
+
+全局ajax公用等待效果:
+
+``` javascript
+var preloader = $('<div>',{ 'class':'preloader' }).appendTo('body');
+var doc = $(document);
+ 
+// Show the preloader whenever you are making an AJAX request:
+ 
+doc.ajaxStart(function(){
+    preloader.fadeIn();
+});
+ 
+// Hide it when the ajax request finishes
+ 
+doc.ajaxComplete(function(){
+    // Keep it visible for 0.8 seconds after the request completes
+    preloader.delay(800).fadeOut();
+});
 ```
 
 
@@ -593,7 +615,7 @@ $.map(data,function(val,key){
 
 ```
 
-[demo](http://brizer.github.io/demo/jquery_map.html)
+[demo](/demo/pagesDemo/jquery_map.html)
     
 
 

@@ -287,7 +287,7 @@ btn.onclick = function(){
     document.write(JSON.stringify(objs));//{"a":"123","b":"456"}
 ```
 
-查看例子：[demo](http://brizer.github.io/demo/getUrlSearchObj.html?a=123&b=456#hashisme)
+查看例子：[demo](/demo/pagesDemo/jquery_url.html?page=12&num=3#main)
 
 
 ---
