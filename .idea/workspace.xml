@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0333366f-7c2a-45e4-8c4e-38bef68e012d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/_posts/git使用实践/demo.rar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/next" afterPath="$PROJECT_DIR$/themes/next" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/HTML实用代码片段.md" afterPath="$PROJECT_DIR$/source/_posts/HTML实用代码片段.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/Node爬虫入门.md" afterPath="$PROJECT_DIR$/source/_posts/Node爬虫入门.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/Sass基本用法.md" afterPath="$PROJECT_DIR$/source/_posts/Sass基本用法.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/git使用实践.md" afterPath="$PROJECT_DIR$/source/_posts/git使用实践.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/gulp使用实践.md" afterPath="$PROJECT_DIR$/source/_posts/gulp使用实践.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/jQuery实用代码段.md" afterPath="$PROJECT_DIR$/source/_posts/jQuery实用代码段.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/javascript实用代码片段.md" afterPath="$PROJECT_DIR$/source/_posts/javascript实用代码片段.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/js复制文本到剪切板.md" afterPath="$PROJECT_DIR$/source/_posts/js复制文本到剪切板.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/npm常用命令.md" afterPath="$PROJECT_DIR$/source/_posts/npm常用命令.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/photoshop使用实践.md" afterPath="$PROJECT_DIR$/source/_posts/photoshop使用实践.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/中介者模式与开发实践.md" afterPath="$PROJECT_DIR$/source/_posts/中介者模式与开发实践.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/初步学习http缓存机制.md" afterPath="$PROJECT_DIR$/source/_posts/初步学习http缓存机制.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/前端工具汇总.md" afterPath="$PROJECT_DIR$/source/_posts/前端工具汇总.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/浅谈web架构之架构设计.md" afterPath="$PROJECT_DIR$/source/_posts/浅谈web架构之架构设计.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/浅谈web架构之演化过程.md" afterPath="$PROJECT_DIR$/source/_posts/浅谈web架构之演化过程.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/移动端滑动iscroll使用实践.md" afterPath="$PROJECT_DIR$/source/_posts/移动端滑动iscroll使用实践.md" />
     </list>
     <ignored path="Hexo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -208,66 +187,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="next" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hexo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -917,12 +836,12 @@
       <workItem from="1493191281356" duration="28000" />
       <workItem from="1493191493831" duration="607000" />
       <workItem from="1493424381382" duration="1776000" />
-      <workItem from="1493613741003" duration="1519000" />
+      <workItem from="1493613741003" duration="2083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401809000" />
+    <option name="totallyTimeSpent" value="402373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
