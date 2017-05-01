@@ -80,6 +80,6 @@ copyToClipboard(document.getElementById("name"));
 id为name的节点中的值就进入了剪切板。
 
 
-亲测有效，[demo](http://codepen.io/brizer/pen/RaMawJ "")
+亲测有效，[demo](/demo/pagesDemo/js_copyToClipboard.html)
 
 

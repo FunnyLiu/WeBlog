@@ -62,14 +62,14 @@ npm update [-g] [<pkg>...]
 ## npm outdated
 查看各模块最新版本
 
-![img](../npm常用命令/1.png)
+![img](/npm常用命令/1.png)
 
 ## npm ls
 查看模块依赖，如查看全局模块：
 ```
 npm ls -g
 ```
-![img](../npm常用命令/2.png)
+![img](/npm常用命令/2.png)
 
 ## npm init
 初始化项目的package.json文件夹。
@@ -184,6 +184,44 @@ mongoose.connection.on('disconnected',function(){
 ## yargs
 用来处理命令行参数的[工具](https://www.npmjs.com/package/yargs),与commander功能类似.
 
+## commander
+也是用来处理命令行的[工具](https://www.npmjs.com/package/commander),与yargs相比扩展性更强,举个例子:
+
+``` javascript
+var program = require('commander');
+
+// 命令行参数配置
+program
+    .version('0.0.1')
+    .option('-n, --name <value>', 'special name')
+    .option('-u, --uglify <value>', 'isUglify (是否压缩js代码)')
+    .option('-d, --debugMode <value>', '是否启动调试模式打包代码')
+    .option('-b, --bowerUpdate <value>', '是否启动bower更新')
+    .parse(process.argv);
+
+console.log('uglify is ' + program.uglify);
+//默认压缩webcommon.js文件
+if(program.uglify != 'false'){
+    program.uglify = true;
+}
+
+console.log('debugMode is ' + program.debugMode);
+//默认不开启调试模式
+if(program.debugMode != 'true'){
+    program.debugMode = false;
+}
+
+//默认开启bowerupdate更新
+console.log('bowerUpdate is ' + program.bowerUpdate);
+if(program.bowerUpdate !='false'){
+    program.bowerUpdate = true;
+}
+
+
+gulp = require('./style_build_task')(gulp, APP_NAME);
+gulp = require('./special_build_task')(gulp, APP_NAME, APP_PATH, APP_DIST_PATH, program);
+
+```
 
 ---
 
@@ -191,3 +229,15 @@ mongoose.connection.on('disconnected',function(){
 
 ## npm速度太慢，切换吧
 国内npm速度奇慢无比，果断切换到[淘宝的镜像](https://cnpmjs.org/)，每十分钟更新同步一次。
+
+## nrm管理npm的源
+可以使用nrm来管理npm的源.
+首先安装nrm,使用淘宝源安装,快速:
+```
+npm  install nrm --registry=http://registry.npm.taobao.org/ -g -d  // 使用淘宝源安装，快速！
+```
+
+然后通过nrm ls查看现有源头.
+通过nrm add netease http://rnpm.hz.netease.com/  来添加指定源.
+通过nrm use来指定使用哪个源.
+

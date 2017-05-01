@@ -139,6 +139,34 @@ mixin用来处理兼容性代码最合适不过了：
 
 上面的特性是比较常用的，还有一些数据的运算和颜色的函数等其实不怎么常用，这里就先不整理了。
 
+### **extend**
+
+先看看用法:
+``` css
+%inputstyle {
+    background: #1b9f88;
+    font-size: rem(27px);
+    color: #fff;
+    border: 1px solid #10836f;
+}
+.txt {
+    @include size(rem(514px), rem(130px));
+    @extend %inputstyle;
+    padding: rem(24px) rem(14px);
+    transition: all 1.5s;
+}
+input {
+     @include size(rem(196px), rem(64px));
+     margin-left: rem(14px);
+     padding: 0 rem(16px);
+     @extend %inputstyle;
+     transition: all 1.5s;
+ }  
+```
+效果如下: 
+   
+![img](Sass基本用法/1.png)
+
 ---
 
 ## **感悟**

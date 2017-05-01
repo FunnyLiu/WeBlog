@@ -284,7 +284,7 @@ gulp.task('watch:scss',['scss'],function(){
 gulp.task('watch',['watch:scss']);
 ```
 使用时：
-![img](../gulp使用实践/1.png)
+![img](/gulp使用实践/1.png)
 
 
 ## **cheerio**

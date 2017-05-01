@@ -11,7 +11,350 @@ categories: "web工程"
 ---
 
 # **iscroll**
-模拟移动端滑动的库，有问题可以查阅[该文档](https://iiunknown.gitbooks.io/iscroll-5-api-cn/content/basicfeatures.html)。
+模拟移动端滑动的库，有问题可以查阅[该文档](https://github.com/cubiq/iscroll)。
+
+## **初始化**
+基本结构：
+``` html 
+<script type="text/javascript" src="iscroll.js"></script>
+<script type="text/javascript">
+var myScroll;
+function loaded() {
+    myScroll = new IScroll('#wrapper');
+}
+</script>
+...
+<body onload="loaded()">
+<div id="wrapper">
+    <ul>
+        <li>...</li>
+        <li>...</li>
+        ...
+    </ul>
+</div>
+</body>
+```
+
+---
+
+## **核心配置**
+
+### options.useTransform
+默认值：true
+是否使用css的transform属性，如果false，则用left,top替代。
+
+### options.useTransition
+默认值：true
+是否使用css动画，如果false，则用requestAnimationFrame替代。
+
+### options.HWCompositing
+默认值：true
+是否用translateZ(0)来开启硬件加速。最好为true，极大提高性能，但是如果元素过多，也可以设置为false。
+
+---
+
+## **基本配置**
+
+### options.bounce
+默认值：true
+滑动到边缘的反弹动画，静止可提高性能。
+
+### options.click
+默认值：false
+是否开启点击事件，建议使用tap而不是click，如果需要开启click，设置为true
+
+### options.disableMouse
+### options.disablePointer
+### options.disableTouch
+默认值：false
+可以设置为true，来禁止相应的事件，从而节约资源.
+
+### options.eventPassthrough
+默认值：false
+横向滚动iscroll区域，纵向滚动整个页面。[demo](http://lab.cubiq.org/iscroll5/demos/event-passthrough/)
+``` javascript
+myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+```
+
+### options.freeScroll
+默认值：false
+即可横向，又可纵向滑动。[demo](http://lab.cubiq.org/iscroll5/demos/2d-scroll/)
+``` javascript
+myScroll = new IScroll('#wrapper', { scrollX: true, freeScroll: true });
+```
+
+### options.keyBindings
+默认值：false
+键盘事件，[具体文档](https://github.com/cubiq/iscroll#key-bindings)
+
+### options.invertWheelDirection
+默认值：false
+反转滚轮，只有当鼠标滚轮启用时有用，反转滚轮的方向
+
+### options.momentum
+默认值：true
+用户快速点击屏幕的动画，关闭可极大提高性能
+
+需要和bounce配合使用,体验笔记好,demo:
+``` javascript
+myScroll = new IScroll('.j-navs',
+        {
+            click: true,//允许点击事件
+            eventPassthrough: true,//纵向滚动整个页面，横向滚动iscroll区域
+            scrollX:true,//默认是纵向，横向需要设置scrollX
+            bounce:true,//反弹动画,提高体验
+            momentum:true
+        });
+
+```
+
+### options.mouseWheel
+默认值：false
+鼠标事件监听，方便PC端调试
+
+### options.preventDefault
+默认值：true
+阻止默认行为
+
+### options.scrollX
+默认值：false
+默认是纵向，需开启后变为横向。
+
+### options.scrollY
+默认值：true
+默认纵向滑动
+
+### options.startX
+### options.startY
+默认值：0
+iscroll区域的开始位置。
+
+### options.tap
+默认值：false
+设置为true，使得iscroll区域被点击后触发事件监听：
+``` javascript
+element.addEventListener('tap', doSomething, false); \\ Native
+$('#element').on('tap', doSomething); \\ jQuery
+```
+或者通过参数形式监听
+``` javascript
+tap: 'myCustomTapEvent'
+```
+
+---
+
+## **滚动条设置**
+
+### options.scrollbars
+默认值:false
+开启滚动条，并进行各种设置。
+``` javascript
+var myScroll = new IScroll('#wrapper', {
+    scrollbars: true
+});
+```
+
+### options.fadeScrollbars
+默认值：false
+设置为true时，滚动条可消失。
+
+### options.interactiveScrollbars
+默认值：false
+设置为true是，滚动条可以拖动并进行定义
+
+### options.resizeScrollbars
+默认值：true
+滚动条的大小基于iscroll区域的大小。设置为false，则以固定大小呈现，通常与自定义样式一起使用。
+
+### options.shrinkScrollbars
+默认值：false
+可以设置为clip何scale。在滚动条拖放到边界时启用。
+scale是滚动条在边界时缩放，clip是滚动条在边界时裁剪。
+一个[scale的demo](http://lab.cubiq.org/iscroll5/demos/scrollbars/)
+``` javascript
+myScroll = new IScroll('#wrapper', {
+    scrollbars: true,
+    mouseWheel: true,
+    interactiveScrollbars: true,
+    shrinkScrollbars: 'scale',
+    fadeScrollbars: true
+});
+```
+### 自定义进度条
+[详细文档](https://github.com/cubiq/iscroll#styling-the-scrollbar)
+
+---
+## **指示器设置**
+指示器类似于电商网站中的商品拖拽放大查看器。其定义看起来像这样：
+``` javascript
+var myScroll = new IScroll('#wrapper', {
+    indicators: {
+        el: [element|element selector]
+        fade: false,
+        ignoreBoundaries: false,
+        interactive: false,
+        listenX: true,
+        listenY: true,
+        resize: true,
+        shrink: false,
+        speedRatioX: 0,
+        speedRatioY: 0,
+    }
+});
+```
+
+### options.indicators.el
+强制属性，持有该滚动条的容器，容器的第一个子节点就是指示器：
+``` javascript
+indicators: {
+    el: document.getElementById('indicator')
+}
+```
+
+### options.indicators.ignoreBoundaries
+默认值:fales
+告诉指示器忽略边界，从而改变滚动条的速度。可用来做视觉差组件。
+[视觉差demo](http://lab.cubiq.org/iscroll5/demos/parallax/)
+``` html
+<div id="wrapper">
+    <div id="scroller"></div>
+</div>
+
+<div class="starfield" id="starfield1">
+    <div id="stars1"></div>
+</div>
+
+<div class="starfield" id="starfield2">
+    <div id="stars2"></div>
+</div>
+<script>
+myScroll = new IScroll('#wrapper', {
+    mouseWheel: true,
+    indicators: [{
+        el: document.getElementById('starfield1'),
+        resize: false,
+        ignoreBoundaries: true,
+        speedRatioY: 0.4
+    }, {
+        el: document.getElementById('starfield2'),
+        resize: false,
+        ignoreBoundaries: true,
+        speedRatioY: 0.2
+    }]
+});
+</script>
+```
+
+### options.indicators.listenX
+### options.indicators.listenY
+默认值：true
+确定指示器的监听坐标方向。
+
+### options.indicators.speedRatioX
+### options.indicators.speedRatioY
+默认值：0
+指示器的移动速度
+
+### options.indicators.fade
+### options.indicators.interactive
+### options.indicators.resize
+### options.indicators.shrink
+和scrollbar的设置类似，可以直接看[demo](http://lab.cubiq.org/iscroll5/demos/minimap/)
+``` html
+<div id="wrapper">
+    <div id="scroller"></div>
+</div>
+
+<div id="minimap">
+    <div id="minimap-indicator"></div>
+</div>
+
+<ul id="bookmarks">
+    <li><a href="javascript:myScroll.scrollTo(-359, -85, 400, IScroll.utils.ease.back)">Face</a></li>
+    <li><a href="javascript:myScroll.scrollTo(-288, -342, 400, IScroll.utils.ease.back)">Necklace</a></li>
+    <li><a href="javascript:myScroll.scrollTo(-264, -658, 400, IScroll.utils.ease.back)">Hand</a></li>
+    <li><a href="javascript:myScroll.scrollTo(-383, -539, 400, IScroll.utils.ease.back)">Ermine</a></li>
+</ul>
+<script>
+    myScroll = new IScroll('#wrapper', {
+        startX: -359,
+        startY: -85,
+        scrollY: true,
+        scrollX: true,
+        freeScroll: true,
+        mouseWheel: true,
+        indicators: {
+            el: document.getElementById('minimap'),
+            interactive: true
+        }
+    });
+</script>
+```
+
+---
+
+## **常用API**
+
+### scrollTo(x, y, time, easing)
+举例，如下会下滑到-100px的位置：
+``` javascript
+myScroll.scrollTo(0, -100);
+```
+也可加上一定的时间和渐变效果：
+``` javascript
+myScroll.scrollTo(0, -100, 1000, IScroll.utils.ease.elastic);
+```
+uitils.ease 有属性： quadratic, circular, back, bounce, elastic.
+
+### scrollBy(x, y, time, easing)
+举例，如下你会从-100px处下滑到-110px处：
+``` javascript
+myScroll.scrollBy(0, -10);
+```
+
+### scrollToElement(el, time, offsetX, offsetY, easing)
+可以查看[demo](http://lab.cubiq.org/iscroll5/demos/scroll-to-element/)
+用法可以参考文章后面的简单小demo中的移动端导航居中效果。
+
+### refresh()
+刷新iscroll。
+如果我们在实例化IScroll后，又改变了其内部DOM节点的结构或者样式，就需要手动refresh刷新一下。
+
+例如我们一个常见的需求，就是通过iscroll来设置导航。会在实例化iscroll前对导航所在div的宽度进行计算：
+``` javascript
+this._setScrollWidth();
+
+this.myScroll = new IScroll('.j-navs',
+    {
+        click: true,//允许点击事件
+        eventPassthrough: false,//纵向滚动整个页面，横向滚动iscroll区域
+        scrollX:true,//默认是纵向，横向需要设置scrollX
+        bounce:true,//反弹动画,提高体验
+        momentum:true,
+        preventDefault: false
+
+    });
+```
+
+如果我们颠倒顺序，先执行实例化操作，再计算宽度并设置给iscroll区域内的dom，就会发现iscroll失效。这时需要手动refresh一下，才能正常激活：
+```javascript
+
+this.myScroll = new IScroll('.j-navs',
+    {
+        click: true,//允许点击事件
+        eventPassthrough: false,//纵向滚动整个页面，横向滚动iscroll区域
+        scrollX:true,//默认是纵向，横向需要设置scrollX
+        bounce:true,//反弹动画,提高体验
+        momentum:true,
+        preventDefault: false
+
+    });
+
+this._setScrollWidth();
+
+this.myScroll.refresh();
+
+```
 
 ---
 
@@ -60,7 +403,7 @@ li {
     top:0;
     left:0;
     width:100%;
-    overflow: scroll;
+    overflow: hidden;
     ul {
         padding:0;
         width:800px;

@@ -305,7 +305,7 @@ function countDown() {　　
   
 效果如下：
 
-![image](../jQuery实用代码段/1.png);
+![image](/jQuery实用代码段/1.png);
 
 ### **出现在屏幕中心**
 
@@ -482,6 +482,24 @@ jQuery.preloadImages = function() {
 };
 //用法
 $.preloadImages('image1.gif', '/path/to/image2.png', 'some/image3.jpg');
+```
+
+### **加载图片后再回调**
+
+常用于弹框，或者提高后一页用户体验。
+``` javascript
+//图片加载后回调
+$.loadImageCallback = function(obj){
+    var imgSrc = obj.imgSrc;
+    var cb = obj.cb||function(){};
+    var imgObj = new Image();
+    imgObj.src = imgSrc;
+    imgObj.onload = function(){
+        cb();
+    }
+};
+//使用时注意绑定this
+$.loadImageCallback({imgSrc:src,cb:that.show.bind(this)});
 ```
 
 ### **自动定位并修复图片**

@@ -72,7 +72,7 @@ categories: "html"
 
 利用斜杠9来兼容ie8，有些属性只有ie9以上才支持，比如子选择器这种：
 
-![image](../HTML实用代码片段/222.png)
+![image](/HTML实用代码片段/222.png)
 
 
 
@@ -175,7 +175,7 @@ background-clip: padding-box;
 
 # **媒介查询，响应式写法**
 
-![image](../HTML实用代码片段/28.png)
+![image](/HTML实用代码片段/28.png)
 
 
 大于960：
@@ -281,21 +281,21 @@ display: -webkit-box;
 
 ## **水平居中1**
 
-![image](../HTML实用代码片段/1.png)
+![image](/HTML实用代码片段/1.png)
 优点，兼容性好，配置display:inline;zoom:1;可以兼容ie6。
 缺点，text-align，导致内部文字被迫居中。
 
 
 ## **水平居中2**
 
-![image](../HTML实用代码片段/2.png)
+![image](/HTML实用代码片段/2.png)
 
 通过display:table，将div宽度自适应。
 
 
 ## **水平居中3**
 
-![image](../HTML实用代码片段/3.png)
+![image](/HTML实用代码片段/3.png)
 
 通过translate来实现居中。
 优点：绝对定位脱离文档流，不会影响其他。
@@ -304,7 +304,7 @@ display: -webkit-box;
 
 ## **水平居中4**
 
-![image](../HTML实用代码片段/4.png)
+![image](/HTML实用代码片段/4.png)
 
 通过flex来实现居中。
 缺点：css3属性，不兼容ie8.
@@ -317,7 +317,7 @@ display: -webkit-box;
 
 ## **垂直居中1**
 
-![image](../HTML实用代码片段/5.png)
+![image](/HTML实用代码片段/5.png)
 
 兼容性比较好，ie8。
 
@@ -325,14 +325,14 @@ display: -webkit-box;
 ## **垂直居中2**
 
 
-![image](../HTML实用代码片段/6.png)
+![image](/HTML实用代码片段/6.png)
 
 利用translate来居中。
 
 
 ## **垂直居中3**
 
-![image](../HTML实用代码片段/7.png)
+![image](/HTML实用代码片段/7.png)
 
 ---
 
@@ -342,19 +342,19 @@ display: -webkit-box;
 
 ## **水平垂直居中1**
 
-![image](../HTML实用代码片段/8.png)
+![image](/HTML实用代码片段/8.png)
 
 兼容性好。
 
 ## **水平垂直居中2**
 
-![image](../HTML实用代码片段/9.png)
+![image](/HTML实用代码片段/9.png)
 
 不影响其他元素，但兼容性不好。
 
 ## **水平垂直居中3**
 
-![image](../HTML实用代码片段/10.png)
+![image](/HTML实用代码片段/10.png)
 
 
 ---
@@ -367,32 +367,32 @@ display: -webkit-box;
 
 方案1：
 
-![image](../HTML实用代码片段/11.png)
+![image](/HTML实用代码片段/11.png)
 
 优点是容易理解。
 缺点是由于右边不是浮动的，所以如果其中有清除浮动，就出现问题。
 
 方案2：
 
-![image](../HTML实用代码片段/12.png)
+![image](/HTML实用代码片段/12.png)
 
 通过右侧触发bfc来解决。
 
 方案3：
 
-![image](../HTML实用代码片段/13.png)
+![image](/HTML实用代码片段/13.png)
 
 table-layout可以提高渲染速度。
 
 方案4：
 
-![image](../HTML实用代码片段/14.png)
+![image](/HTML实用代码片段/14.png)
 
 两列定宽，一列自适应。
 
 和一列定宽是类似的：
 
-![image](../HTML实用代码片段/15.png)
+![image](/HTML实用代码片段/15.png)
 
 ## **不定宽与自适应**
 
@@ -402,23 +402,23 @@ table-layout可以提高渲染速度。
 
 主流方式。
 
-![image](../HTML实用代码片段/16.png)
+![image](/HTML实用代码片段/16.png)
 
 方案2：
 
-![image](../HTML实用代码片段/17.png)
+![image](/HTML实用代码片段/17.png)
 
 其中的0.1%是为了避免1px在ie8下的bug。
 
 方案3：
 
-![image](../HTML实用代码片段/18.png)
+![image](/HTML实用代码片段/18.png)
 
 flex万能大法，但是兼容行不行。
 
 两列不定宽一列自适应是一个道理：
 
-![image](../HTML实用代码片段/19.png)
+![image](/HTML实用代码片段/19.png)
 
 ## **等宽**
 
@@ -426,20 +426,20 @@ flex万能大法，但是兼容行不行。
 
 方案1：
 
-![image](../HTML实用代码片段/20.png)
+![image](/HTML实用代码片段/20.png)
 
 box-sizing:border-box是为了让宽度包含padding，父亲的margin-left需要和间距一致。
 
 方案2：
 
-![image](../HTML实用代码片段/21.png)
+![image](/HTML实用代码片段/21.png)
 
 优点是结构和样式解耦了，中间无论多少列都是等宽。
 缺点是多了一些结构代码。
 
 方案3：
 
-![image](../HTML实用代码片段/22.png)
+![image](/HTML实用代码片段/22.png)
 
 这里的.column+.column选择的是第一列之外的后面几列。
 
@@ -449,15 +449,15 @@ box-sizing:border-box是为了让宽度包含padding，父亲的margin-left需�
 
 方案1：
 
-![image](../HTML实用代码片段/23.png)
+![image](/HTML实用代码片段/23.png)
 
 方案2：
 
-![image](../HTML实用代码片段/24.png)
+![image](/HTML实用代码片段/24.png)
 
 方案3：
 
-![image](../HTML实用代码片段/25.png)
+![image](/HTML实用代码片段/25.png)
 
 这种属于伪等高。
 
@@ -467,11 +467,11 @@ box-sizing:border-box是为了让宽度包含padding，父亲的margin-left需�
 
 方案1:
 
-![image](../HTML实用代码片段/26.png)
+![image](/HTML实用代码片段/26.png)
 
 方案2：
 
-![image](../HTML实用代码片段/27.png)
+![image](/HTML实用代码片段/27.png)
 
 
 ---
@@ -510,42 +510,42 @@ box-sizing:border-box是为了让宽度包含padding，父亲的margin-left需�
 
 <style type="text/css">
 .parent {
-  float: left;
-  width: 200px;
-  height: 100px;
-  background-color: red;
-}
-.father {
-  float:left;
-  position:relative;
-  top:50%;
-  left:50%;  
+    float: left;
+    margin-right:20px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
 }
 .children {
-  position: relative;
-  left: -50%;
-  -webkit-transform : translate3d(0, -50%, 0);
-  transform : translate3d(0, -50%, 0);
-  background-color: black;
-  color:white;
+    position: relative;
+    left: 50%;
+    top:50%;
+    width:150px;
+    -webkit-transform : translate3d(-50%, -50%, 0);
+    transform : translate3d(-50%, -50%, 0);
+    background-color: black;
+    color:white;
 }
 </style>
 <div class="parent">
-  <div class="father">
     <div class="children">
-      <div class="children-inline">我是水平垂直居中噢！</div>
-       <div class="children-inline">2我是水平垂直居中噢！</div>
+        <div class="children_inline">一行文字水平垂直居中噢！</div>
     </div>
-  </div>
 </div>
+
+<div class="parent">
+    <div class="children">
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+    </div>
+</div>
+
 
 ```
 
 相对有效，当遇到多行文本且是不同状态下不同dom结构时都能保持水平垂直居中。
 
-<p data-height="265" data-theme-id="0" data-slug-hash="LNqozr" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/LNqozr/">多行字符串垂直居中</a> by 刘放 (<a href="http://codepen.io/brizer">@brizer</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
+[demo](/demo/pagesDemo/css_multiCenter.html)
 
 ---
 
