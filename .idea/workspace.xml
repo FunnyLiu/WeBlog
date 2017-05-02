@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0333366f-7c2a-45e4-8c4e-38bef68e012d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/source/CNAME" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/next" afterPath="$PROJECT_DIR$/themes/next" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
     </list>
     <ignored path="Hexo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +26,18 @@
     <favorites_list name="Hexo" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,12 +52,16 @@
       <find>queryselector</find>
       <find>tween</find>
       <find>http://localhost:4000/2017/04/26/Regular%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%B1%87%E6%80%BB/#more</find>
-      <find>brizer.top</find>
       <find>[img](../</find>
       <find>..</find>
       <find>[image](..</find>
       <find>[images](..</find>
       <find>](..</find>
+      <find>motion-element</find>
+      <find>brizer.top</find>
+      <find>brizer</find>
+      <find>source</find>
+      <find>duoshuo</find>
     </findStrings>
     <replaceStrings>
       <replace>](</replace>
@@ -60,9 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/ui/regular/rComponent/childrens/childrenBaby.js" />
-        <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/ui/regular/rComponent/childrens/childrenBaby.html" />
-        <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/ui/regular/rComponent/childrens/childrenBoy.html" />
         <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/ui/regular/rComponent/childrens/childrenGirl.html" />
         <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/ui/regular/rComponent/father/father.html" />
         <option value="$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/web/module/regular/rComponent/index.js" />
@@ -96,7 +111,6 @@
         <option value="$PROJECT_DIR$/public/demo/pagesDemo/js/create.js" />
         <option value="$PROJECT_DIR$/public/demo/pagesDemo/js_create_dot.html" />
         <option value="$PROJECT_DIR$/public/demo/index.html" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/Regular组件通信方式汇总.md" />
         <option value="$PROJECT_DIR$/source/_posts/gulp使用实践.md" />
         <option value="$PROJECT_DIR$/source/_posts/Node爬虫入门.md" />
@@ -111,6 +125,10 @@
         <option value="$PROJECT_DIR$/source/_posts/初步学习http缓存机制.md" />
         <option value="$PROJECT_DIR$/source/_posts/无限滚动列表原理.md" />
         <option value="$PROJECT_DIR$/source/_posts/git使用实践.md" />
+        <option value="$PROJECT_DIR$/themes/next/layout/_macro/sidebar.swig" />
+        <option value="$PROJECT_DIR$/.deploy_git/index.html" />
+        <option value="$PROJECT_DIR$/themes/next/_config.yml" />
+        <option value="$PROJECT_DIR$/_config.yml" />
       </list>
     </option>
   </component>
@@ -190,11 +208,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="next" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hexo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,8 +267,7 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="upsource.project.settings" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -222,19 +285,19 @@
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo" />
+      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo/src" />
+      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo/src/html" />
+      <recent name="$PROJECT_DIR$/public/demo/expressDemo/myapp/public/javascripts/rgui/users" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/source/_posts/Regular组件通信方式汇总" />
       <recent name="$PROJECT_DIR$/public/demo/pagesDemo/imgs" />
       <recent name="$PROJECT_DIR$/source/_posts/photoshop使用实践" />
       <recent name="$PROJECT_DIR$/public/demo/pagesDemo/js" />
       <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo/src/html" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo" />
-      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo/src" />
-      <recent name="$PROJECT_DIR$/public/demo/NetEaseDemo/src/html" />
-      <recent name="$PROJECT_DIR$/public/demo/expressDemo/myapp/public/javascripts/rgui/users" />
-      <recent name="$PROJECT_DIR$/public/demo/expressDemo/myapp/public/javascripts" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.m_alloyfinger.html">
@@ -836,12 +899,14 @@
       <workItem from="1493191281356" duration="28000" />
       <workItem from="1493191493831" duration="607000" />
       <workItem from="1493424381382" duration="1776000" />
-      <workItem from="1493613741003" duration="2083000" />
+      <workItem from="1493613741003" duration="5318000" />
+      <workItem from="1493689551437" duration="2052000" />
+      <workItem from="1493704707169" duration="878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402373000" />
+    <option name="totallyTimeSpent" value="408538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -854,7 +919,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -874,12 +939,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1875" sideWeight="0.48569384" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24749643" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25679544" sideWeight="0.5059022" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -889,6 +953,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -913,13 +978,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/.deploy_git/demo/pagesDemo/js/regular-ui.js</url>
-          <line>5871</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
@@ -929,15 +987,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/check2Group.js" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/check2Group.html" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/select2.html" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/select2.js" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/select2Group.html" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/select2Group.js" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/suggest.js" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/suggest.html" />
-    <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/module/modal.js" />
     <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/module/modal.html" />
     <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/dropdown.js" />
     <entry file="file://$PROJECT_DIR$/public/demo/NetEaseDemo/src/javascript/lib/regular-ui/src/js/unit/dropdown.html" />
@@ -1072,13 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/Regular组件通信方式汇总.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1104,7 +1146,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="150">
             <caret line="143" column="7" lean-forward="false" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="7" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1135,7 +1176,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="4080">
             <caret line="417" column="9" lean-forward="false" selection-start-line="417" selection-start-column="9" selection-end-line="417" selection-end-column="9" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1146,7 +1186,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="1080">
             <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1157,7 +1196,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="6100">
             <caret line="473" column="13" lean-forward="false" selection-start-line="473" selection-start-column="13" selection-end-line="473" selection-end-column="13" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1225,10 +1263,6 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="-2490">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1476325501000" expanded="true" signature="10965:11000" ph="..." />
-              <marker date="1476325501000" expanded="true" signature="10988:10991" ph="{...}" />
-            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -1239,7 +1273,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1250,16 +1283,71 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="656">
             <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.deploy_git/index.html">
+    <entry file="file://$PROJECT_DIR$/.deploy_git/demo/NetEaseDemo/pub/r/tp_pages_util_index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12790">
+          <caret line="11" column="8617" lean-forward="false" selection-start-line="11" selection-start-column="8617" selection-end-line="11" selection-end-column="8617" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/layout/_macro/sidebar.swig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="38" column="100" lean-forward="false" selection-start-line="38" selection-start-column="100" selection-end-line="38" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/CNAME" />
+    <entry file="file://$PROJECT_DIR$/public/CNAME" />
+    <entry file="file://$PROJECT_DIR$/.deploy_git/CNAME" />
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.deploy_git/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="177" column="15" lean-forward="true" selection-start-line="177" selection-start-column="15" selection-end-line="177" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4035">
+          <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
           <folding />
         </state>
       </provider>

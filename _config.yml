@@ -4,7 +4,7 @@
 
 # Site
 title: Brizer's Blog
-subtitle: 刘放 学习笔记
+subtitle: 刘放 田雨晴 学习笔记
 description: 网易前端开发 brizer@163.com
 author: 刘放
 language: zh-Hans
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-#url: http://http://brizer.top
+url: http://brizer.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -81,8 +81,8 @@ category: 1
 tag: 1
 
 avatar: http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg
-duoshuo_shortname: brizer
-duoshuo_share: true
+#duoshuo_shortname: brizer
+#duoshuo_share: true
 
 social:
   #LinkLabel: Link
