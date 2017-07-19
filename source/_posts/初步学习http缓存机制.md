@@ -14,7 +14,7 @@ categories: "web工程"
 
 先看一个图片：
 
-![images](/初步学习http缓存机制/1.png)
+![images](../初步学习http缓存机制/1.png)
 
 
 ## **Pragma**
@@ -44,7 +44,7 @@ http1.0年代中用来控制缓存的字段，和Expires配合使用。由于htt
 
 也是只有ie支持，在服务器响应报文上添加则可以有效启用缓存：
 
-![image](/初步学习http缓存机制/2.png)
+![image](../初步学习http缓存机制/2.png)
 
 这里需要注意Pargma的优先级大于Expires。如果同时设置两个字段，则客户端会禁用缓存。
 
@@ -59,11 +59,11 @@ http1.1提出的缓存控制字段，在请求报文和响应报文中均可使�
 
 作为请求报文首部时：
 
-![image](/初步学习http缓存机制/3.png)
+![image](../初步学习http缓存机制/3.png)
 
 作为响应报文首部时：
 
-![image](/初步学习http缓存机制/4.png)
+![image](../初步学习http缓存机制/4.png)
 
 我们可以自由组合：
 
@@ -77,7 +77,7 @@ Cache-Control: max-age=3600, must-revalidate
 
 以云课堂首页的一张图片为栗子：
 
-![image](/初步学习http缓存机制/5.png)
+![image](../初步学习http缓存机制/5.png)
 
 ## **Last-Modified**
 
@@ -89,7 +89,7 @@ Cache-Control: max-age=3600, must-revalidate
 
 过程如下图：
 
-![image](/初步学习http缓存机制/6.png)
+![image](../初步学习http缓存机制/6.png)
 
 Last-Modified也**有一个问题**，就是如果服务器端资源被修改，但是仅仅是注释或者其他无所谓的修改，还是会触发修改时间。从而造成没必要的网络传输。
 

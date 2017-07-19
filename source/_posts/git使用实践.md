@@ -50,6 +50,38 @@ git clone https://github.com/jquery/jquery.git
 
 ![images](/git使用实践/5.png);
 
+```shell
+
+# 提交暂存区到仓库区
+$ git commit -m [message]
+
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2] ... -m [message]
+
+# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+
+# 提交时显示所有diff信息
+$ git commit -v
+
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1] [file2] ...
+```
+
+## **删除文件**
+```
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+```
+
 ## **查看帮助**
 
 git help.
@@ -120,6 +152,77 @@ git log -p即可
 
 这里需要注意，filename是需要带路径的，所以我们最好可以在需要对比的文件所在目录git bash来输入命令。比较方便。
 
+```shell
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+$ git log -p [file]
+
+# 显示指定文件是什么人在什么时间修改过!!!可以具体到某一行
+$ git blame [file]
+
+# 显示暂存区和工作区的差异
+$ git diff
+
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]
+
+# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+
+# 显示某次提交的元数据和内容变化
+$ git show [commit]
+
+# 显示某次提交发生变化的文件
+$ git show --name-only [commit]
+
+# 显示某次提交时，某个文件的内容
+$ git show [commit]:[filename]
+
+# 显示当前分支的最近几次提交
+$ git reflog
+```
+
+## **各种撤销**
+```shell
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到工作区
+$ git checkout [commit] [file]
+
+# 恢复上一个commit的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+```
+
 ## **未add之前取消修改**
 
 未add之前，如果发现修改完全没有必要，通过`git checkout`来撤销。
@@ -188,6 +291,11 @@ git commit --amend
 ![images](/git使用实践/14.png);
 
 这样就可以找到对应的commit id了。
+
+最后将这个版本重新push既可以完成 push后的版本回退了。当然，还有一种方法：
+git revert <需要撤消的Hash值> 这个hash值可以使用git log 来查看、复制、粘贴
+
+
 
 ## **任意版本切换**
 
@@ -258,9 +366,43 @@ git branch -D feature/audio-lesson-jt-20170307 //将有冲突的那个本地分�
 
 若想把远程分支叫作 awesomebranch，可以用`git push origin serverfix:awesomebranch` 来推送数据。
 
+## **取回远程分支的更新**
+
+默认情况下，git fetch取回所有分支(branch)的更新。如果只想取回特定分支的更新，可以指定分支名。
+```
+$ git fetch <远程主机名> <分支名>
+```
+
+比如，取回origin主机的master分支。
+```shell
+$ git fetch origin master
+
+```
+
+## **合并远程分支**
+使用git merge命令或者git rebase命令，在本地分支上合并远程分支。
+```shell
+$ git merge origin/master
+# 或者
+$ git rebase origin/master
+```
+
+上面命令表示在当前分支上，合并origin/master。
+
 ## **删除远程分支**
 
+删除本地和远程的分支：
+```
+git remote prune origin
+```
+
 ![images](/git使用实践/19.png);
+
+命令如下：
+```shell
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]
+```
 
 ## **创建标签**
 使用组件池时,各个组件或者仓库,都是通过标签来区别功能,这样引用时就可以针对不同版本进行使用.
