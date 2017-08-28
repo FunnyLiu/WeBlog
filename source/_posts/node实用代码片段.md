@@ -126,3 +126,38 @@ function travel(dir, callback, finish) {
     });
 }
 ```
+
+# **promise**
+接口一个接一个。。
+```javascript
+this.getOneSpecial(specialName)
+.then(function (data) {
+    callback(0.1,'已经获取到专题'+specialName+'的内容,为：\n'+JSON.stringify(data||{},null,4));
+    templateDataListItems = data.templateDataListItems;
+
+    _.forEach(data.templateDataListItems, function (item) {
+        di.push({"name": item.dataInstanceName});
+        mt.push({"name": item.moduleTemplateName});
+    });
+
+    that.publishFtl = data.publishFtl||'';
+
+    callback(0.15,'获取模块相关信息...');
+
+    return that.getModuleInstance(mt);
+}).then(function (data) {
+    moduleTemplates=data;
+
+    callback(0.2,'已经获取到专题'+specialName+'中模板实例的模板数据为：\n'+JSON.stringify(data||{},null,4));
+
+    return that.getModuleDataInstance(di);
+}).then(function (data) {
+
+    callback(0.25,'已经获取到专题'+specialName+'中模板实例的数据实例数据为：\n'+JSON.stringify(data||{},null,4));
+
+    dataInstanceNames = data;
+    that.generatePageData(templateDataListItems, moduleTemplates, dataInstanceNames,callback);
+
+
+})
+```

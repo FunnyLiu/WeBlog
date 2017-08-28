@@ -14,7 +14,7 @@ categories: "javascript"
 
 ``` javascript
 function isInViewport(el) {
-    var rect = el.getBoundingClientRect();
+    var rect = el.getBoundingClientRect();s
 
     return rect.bottom > 0 &&
         rect.right > 0 &&

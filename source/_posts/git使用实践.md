@@ -231,6 +231,9 @@ $ git revert [commit]
 
 ![images](/git使用实践/10.png);
 
+如果无效,针对untracked 的文件和目录,
+使用 `git clean -fd`来删除也是可以的.
+
 ## **已add，未commit之前取消修改**
 
 ```
@@ -443,10 +446,20 @@ git tag -d 0.1.11
 ## **忽略文件失效**
 
 git可以通过.gitignore文件来配置忽略列表，但是我们有时候配置之后会发现失效。其实是因为缓存的问题，需要手动将git仓库中的对应文件删除，但是本地文件系统中还是存在的。
+在.gitignore文件中加入了build/，但发现并不起作用。
 
-``` 
-find . -iname "demo.css" |xargs git rm -rf --cached
+根本原因
+.gitignore文件只是ignore没有被staged(cached)文件，对于已经被staged文件，加入ignore文件时一定要先从staged移除。
+
+因此，要想用gitignore忽略文件，必须先把它们从staged中移除：
+commit你已有的改变，保存当前的工作。
+
 ```
+git rm --cached file/path/to/be/ignored。
+git add .
+git commit -m "fixed untracked files"
+```
+
 
 ## **ssh连接超时**
 
