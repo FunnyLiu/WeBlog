@@ -345,3 +345,27 @@ var gulp = require('gulp');
 
 其中,将html中css的引用地址和scss文件生成的地址对应起来这一部分是cheerio的使用实例.
 
+## **gulp.spritesmith**
+用来合并精灵图的自动化工具.[官网](https://www.npmjs.com/package/gulp.spritesmith)
+
+通过简单的配置,就可以将一个文件夹下所有的图片,合并精灵图后输出到另一文件夹:
+``` javascript
+var gulp = require('gulp');
+var spritesmith = require('gulp.spritesmith');
+
+gulp.task('sprite', function () {
+    var root = process.cwd();//当前文件路径
+    var inputPath = root+'/public/demo/tool/spriteContent/input/';
+    var outPath = root+'/public/demo/tool/spriteContent/output/';
+    console.log('inputPath为'+inputPath);
+    console.log('outPath为'+outPath);
+    var spriteData = gulp.src(inputPath+'*.png').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.css',
+        padding: 20
+    }));
+    return spriteData.pipe(gulp.dest(outPath));
+});
+```
+
+具体的配置项可以查看api.

@@ -5,6 +5,11 @@
   "hexo": {
     "version": "3.2.2"
   },
+  "scripts": {
+    "css": "gulp watch",
+    "new": "gulp new",
+    "sprite": "gulp sprite"
+  },
   "dependencies": {
     "hexo": "^3.2.2",
     "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
@@ -24,6 +29,7 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
+    "gulp.spritesmith": "^6.5.1",
     "redux": "^3.7.2",
     "regularjs": "^0.6.0-beta.6",
     "rgl-redux": "0.0.2",
