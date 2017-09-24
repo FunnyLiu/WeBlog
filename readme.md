@@ -3,3 +3,4 @@
 2. npm run new -- -n=demoName 创建新的demo页面并watch
 3. npm run sprite 将public/demo/tool/spriteContent/input/下面的图片拼接到
 public/demo/tool/spriteContent/output/下
+4. npm run newPaper 文章名 创建新的文章和对应存放图片的文件夹

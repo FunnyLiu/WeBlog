@@ -8,7 +8,8 @@
   "scripts": {
     "css": "gulp watch",
     "new": "gulp new",
-    "sprite": "gulp sprite"
+    "sprite": "gulp sprite",
+    "newPaper": "hexo new"
   },
   "dependencies": {
     "hexo": "^3.2.2",
