@@ -167,6 +167,44 @@ input {
    
 ![img](Sass基本用法/1.png)
 
+### **MAP**
+sass3.3后引入了map类型,这里以**管理页面各个元素的z-index**为例.
+```scss
+$z-layers: (
+    'toast':          4000,
+    'modal':          3000,
+    'dropdown':       2000,
+    'mask':           1000,
+    'default':         1,
+    'below':          -1,
+    'bottomless-pit': -10000
+);
+```
+
+定义函数:
+```scss
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+    }
+
+    @return map-get($z-layers, $layer);
+}
+```
+
+使用方式如下:
+```scss
+//function方式
+.m-mask {
+    z-index: z('mask');
+}
+
+//mixin方式
+.m-mask {
+    @include z('mask');
+}
+```
+
 ---
 
 ## **感悟**
