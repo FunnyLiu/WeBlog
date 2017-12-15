@@ -506,6 +506,33 @@ box-sizing:border-box是为了让宽度包含padding，父亲的margin-left需�
 
 # **多行文字或单行文字均水平垂直居中**
 
+```html
+ <div class="vcenter">
+        <div class="vcenter-child">vertical-centering, 我要垂直居中</div>
+    </div>
+    <style>
+    
+        .vcenter {
+            background:red;
+            position: relative;
+            height: 100px;
+          width:100px;
+        }
+        .vcenter-child {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin: auto;
+            display: table;
+            text-align: center;
+        }
+
+    </style>
+
+```
 ``` html
 
 <style type="text/css">
