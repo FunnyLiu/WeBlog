@@ -11,6 +11,7 @@ categories: "freemarker"
 ## **前言**
 
 工程要用到，需要先熟悉基本的用法，后期再深入了解。
+首先放出官方文档的链接:[ftl中文api](http://www.kerneler.com/freemarker2.3.23/index.html)
 
 
 ---
@@ -267,6 +268,15 @@ ${(col['name']?eval)}
 
 ```
 
+
+### **c**
+用来展示布尔值. 举个例子:
+
+``` javascript
+<#if isFirstCate?exists>
+    window.isFirstCate = "${isFirstCate?c}";
+</#if>
+```
 
 
 ---
