@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼两列布局</title>
+    <link rel="stylesheet" href="css/css_twoColumn.css">
+    <style>
+    </style>
+</head>
+<body>
+<div id='div-ab-1'>
+    <div id="div-b-1">DIV-B</div>
+    <div id="div-a-1">DIV-A</div>
+</div>
+<div class="m-code f-pa">
+    <textarea class="u-html g-panel">
+<div id='div-ab-1'>
+    <div id="div-b-1">DIV-B</div>
+    <div id="div-a-1">DIV-A</div>
+</div>
+    </textarea>
+    <textarea class="u-css g-panel">
+#div-ab-1{
+    padding-left:100px;
+    overflow: hidden;/*将这个div撑起来*/
+}
+#div-b-1{
+    float:left;
+    width:100%;
+    background-color: #0000fd;
+}
+#div-a-1{
+    float:left;
+    width:100px;
+    background-color:#fe0002;
+    margin-left:-100%;
+    position:relative;
+    left:-100px;
+}
+    </textarea>
+    <textarea class="u-js g-panel"></textarea>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div>
+	<h1>regular-todo</h1>
+	<input id="new-todo" on-enter={ this.newTodo(editTodo) } placeholder="What needs to be done?" r-model={ editTodo }>
+</div>
+
+{#if !!todos.length}
+<section id="main">
+
+	<input id="toggle-all" type="checkbox" name='toggle' on-click={this.toggleAll()} r-model='allCompleted'>
+	<label for="toggle-all">Mark all as complete</label>
+	<ul id="todo-list">
+		{#list todos as todo}
+		<todoitem todo={todo} index={todo_index} on-remove={this.removeTodo(todo_index)}></todoitem>
+		{/list}
+	</ul>
+</section>
+<footer id="footer">
+	<span id="todo-count"> <strong>{ activeLength }</strong>
+    { activeLength == 1 ? 'item' : 'items' } left
+  </span>
+	<ul id="filters">
+		<li>
+			<a class="{ filter == 'all'? 'selected' : '' }" href="javascript:;" on-click={this.setVisibility('all')}>All</a>
+		</li>
+		<li>
+			<a class="{ filter == 'active'? 'selected' : '' }" href='javascript:;' on-click={this.setVisibility('active')}>Active</a>
+		</li>
+		<li>
+			<a class="{ filter == 'completed'? 'selected' : '' }" href="javascript:;" on-click={this.setVisibility('completed')}>Completed</a>
+		</li>
+	</ul>
+	{#if completedLength}
+	<button id="clear-completed" on-click={this.clearCompleted()}>Clear completed ({ completedLength })</button> {/if}
+</footer>
+{/if}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/regular-ui.default.css">
+    <link rel="stylesheet" href="css/regularui_menu.css">
+    <!--demo模板-->
+    <script id="menu1" type="template/regular">
+        <menu source={source} title="自定义标题"/>
+    </script>
+    <!--menulist组件-->
+    <script id="menulist" type="template/regular">
+        <ul class="m-listview menu_list" r-hide={!visible}>
+            {#list source as item}
+            <li r-class='"z-dis":item.disabled == true' r-class='"z-divider":item.divider == true'>
+                <div class="menu_item">
+                    {#if item.childrenCount || (item.children && item.children.length)}
+                    <i class="u-icon u-icon-caret-right"></i>
+                    {/if}
+                    <div class="menu_itemname" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>
+                </div>
+                {#if item.childrenCount || (item.children && item.children.length)}<menulist source={item.children} visible={item.open} parent={item} />{/if}
+            </li>
+            {/list}
+        </ul>
+    </script>
+    <!--组件模板-->
+    <script id="mymenu" type="template/regular">
+        <div class="u-mydropdown {class}" r-class='"z-dis":disabled == true'  ref="element">
+            <div class="dropdown_hd" on-click={this.toggle()}>
+                {#if this.$body}
+                {#inc this.$body}
+                {#else}
+                <a class="u-btn" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+                {/if}
+            </div>
+            <div class="dropdown_bd" r-hide={!open}>
+                <menulist source={source} visible={open}/>
+            </div>
+        </div>
+    </script>
+</head>
+
+<body>
+<label for="menu-div1">官方demo</label><div id="menu-div1"></div>
+<label for="menu-div2">自实现demo</label><div id="menu-div2"></div>
+
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+ <!--demo模板-->
+    <script id="menu1" type="template/regular">
+        <menu source={source} title="自定义标题"/>
+    </script>
+    <!--menulist组件-->
+    <script id="menulist" type="template/regular">
+        <ul class="m-listview menu_list" r-hide={!visible}>
+            {#list source as item}
+            <li r-class='"z-dis":item.disabled == true' r-class='"z-divider":item.divider == true'>
+                <div class="menu_item">
+                    {#if item.childrenCount || (item.children && item.children.length)}
+                    <i class="u-icon u-icon-caret-right"></i>
+                    {/if}
+                    <div class="menu_itemname" title={item.name} on-click={this.select(item)}>{#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}</div>
+                </div>
+                {#if item.childrenCount || (item.children && item.children.length)}<menulist source={item.children} visible={item.open} parent={item} />{/if}
+            </li>
+            {/list}
+        </ul>
+    </script>
+    <!--组件模板-->
+    <script id="mymenu" type="template/regular">
+        <div class="u-mydropdown {class}" r-class='"z-dis":disabled == true'  ref="element">
+            <div class="dropdown_hd" on-click={this.toggle()}>
+                {#if this.$body}
+                {#inc this.$body}
+                {#else}
+                <a class="u-btn" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+                {/if}
+            </div>
+            <div class="dropdown_bd" r-hide={!open}>
+                <menulist source={source} visible={open}/>
+            </div>
+        </div>
+    </script>
+</textarea>
+<textarea class="u-js g-panel">
+    //自定义myMenu组件
+    var myMenu = Regular.extend({
+        name: 'menu',
+        template: '#mymenu',
+
+        config:function(){
+            this.$ancestor = this;
+        },
+        toggle: function(open) {
+            if(this.data.disabled)
+                return;
+            //判断开关状态
+            if(open === undefined)
+                open = !this.data.open;
+            this.data.open = open;
+            //出发toggle事件
+            this.$emit('toggle', {
+                sender: this,
+                open: open
+            });
+        },
+
+        select: function(item) {
+            if(this.data.disabled || item.disabled || item.divider)
+                return;
+            //出发select事件
+            this.$emit('select', {
+                sender: this,
+                selected: item
+            });
+            //如果有子菜单,则通过点击切换状态
+            if(item.children){
+                item.open = !item.open;
+            }else{
+                this.toggle(false);
+            };
+        },
+        //toggle事件触发
+        toggleEvent:function(e){
+            console.log('on-toggle:', '$event.open:', e.open);
+        },
+        selectEvent:function(e){
+            console.log('on-select:','$event.selected:',e.selected);
+        }
+    });
+    //自定义menulist组件
+    var menulist = Regular.extend({
+        name:'menulist',
+        template:'#menulist',
+        config:function(){
+            this.$ancestor = this.$parent.$ancestor;
+        },
+        select:function(item){
+            this.$ancestor.select.apply(this.$ancestor, arguments);
+        }
+
+    });
+
+    //引用组件
+    var mymenu1 = new myMenu({
+        template: '#menu1',
+        data: {
+            source: [
+                {name: '选项1', children: [
+                    {name: '选项1.1'},
+                    {divider: true},
+                    {name: '选项1.2', children: [
+                        {name: '选项1.2.1'},
+                        {name: '选项1.2.2'}
+                    ]},
+                    {name: '选项1.3'},
+                    {name: '选项1.4'},
+                ]},
+                {name: '选项2'},
+                {divider: true},
+                {name: '选项3（禁用）', disabled: true, children: [
+                    {name: '选项3.1'},
+                    {name: '选项3.2'}
+                ]}
+            ]
+        }
+    });
+    mymenu1.$inject('#menu-div2');
+</textarea>
+</div>
+
+
+
+<script src="js/regular.js"></script>
+<script src="js/regular-ui.js"></script>
+<script>
+    var component = new RGUI.Component({
+        template: '#menu1',
+        data: {
+            source: [
+                {name: '选项1', children: [
+                    {name: '选项1.1'},
+                    {divider: true},
+                    {name: '选项1.2', children: [
+                        {name: '选项1.2.1'},
+                        {name: '选项1.2.2'}
+                    ]},
+                    {name: '选项1.3'},
+                    {name: '选项1.4'},
+                ]},
+                {name: '选项2'},
+                {divider: true},
+                {name: '选项3（禁用）', disabled: true, children: [
+                    {name: '选项3.1'},
+                    {name: '选项3.2'}
+                ]}
+            ]
+        }
+    });
+    component.$inject('#menu-div1');
+
+    //自定义myMenu组件
+    var myMenu = Regular.extend({
+        name: 'menu',
+        template: '#mymenu',
+
+        config:function(){
+            this.$ancestor = this;
+        },
+        toggle: function(open) {
+            if(this.data.disabled)
+                return;
+            //判断开关状态
+            if(open === undefined)
+                open = !this.data.open;
+            this.data.open = open;
+            //出发toggle事件
+            this.$emit('toggle', {
+                sender: this,
+                open: open
+            });
+        },
+
+        select: function(item) {
+            if(this.data.disabled || item.disabled || item.divider)
+                return;
+            //出发select事件
+            this.$emit('select', {
+                sender: this,
+                selected: item
+            });
+            //如果有子菜单,则通过点击切换状态
+            if(item.children){
+                item.open = !item.open;
+            }else{
+                this.toggle(false);
+            };
+        },
+        //toggle事件触发
+        toggleEvent:function(e){
+            console.log('on-toggle:', '$event.open:', e.open);
+        },
+        selectEvent:function(e){
+            console.log('on-select:','$event.selected:',e.selected);
+        }
+    });
+    //自定义menulist组件
+    var menulist = Regular.extend({
+        name:'menulist',
+        template:'#menulist',
+        config:function(){
+            this.$ancestor = this.$parent.$ancestor;
+        },
+        select:function(item){
+            this.$ancestor.select.apply(this.$ancestor, arguments);
+        }
+
+    });
+
+    //引用组件
+    var mymenu1 = new myMenu({
+        template: '#menu1',
+        data: {
+            source: [
+                {name: '选项1', children: [
+                    {name: '选项1.1'},
+                    {divider: true},
+                    {name: '选项1.2', children: [
+                        {name: '选项1.2.1'},
+                        {name: '选项1.2.2'}
+                    ]},
+                    {name: '选项1.3'},
+                    {name: '选项1.4'},
+                ]},
+                {name: '选项2'},
+                {divider: true},
+                {name: '选项3（禁用）', disabled: true, children: [
+                    {name: '选项3.1'},
+                    {name: '选项3.2'}
+                ]}
+            ]
+        }
+    });
+    mymenu1.$inject('#menu-div2');
+</script>
+</body>
+</html>

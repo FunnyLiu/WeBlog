@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/css_triangle.css"></head>
+<body>
+
+<div class="u-triangle z-up"></div>
+<div class="u-triangle z-down"></div>
+<div class="u-triangle z-left"></div>
+<div class="u-triangle z-right"></div>
+<div class="u-triangle z-topleft"></div>
+<div class="u-triangle z-topright"></div>
+<div class="u-triangle z-bottomleft"></div>
+<div class="u-triangle z-bottomright"></div>
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel"><div class="u-triangle z-up"></div>
+<div class="u-triangle z-down"></div>
+<div class="u-triangle z-left"></div>
+<div class="u-triangle z-right"></div>
+<div class="u-triangle z-topleft"></div>
+<div class="u-triangle z-topright"></div>
+<div class="u-triangle z-bottomleft"></div>
+<div class="u-triangle z-bottomright"></div>
+
+</textarea>
+<textarea class="u-css g-panel">
+.u-triangle {
+    display:inline-block;
+    width:0;
+    height:0;
+    &.z-up {
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+    &.z-down {
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 100px solid red;
+    }
+    &.z-left {
+        border-top: 50px solid transparent;
+        border-right: 100px solid red;
+        border-bottom: 50px solid transparent;
+    }
+    &.z-right {
+        border-top: 50px solid transparent;
+        border-left: 100px solid red;
+        border-bottom: 50px solid transparent;
+    }
+    &.z-topleft {
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+    &.z-topright {
+        border-top: 100px solid red;
+        border-left: 100px solid transparent;
+    }
+    &.z-bottomleft {
+        border-bottom: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+    &.z-bottomright {
+        border-bottom: 100px solid red;
+        border-left: 100px solid transparent;
+    }
+}
+</textarea>
+</div>
+</body>
+</html>

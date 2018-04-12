@@ -1,0 +1,40 @@
+@import 'base/base';
+.u-mydropdown{
+    display:inline-block;
+    position:relative;
+}
+.u-mydropdown .dropdown_bd{
+    position:absolute;
+    z-index:1;
+    top:100%;
+}
+.u-mydropdown .dropdown_bd .m-listview >li>a{
+    display:block;
+}
+.u-mydropdown .dropdown_bd{
+    margin-top:2px;
+}
+.u-mydropdown.z-dis .dropdown_hd>.u-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    filter: alpha(opacity = 65);
+    opacity: 0.65;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.u-mydropdown.z-dis .dropdown_hd>.u-btn {
+    cursor: not-allowed;
+}
+.u-mydropdown .menu_item .u-icon {
+    position: absolute;
+    right: 0.8em;
+    line-height: inherit;
+    margin: 0;
+    cursor: pointer;
+}
+.u-mydropdown .m-listview {
+    position:absolute;
+    left:100%;
+    top:0;
+    width:120px;
+}

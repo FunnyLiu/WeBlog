@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/css_transformsCard.css"></head>
+<script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+<script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<body>
+    <section class="container">
+        <div id="card">
+            <figure class="front">1</figure>
+            <figure class="back">2</figure>
+        </div>
+    </section>
+    <div class="b-30"></div>
+    <button class="j-btn">翻转卡片</button>
+
+
+<script>
+    var card =$('#card');
+    var btn = $('.j-btn');
+    btn.on('click',function(){
+       card.toggleClass('f-flipped');
+    });
+</script>
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<section class="container">
+    <div id="card">
+        <figure class="front">1</figure>
+        <figure class="back">2</figure>
+    </div>
+</section>
+<div class="b-30"></div>
+<button class="j-btn">翻转卡片</button>
+</textarea>
+<textarea class="u-css g-panel">
+.container {
+    position:relative;
+    width:200px;
+    height:260px;
+    perspective: 800px;
+}
+#card {
+    position:absolute;
+    width:100%;
+    height:100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: transform 1s;
+    transition: transform 1s;
+    -webkit-transform-origin:right center;
+    transform-origin:right center;//修改旋转中心点位置
+    figure {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;//隐藏背面
+    }
+    .front {
+        background:red;
+    }
+    .back {
+        background:yellow;
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+    &.f-flipped {
+        -webkit-transform:translateX(-50%) rotateY(-180deg);
+        transform:translateX(-50%) rotateY(-180deg);
+    }
+}
+</textarea>
+<textarea class="u-js g-panel">
+    var card =$('#card');
+    var btn = $('.j-btn');
+    btn.on('click',function(){
+       card.toggleClass('f-flipped');
+    });
+
+</textarea>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

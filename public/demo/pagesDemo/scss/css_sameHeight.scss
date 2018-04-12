@@ -1,0 +1,15 @@
+@import 'base/base';
+.parent {
+    display:table;
+    table-layout:fixed;
+}
+.left,.right{
+    display:table-cell;
+}
+.left {
+    padding:30px;
+    background:#c7eefe;
+}
+.right {
+    background:#fef20d;
+}

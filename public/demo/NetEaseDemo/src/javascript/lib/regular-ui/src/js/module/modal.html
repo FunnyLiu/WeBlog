@@ -1,0 +1,24 @@
+<div class="m-modal {class}" r-hide={!visible}>
+    <div class="modal_dialog" ref="modalDialog">
+        <draggable disabled={!draggable} proxy={this.$refs.modalDialog} on-dragstart={this._onDragStart($event)}>
+        <div class="modal_hd">
+            <a class="modal_close" on-click={this.close(!cancelButton)}><i class="u-icon u-icon-close"></i></a>
+            <h3 class="modal_title">{title}</h3>
+        </div>
+        </draggable>
+        <div class="modal_bd">
+            <!--中部自定义内容-->
+            {#if contentTemplate}{#inc @(contentTemplate)}{#else}{content}{/if}
+        </div>
+        <div class="modal_ft">
+            <!--确定按钮-->
+            {#if okButton}
+            <button class="u-btn u-btn-primary" on-click={this.close(true)} r-autofocus>{okButton === true ? '确定' : okButton}</button>
+            {/if}
+            <!--取消按钮-->
+            {#if cancelButton}
+            <button class="u-btn" on-click={this.close(false)}>{cancelButton === true ? '取消' : cancelButton}</button>
+            {/if}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+@import 'base/base';
+
+#div-ab-1{
+    padding-left:100px;
+    overflow: hidden;/*将这个div撑起来*/
+}
+#div-b-1{
+    float:left;
+    width:100%;
+    background-color: #0000fd;
+}
+#div-a-1{
+    float:left;
+    width:100px;
+    background-color:#fe0002;
+    margin-left:-100%;
+    position:relative;
+    left:-100px;
+}

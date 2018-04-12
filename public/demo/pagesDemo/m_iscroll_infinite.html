@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>demo</title>
+<link rel="stylesheet" href="css/m_iscroll_infinite.css"></head>
+<script src="./js/iscroll-infinite.js"></script>
+<body  onload="loaded()">
+
+<div id="wrapper">
+    <div id="scroller">
+        <ul>
+            <li class="row">Row 1</li>
+            <li class="row">Row 2</li>
+            <li class="row">Row 3</li>
+            <li class="row">Row 4</li>
+            <li class="row">Row 5</li>
+            <li class="row">Row 6</li>
+            <li class="row">Row 7</li>
+            <li class="row">Row 8</li>
+            <li class="row">Row 9</li>
+            <li class="row">Row 10</li>
+            <li class="row">Row 11</li>
+            <li class="row">Row 12</li>
+            <li class="row">Row 13</li>
+            <li class="row">Row 14</li>
+            <li class="row">Row 15</li>
+
+            <li class="row">Row 16</li>
+            <li class="row">Row 17</li>
+            <li class="row">Row 18</li>
+            <li class="row">Row 19</li>
+            <li class="row">Row 20</li>
+            <li class="row">Row 21</li>
+            <li class="row">Row 22</li>
+            <li class="row">Row 23</li>
+            <li class="row">Row 24</li>
+            <li class="row">Row 25</li>
+            <li class="row">Row 26</li>
+            <li class="row">Row 27</li>
+            <li class="row">Row 28</li>
+            <li class="row">Row 29</li>
+            <li class="row">Row 30</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    var myScroll;
+
+    function loaded () {
+        myScroll = new IScroll('#wrapper', {
+            mouseWheel: true,
+            infiniteElements: '#scroller .row',
+            //infiniteLimit: 2000,
+            dataset: requestData,//请求新数据的操作
+            dataFiller: updateContent,//每个节点更新内容操作
+            cacheSize: 1000 //缓存的个数,需要多少数据再请求下一接口.
+        });
+    }
+
+    function requestData (start, count) {
+        console.log('requestData');
+        //模拟接口返回延迟,并回调
+        setTimeout(function(){
+            var arr = generateData(start,count);
+            console.log('updateCacha:'+arr);
+
+            myScroll.updateCache(start, arr);
+        },100);
+    }
+
+    function updateContent(el, data) {
+        console.log('updateContent:'+data);
+        el.innerHTML = data;
+    }
+    //构建数据的方法,生成[start,start+1,start+2,....,start+count]的数组
+    function generateData(start,count){
+        var resultArr = [];
+        for(var i =0;i<count;i++){
+            resultArr[i] = start;
+            start = start+1;
+        }
+        return resultArr;
+    }
+</script>
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+</textarea>
+<textarea class="u-css g-panel">
+</textarea>
+<textarea class="u-js g-panel"></textarea>
+</div>
+</body>
+</html>

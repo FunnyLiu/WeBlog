@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6700;&amp;#x8FD1;&amp;#x53C2;&amp;#x4E0E;&amp;#x4E86;&amp;#x5B66;&amp;#x4E60;&amp;#x5730;&amp;#x56FE;&amp;#x7684;&amp;#x8C03;&amp;#x7814;&amp;#x548C;&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x4F5C;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x4E86;svg&amp;#x76">
+<meta property="og:type" content="article">
+<meta property="og:title" content="svg入门">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/svg入门/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6700;&amp;#x8FD1;&amp;#x53C2;&amp;#x4E0E;&amp;#x4E86;&amp;#x5B66;&amp;#x4E60;&amp;#x5730;&amp;#x56FE;&amp;#x7684;&amp;#x8C03;&amp;#x7814;&amp;#x548C;&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x4F5C;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x4E86;svg&amp;#x76">
+<meta property="og:image" content="http://yoursite.com/2017/05/02/svg入门/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/02/svg入门/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/02/svg入门/3.png">
+<meta property="og:image" content="http://yoursite.com/2017/05/02/svg入门/4.png">
+<meta property="og:updated_time" content="2017-05-24T01:23:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="svg入门">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6700;&amp;#x8FD1;&amp;#x53C2;&amp;#x4E0E;&amp;#x4E86;&amp;#x5B66;&amp;#x4E60;&amp;#x5730;&amp;#x56FE;&amp;#x7684;&amp;#x8C03;&amp;#x7814;&amp;#x548C;&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x4F5C;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x4E86;svg&amp;#x76">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/02/svg入门/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> svg入门 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 田雨晴 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                svg入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-02T16:39:13+08:00" content="2017-05-02">
+              2017-05-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              12345  
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/svg/" itemprop="url" rel="index">
+                    <span itemprop="name">svg</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x6700;&#x8FD1;&#x53C2;&#x4E0E;&#x4E86;&#x5B66;&#x4E60;&#x5730;&#x56FE;&#x7684;&#x8C03;&#x7814;&#x548C;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F7F;&#x7528;&#x5230;&#x4E86;svg&#x7684;&#x7ED8;&#x5236;&#xFF0C;&#x6545;&#x800C;&#x5BF9;svg&#x7684;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x8FDB;&#x884C;&#x6574;&#x7406;&#x3002;&#x65B9;&#x4FBF;&#x5927;&#x5BB6;&#x5171;&#x540C;&#x5B66;&#x4E60;&#x3002;</p>
+<h1 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a><strong>&#x7B80;&#x4ECB;</strong></h1><p>svg&#xFF08;Scalable Vector Graphics&#xFF09;&#x662F;&#x53EF;&#x7F29;&#x653E;&#x77E2;&#x91CF;&#x56FE;&#x5F62;&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x57FA;&#x4E8E;&#x53EF;&#x6269;&#x5C55;&#x6807;&#x8BB0;&#x8BED;&#x8A00;XML&#x6765;&#x63CF;&#x8FF0;&#x4E8C;&#x7EF4;&#x77E2;&#x91CF;&#x56FE;&#x5F62;&#x7684;&#x4E00;&#x79CD;&#x56FE;&#x5F62;&#x683C;&#x5F0F;&#xFF0C;&#x7531;W3C&#x5236;&#x5B9A;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x6807;&#x51C6;&#x3002;<br>svg&#x4E0E;canvas&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<ul>
+<li>Canvas&#x57FA;&#x4E8E;&#x50CF;&#x7D20;&#xFF0C;&#x63D0;&#x4F9B;2D&#x7ED8;&#x5236;&#x51FD;&#x6570;&#xFF0C;&#x662F;&#x4E00;&#x79CD;HTML&#x5143;&#x7D20;&#x7C7B;&#x578B;&#xFF0C;&#x4F9D;&#x8D56;&#x4E8E;HTML&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x811A;&#x672C;&#x6765;&#x7ED8;&#x5236;&#x56FE;&#x5F62;&#xFF0C;Canvas&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#x6BD4;&#x8F83;&#x539F;&#x59CB;&#xFF0C;&#x9002;&#x5408;&#x50CF;&#x7D20;&#x5904;&#x7406;&#xFF0C;&#x52A8;&#x6001;&#x6E32;&#x67D3;&#x548C;&#x5927;&#x6570;&#x636E;&#x91CF;&#x7ED8;&#x5236;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1B;</li>
+<li>SVG&#x4E3A;&#x77E2;&#x91CF;&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x7CFB;&#x5217;&#x56FE;&#x5F62;&#x5143;&#x7D20;&#xFF08;Rect, Path, Circle, Line &#x2026;&#xFF09;&#xFF0C;&#x8FD8;&#x6709;&#x5B8C;&#x6574;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#xFF0C;&#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5D4C;&#x5165;&#x5230;HTML&#x4E2D;&#xFF0C;SVG&#x5F88;&#x65E9;&#x5C31;&#x6210;&#x4E3A;&#x4E86;&#x56FD;&#x9645;&#x6807;&#x51C6;&#xFF0C;&#x529F;&#x80FD;&#x66F4;&#x5B8C;&#x5584;&#xFF0C;&#x9002;&#x5408;&#x9759;&#x6001;&#x56FE;&#x7247;&#x5C55;&#x793A;&#xFF0C;&#x9AD8;&#x4FDD;&#x771F;&#x6587;&#x6863;&#x67E5;&#x770B;&#x548C;&#x6253;&#x5370;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;;</li>
+</ul>
+<p>svg&#x6709;&#x7740;&#x5F3A;&#x5927;&#x7684;&#x6807;&#x7B7E;&#x7CFB;&#x7EDF;&#x548C;&#x52A8;&#x753B;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x63A7;&#x5236;&#x6807;&#x7B7E;&#x7684;&#x6837;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x591A;&#x6837;&#x5316;&#xFF0C;&#x4E14;&#x517C;&#x5BB9;ie9+&#xFF0C;&#x6240;&#x4EE5;&#x8F83;&#x4E3A;&#x65B9;&#x4FBF;&#x3002;</p>
+<h1 id="&#x5750;&#x6807;&#x7CFB;"><a href="#&#x5750;&#x6807;&#x7CFB;" class="headerlink" title="&#x5750;&#x6807;&#x7CFB;"></a><strong>&#x5750;&#x6807;&#x7CFB;</strong></h1><p>svg&#x4E2D;&#x7684;&#x5750;&#x6807;&#x7CFB;&#x5982;&#x4E0B;&#xFF1A;<br><img src="/2017/05/02/svg&#x5165;&#x95E8;/1.png" alt="img"></p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x66F4;&#x4E3A;&#x590D;&#x6742;&#x7684;<a href="https://segmentfault.com/a/1190000004320934" target="_blank" rel="external">viewbox</a>&#x6765;&#x63A7;&#x5236;&#x53EF;&#x89C6;&#x7A97;&#x53E3;</p>
+<h1 id="&#x6807;&#x7B7E;"><a href="#&#x6807;&#x7B7E;" class="headerlink" title="&#x6807;&#x7B7E;"></a><strong>&#x6807;&#x7B7E;</strong></h1><h2 id="&#x5F62;&#x72B6;"><a href="#&#x5F62;&#x72B6;" class="headerlink" title="&#x5F62;&#x72B6;"></a>&#x5F62;&#x72B6;</h2><p>svg&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x6807;&#x7B7E;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4EE5;&#x5F62;&#x72B6;&#x6765;&#x770B;&#xFF0C;&#x5E38;&#x7528;&#x5F62;&#x72B6;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2017/05/02/svg&#x5165;&#x95E8;/2.png" alt="img"></p>
+<h3 id="rect&#x77E9;&#x5F62;"><a href="#rect&#x77E9;&#x5F62;" class="headerlink" title="rect&#x77E9;&#x5F62;"></a>rect&#x77E9;&#x5F62;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;20&quot;</span> <span class="attr">y</span>=<span class="string">&quot;20&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;20&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;20&quot;</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">style</span>=<span class="string">&quot;fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>1)rect &#x5143;&#x7D20;&#x7684; width &#x548C; height &#x5C5E;&#x6027;&#x53EF;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x7684;&#x9AD8;&#x5EA6;&#x548C;&#x5BBD;&#x5EA6;<br>2)style &#x5C5E;&#x6027;&#x7528;&#x6765;&#x5B9A;&#x4E49; CSS &#x5C5E;&#x6027;<br>3)CSS &#x7684; fill &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x7684;&#x586B;&#x5145;&#x989C;&#x8272;&#xFF08;rgb &#x503C;&#x3001;&#x989C;&#x8272;&#x540D;&#x6216;&#x8005;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x503C;&#xFF09;<br>4)CSS &#x7684; stroke-width &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x8FB9;&#x6846;&#x7684;&#x5BBD;&#x5EA6;<br>5)CSS &#x7684; stroke &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x8FB9;&#x6846;&#x7684;&#x989C;&#x8272;<br>6)x &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x7684;&#x5DE6;&#x4FA7;&#x4F4D;&#x7F6E;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;x=&#x201D;0&#x201D; &#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x5DE6;&#x4FA7;&#x7684;&#x8DDD;&#x79BB;&#x662F; 0px&#xFF09;<br>7)y &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x7684;&#x9876;&#x7AEF;&#x4F4D;&#x7F6E;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;y=&#x201D;0&#x201D; &#x5B9A;&#x4E49;&#x77E9;&#x5F62;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x9876;&#x7AEF;&#x7684;&#x8DDD;&#x79BB;&#x662F; 0px&#xFF09;<br>8)CSS &#x7684; fill-opacity &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x586B;&#x5145;&#x989C;&#x8272;&#x900F;&#x660E;&#x5EA6;&#xFF08;&#x5408;&#x6CD5;&#x7684;&#x8303;&#x56F4;&#x662F;&#xFF1A;0 - 1&#xFF09;<br>9)CSS &#x7684; stroke-opacity &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x7B14;&#x89E6;&#x989C;&#x8272;&#x7684;&#x900F;&#x660E;&#x5EA6;&#xFF08;&#x5408;&#x6CD5;&#x7684;&#x8303;&#x56F4;&#x662F;&#xFF1A;0 - 1)<br>10)rx &#x548C; ry &#x5C5E;&#x6027;&#x53EF;&#x4F7F;&#x77E9;&#x5F62;&#x4EA7;&#x751F;&#x5706;&#x89D2;&#x3002;</p>
+<h3 id="circle&#x5706;"><a href="#circle&#x5706;" class="headerlink" title="circle&#x5706;"></a>circle&#x5706;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;100&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span> <span class="attr">r</span>=<span class="string">&quot;40&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;2&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;red&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>1)cx &#x548C; cy &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x5706;&#x70B9;&#x7684; x &#x548C; y &#x5750;&#x6807;&#x3002;&#x5982;&#x679C;&#x7701;&#x7565; cx &#x548C; cy&#xFF0C;&#x5706;&#x7684;&#x4E2D;&#x5FC3;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; (0, 0)<br>2)r &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x5706;&#x7684;&#x534A;&#x5F84;&#x3002;</p>
+<h3 id="ellipse&#x692D;&#x5706;"><a href="#ellipse&#x692D;&#x5706;" class="headerlink" title="ellipse&#x692D;&#x5706;"></a>ellipse&#x692D;&#x5706;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;300&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;150&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;200&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;80&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>1)cx &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x5706;&#x70B9;&#x7684; x &#x5750;&#x6807;<br>2)cy &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x5706;&#x70B9;&#x7684; y &#x5750;&#x6807;<br>3)rx &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x6C34;&#x5E73;&#x534A;&#x5F84;<br>4)ry &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x5782;&#x76F4;&#x534A;&#x5F84;</p>
+<h3 id="line&#x76F4;&#x7EBF;"><a href="#line&#x76F4;&#x7EBF;" class="headerlink" title="line&#x76F4;&#x7EBF;"></a>line&#x76F4;&#x7EBF;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;0&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;0&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;300&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;300&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>1)x1 &#x5C5E;&#x6027;&#x5728; x &#x8F74;&#x5B9A;&#x4E49;&#x7EBF;&#x6761;&#x7684;&#x5F00;&#x59CB;<br>2)y1 &#x5C5E;&#x6027;&#x5728; y &#x8F74;&#x5B9A;&#x4E49;&#x7EBF;&#x6761;&#x7684;&#x5F00;&#x59CB;<br>3)x2 &#x5C5E;&#x6027;&#x5728; x &#x8F74;&#x5B9A;&#x4E49;&#x7EBF;&#x6761;&#x7684;&#x7ED3;&#x675F;<br>4)y2 &#x5C5E;&#x6027;&#x5728; y &#x8F74;&#x5B9A;&#x4E49;&#x7EBF;&#x6761;&#x7684;&#x7ED3;&#x675F;</p>
+<h3 id="polyline&#x6298;&#x7EBF;"><a href="#polyline&#x6298;&#x7EBF;" class="headerlink" title="polyline&#x6298;&#x7EBF;"></a>polyline&#x6298;&#x7EBF;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">&quot;0,0 0,20 20,20 20,40 40,40 40,60&quot;</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>1)points &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x6BCF;&#x6BB5;&#x7EBF;&#x7684;&#x6BCF;&#x4E2A;&#x89D2;&#x7684; x &#x548C; y &#x5750;&#x6807;</p>
+<h3 id="polygon&#x591A;&#x8FB9;&#x5F62;"><a href="#polygon&#x591A;&#x8FB9;&#x5F62;" class="headerlink" title="polygon&#x591A;&#x8FB9;&#x5F62;"></a>polygon&#x591A;&#x8FB9;&#x5F62;</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;220,100 300,210 170,250&quot;</span> <span class="attr">style</span>=<span class="string">&quot;fill:#cccccc; stroke:#000000;stroke-width:1&quot;</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>1)points &#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x591A;&#x8FB9;&#x5F62;&#x6BCF;&#x4E2A;&#x89D2;&#x7684; x &#x548C; y &#x5750;&#x6807;</p>
+<h3 id="path&#x8DEF;&#x5F84;"><a href="#path&#x8DEF;&#x5F84;" class="headerlink" title="path&#x8DEF;&#x5F84;"></a>path&#x8DEF;&#x5F84;</h3><p>&#x8DEF;&#x5F84;&#x8FD9;&#x4E2A;&#x5F62;&#x72B6;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#xFF0C;&#x5B83;&#x6709;&#x5F88;&#x591A;&#x79CD;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x3002;</p>
+<p><img src="/2017/05/02/svg&#x5165;&#x95E8;/3.png" alt="img"></p>
+<h2 id="&#x8F85;&#x52A9;"><a href="#&#x8F85;&#x52A9;" class="headerlink" title="&#x8F85;&#x52A9;"></a>&#x8F85;&#x52A9;</h2><p>&#x9664;&#x4E86;&#x5F62;&#x72B6;&#x5143;&#x7D20;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x8F85;&#x52A9;&#x6027;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>svg&#xFF1A;SVG&#x7684;&#x6839;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x5D4C;&#x5957;&#xFF1B;</li>
+<li>g&#xFF1A;&#x7528;&#x6765;&#x5C06;SVG&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#xFF0C;&#x5206;&#x7EC4;&#x540E;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5F62;&#x72B6;&#xFF0C;&#x7EDF;&#x4E00;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#xFF0C;&#x540C;&#x65F6;g&#x5143;&#x7D20;&#x7684;&#x6837;&#x5F0F;&#x53EF;&#x4EE5;&#x88AB;&#x5B50;&#x5143;&#x7D20;&#x7EE7;&#x627F;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x6CA1;&#x6709;X,Y&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;transform&#x6765;&#x79FB;&#x52A8;&#x5B83;&#xFF1B;</li>
+<li>def&#xFF1A;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x5728;SVG&#x4E2D;&#x53EF;&#x91CD;&#x7528;&#x7684;&#x5143;&#x7D20;&#xFF0C;def&#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x5C55;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;use&#x5143;&#x7D20;&#x6765;&#x5F15;&#x7528;&#xFF1B;</li>
+<li>use&#xFF1A;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x590D;&#x7528;def&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x5305;&#x62EC;&#x3001;&#x5143;&#x7D20;&#xFF0C;&#x4F7F;&#x7528;&#x5373;&#x53EF;&#x8C03;&#x7528;&#xFF1B;</li>
+<li>text&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x5B9E;&#x73B0;word&#x4E2D;&#x7684;&#x90A3;&#x79CD;&#x201C;&#x827A;&#x672F;&#x5B57;&#x201D;&#xFF0C;&#x5F88;&#x795E;&#x5947;&#x7684;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#xFF1B;</li>
+<li>image&#xFF1A;&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x5728;SVG&#x4E2D;&#x5D4C;&#x5957;&#x5BF9;&#x5E94;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x5728;&#x56FE;&#x7247;&#x4E0A;&#x548C;&#x5468;&#x56F4;&#x505A;&#x5BF9;&#x5E94;&#x7684;&#x5904;&#x7406;;</li>
+</ul>
+<p>&#x5728;&#x590D;&#x6742;&#x7684;svg&#x6784;&#x6210;&#x7684;UI&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5408;&#x7406;&#x7684;&#x7EC4;&#x7EC7;g&#xFF0C;&#x6765;&#x5206;&#x7EC4;&#xFF0C;&#x63D0;&#x9AD8;&#x7EF4;&#x62A4;&#x6027;&#x548C;&#x62D3;&#x5C55;&#x6027;&#x3002;</p>
+<h1 id="&#x52A8;&#x753B;"><a href="#&#x52A8;&#x753B;" class="headerlink" title="&#x52A8;&#x753B;"></a>&#x52A8;&#x753B;</h1><p>svg&#x81EA;&#x5E26;&#x4E00;&#x4E9B;&#x52A8;&#x753B;&#x6307;&#x4EE4;&#x6807;&#x7B7E;<br><img src="/2017/05/02/svg&#x5165;&#x95E8;/4.png" alt="img"></p>
+<p>&#x4E5F;&#x53EF;&#x53C2;&#x8003;<a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/" target="_blank" rel="external">&#x8BE5;&#x6587;&#x7AE0;</a>&#xFF0C;&#x6709;&#x5F88;&#x591A;&#x5B9E;&#x7528;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#x793A;&#x4F8B;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x5F3A;&#x8C03;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x52A8;&#x753B;&#x4E2D;&#x7684;begin&#x662F;&#x9488;&#x5BF9;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x8D77;&#x59CB;&#x65F6;&#x95F4;&#x800C;&#x8A00;&#x7684;&#x3002;&#x5982;&#x679C;&#x662F;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x8C03;&#x7528;&#x52A8;&#x753B;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x540E;&#x518D;&#x8C03;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x7ED9;animate&#x8D4B;&#x4E88;id&#xFF0C;&#x5C06;&#x5176;begin&#x8BBE;&#x7F6E;&#x4E3A;indefinite&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x8BE5;&#x5143;&#x7D20;&#x7684;beginElement()&#x65B9;&#x6CD5;&#x6765;&#x4F7F;&#x52A8;&#x753B;&#x751F;&#x6548;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> animate = <span class="built_in">document</span>.querySelector(<span class="string">&apos;#shadeMidAnimate0&apos;</span>);</div><div class="line">    <span class="keyword">var</span> path = d3.select(<span class="string">&apos;#shadeMidPath0&apos;</span>);</div><div class="line">    animate.beginElement();</div></pre></td></tr></table></figure></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4E00;&#x822C;&#x5728;&#x7528;d3.js&#x65F6;&#x4E5F;&#x4F1A;&#x7528;&#x5230;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x52A8;&#x753B;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://www.oxxostudio.tw/articles/201501/svg-d3-14-transition-1.html" target="_blank" rel="external">&#x8FD9;&#x91CC;</a></p>
+<h2 id="&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x7684;&#x52A8;&#x753B;"><a href="#&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x7684;&#x52A8;&#x753B;" class="headerlink" title="&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x7684;&#x52A8;&#x753B;"></a>&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x7684;&#x52A8;&#x753B;</h2><p>&#x901A;&#x8FC7;&#x591A;&#x4E2A;&#x52A8;&#x753B;&#x4E4B;&#x95F4;&#x8FDE;&#x63A5;&#x63A7;&#x5236;&#x3002;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">animateTransform</span> <span class="attr">begin</span>=<span class="string">&quot;myanim.end&quot;</span> <span class="attr">id</span>=<span class="string">&quot;pause&quot;</span> <span class="attr">dur</span>=<span class="string">&quot;3s&quot;</span> <span class="attr">type</span>=<span class="string">&quot;translate&quot;</span> <span class="attr">attributeType</span>=<span class="string">&quot;XML&quot;</span> <span class="attr">attributeName</span>=<span class="string">&quot;transform&quot;</span>/&gt;</span></div><div class="line">         </div><div class="line"><span class="tag">&lt;<span class="name">animateMotion</span> <span class="attr">id</span>=<span class="string">&quot;myanim&quot;</span> <span class="attr">dur</span>=<span class="string">&quot;6s&quot;</span> <span class="attr">begin</span>=<span class="string">&quot;0; pause.end&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;freeze&quot;</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">mpath</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#theMotionPath&quot;</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">animateMotion</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x7684;begin&#x4F4D;&#x4E8E;&#x7B2C;&#x4E00;&#x4E2A;id&#x7684;end&#x4E4B;&#x540E;&#x3002;<a href="/demo/pagesDemo/svg_infinite_animate.html">demo</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/26/Regular组件通信方式汇总/" rel="next" title="Regular组件通信方式汇总">
+                <i class="fa fa-chevron-left"></i> Regular组件通信方式汇总
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/31/ant构建之build-xml详解/" rel="prev" title="ant构建之build.xml详解">
+                ant构建之build.xml详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/13150056?v=3&s=460"
+               alt="田雨晴" />
+          <p class="site-author-name" itemprop="name">田雨晴</p>
+          <p class="site-description motion-element" itemprop="description">网易测试开发 seven_tyq@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">127</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#坐标系"><span class="nav-number">3.</span> <span class="nav-text">坐标系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标签"><span class="nav-number">4.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#形状"><span class="nav-number">4.1.</span> <span class="nav-text">形状</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rect矩形"><span class="nav-number">4.1.1.</span> <span class="nav-text">rect矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#circle圆"><span class="nav-number">4.1.2.</span> <span class="nav-text">circle圆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ellipse椭圆"><span class="nav-number">4.1.3.</span> <span class="nav-text">ellipse椭圆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line直线"><span class="nav-number">4.1.4.</span> <span class="nav-text">line直线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#polyline折线"><span class="nav-number">4.1.5.</span> <span class="nav-text">polyline折线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#polygon多边形"><span class="nav-number">4.1.6.</span> <span class="nav-text">polygon多边形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path路径"><span class="nav-number">4.1.7.</span> <span class="nav-text">path路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助"><span class="nav-number">4.2.</span> <span class="nav-text">辅助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画"><span class="nav-number">5.</span> <span class="nav-text">动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无限循环的动画"><span class="nav-number">5.1.</span> <span class="nav-text">无限循环的动画</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

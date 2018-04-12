@@ -1,0 +1,10 @@
+<button on-click={this.chooseChildren()}> 子组件切换</button>
+<r-component is={this.getChildren(state.name)} opts={state}></r-component>
+
+{#if state.name=="childrenBaby"}
+<childrenBaby opts={state}></childrenBaby>
+{#elseif state.name=="childrenBoy"}
+<childrenBoy opts={state}></childrenBoy>
+{#elseif state.name=="childrenGirl"}
+<childrenGirl opts={state}></childrenGirl>
+{/if}

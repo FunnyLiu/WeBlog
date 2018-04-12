@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/regular_store.css"></head>
+<script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+<script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<body>
+<div id="j-demo"></div>
+
+
+<script type="template/regular" id="a">
+    <div>我的组件a,{blog.a}</div>
+    <ux-b blog={blog.b}></ux-b>
+    <ux-c blog={blog.c}></ux-c>
+    <button on-click={this.changeData()}>改变d的数据</button>
+</script>
+<script type="template/regular" id="b">
+    <div>&nbsp;&nbsp;我的组件b,{blog.b}</div>
+    <ux-d blog={blog.d}></ux-d>
+</script>
+<script type="template/regular" id="c">
+    <div>&nbsp;&nbsp;我的组件c,{blog}</div>
+</script>
+<script type="template/regular" id="d">
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;我的组件d,{blog}</div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;d的另一份数据，跨组件修改:{anotherBlog}</div>
+</script>
+
+<script src="js/regular.js"></script>
+<script>
+    //自定义store，进行处理
+    var store = new Regular();
+    store.dispatch = function(action){
+        var state = this.data;
+        switch(action.type){
+            case 'CHANGE_D':
+                state.blog = action.payload;
+                break;
+        }
+        store.$emit('change',this.data);
+    };
+    store.subscribe = function(listener){
+        this.$on('change',listener);
+    };
+
+
+    var a = Regular.extend({
+        template: '#a',
+        name:'ux-a',
+        changeData:function(){
+            //通过改变数据的方式来触发嵌套子组件的修改
+            this.data.blog.b.d =  '来个随机数'+Math.random();
+            this.$update();
+            //通过发布，跨组件修改
+            store.dispatch({
+                type:'CHANGE_D',
+                payload:'这里是修改后的ddd'+Math.random()
+            });
+    }
+    });
+    var b = Regular.extend({
+        template: '#b',
+        name:'ux-b'
+    });
+    var c = Regular.extend({
+        template: '#c',
+        name:'ux-c'
+
+    });
+    var d = Regular.extend({
+        template: '#d',
+        name:'ux-d',
+        config:function(){
+            var _that = this;
+            //通过订阅，跨组件通信
+            store.subscribe(function(){
+                _that.data.anotherBlog = store.data.blog;
+            });
+        }
+    });
+    var _blog = {
+        'a':'这是a的数据',
+        'b':{
+            'b':'这是b的数据',
+            'd':'这是d的数据'
+        },
+        'c':'这是c的数据',
+        'd':'这是d的不通过子组件传入的数据'
+    };
+    var demo = new a ({
+        data:{blog:_blog}
+    }).$inject('#j-demo');
+
+</script>
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<div id="j-demo"></div>
+
+
+<script type="template/regular" id="a">
+    <div>我的组件a,{blog.a}</div>
+    <ux-b blog={blog.b}></ux-b>
+    <ux-c blog={blog.c}></ux-c>
+    <button on-click={this.changeData()}>改变d的数据</button>
+</script>
+<script type="template/regular" id="b">
+    <div>&nbsp;&nbsp;我的组件b,{blog.b}</div>
+    <ux-d blog={blog.d}></ux-d>
+</script>
+<script type="template/regular" id="c">
+    <div>&nbsp;&nbsp;我的组件c,{blog}</div>
+</script>
+<script type="template/regular" id="d">
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;我的组件d,{blog}</div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;d的另一份数据，跨组件修改:{anotherBlog}</div>
+</script>
+</textarea>
+<textarea class="u-js g-panel">
+    //自定义store，进行处理
+    var store = new Regular();
+    store.dispatch = function(action){
+        var state = this.data;
+        switch(action.type){
+            case 'CHANGE_D':
+                state.blog = action.payload;
+                break;
+        }
+        store.$emit('change',this.data);
+    };
+    store.subscribe = function(listener){
+        this.$on('change',listener);
+    };
+
+
+    var a = Regular.extend({
+        template: '#a',
+        name:'ux-a',
+        changeData:function(){
+            //通过改变数据的方式来触发嵌套子组件的修改
+            this.data.blog.b.d =  '来个随机数'+Math.random();
+            this.$update();
+            //通过发布，跨组件修改
+            store.dispatch({
+                type:'CHANGE_D',
+                payload:'这里是修改后的ddd'+Math.random()
+            });
+    }
+    });
+    var b = Regular.extend({
+        template: '#b',
+        name:'ux-b'
+    });
+    var c = Regular.extend({
+        template: '#c',
+        name:'ux-c'
+
+    });
+    var d = Regular.extend({
+        template: '#d',
+        name:'ux-d',
+        config:function(){
+            var _that = this;
+            //通过订阅，跨组件通信
+            store.subscribe(function(){
+                _that.data.anotherBlog = store.data.blog;
+            });
+        }
+    });
+    var _blog = {
+        'a':'这是a的数据',
+        'b':{
+            'b':'这是b的数据',
+            'd':'这是d的数据'
+        },
+        'c':'这是c的数据',
+        'd':'这是d的不通过子组件传入的数据'
+    };
+    var demo = new a ({
+        data:{blog:_blog}
+    }).$inject('#j-demo');
+
+</textarea>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

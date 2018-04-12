@@ -1,0 +1,29 @@
+@import 'base/base';
+.u-mydropdown{
+    display:inline-block;
+    position:relative;
+}
+.u-mydropdown .dropdown_bd{
+    position:absolute;
+    z-index:1;
+    width:100%;
+    top:100%;
+}
+.u-mydropdown .dropdown_bd .m-listview >li>a{
+    display:block;
+}
+.u-mydropdown .dropdown_bd{
+    min-width:160px;
+    margin-top:2px;
+}
+.u-mydropdown.z-dis .dropdown_hd>.u-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    filter: alpha(opacity = 65);
+    opacity: 0.65;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.u-mydropdown.z-dis .dropdown_hd>.u-btn {
+    cursor: not-allowed;
+}

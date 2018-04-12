@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+    <link rel="stylesheet" href="/css/theme/theme.css"/>
+</head>
+<body>
+<% include ../common/head.html %>
+
+<div class="m-allUsers">
+    <div class="g-container container">
+        <div class="b-10"></div>
+        <div class="j-btn1">直接window.open</div>
+        <textarea rows="10" cols="100">
+        var btn1Node = jq('.j-btn1');
+
+        btn1Node.on('click',function(){
+            window.open('//study.163.com');
+        })
+        </textarea>
+        <div class="b-10"></div>
+        <div class="j-btn2">异步ajax后window.open</div>
+        <textarea name="" id="" cols="100" rows="15">
+        var btn2Node = jq('.j-btn2');
+        btn2Node.on('click',function(){
+            jq.ajax({
+                url: '/browser/getHref',
+                success:function(data){
+                    if(!!data && data.result == 1){
+                        window.open(data.data.url||'');
+                    }
+                }
+            })
+        });
+        </textarea>
+        <div class="b-10"></div>
+        <div class="j-btn3">同步ajax后window.open</div>
+        <textarea name="" id="" cols="100" rows="15">
+        var btn2Node = jq('.j-btn2');
+        btn2Node.on('click',function(){
+            jq.ajax({
+                url: '/browser/getHref',
+                async: false,
+                success:function(data){
+                    if(!!data && data.result == 1){
+                        window.open(data.data.url||'');
+                    }
+                }
+            })
+        });
+        </textarea>
+    </div>
+</div>
+
+<% include ../common/footer.html %>
+
+<!--require模块写法-->
+<script data-main="browser/page/allOptions" type="text/javascript" src="/javascripts/vendor/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/m_orientation.css"></head>
+<body>
+
+<div class="j-txt"></div>
+
+<script src="js/alloylever.js"></script>
+<script>
+    var SHAKE_THRESHOLD = 3000;
+    var last_update = 0;
+    var x = y = z = last_x = last_y = last_z = 0;
+    var _count = 0;
+
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+    }
+
+    function deviceMotionHandler(eventData) {
+        var acceleration = eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        var diffTime = curTime - last_update;
+        if (diffTime > 100) {
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+            if (speed > SHAKE_THRESHOLD) {
+                //设备抖动后执行的操作
+                _count = _count +1;
+                var _dom = document.querySelector('.j-txt');
+                _dom.innerHTML = '设备抖动了：'+_count+'次';
+            };
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+    }
+</script>
+</body>
+</html>

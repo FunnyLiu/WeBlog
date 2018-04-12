@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<link rel="stylesheet" href="css/js_dataBind.css"></head>
+<body>
+<div class="j-content"></div>
+
+<script>
+
+    var contentNode = document.querySelector('.j-content');
+    function demo() {
+        var valueA = null;
+        var arr = [];
+
+        Object.defineProperty(this, 'valueA', {
+            get: function() {
+                contentNode.innerHTML += '</br>触发get</br>';
+                return '不管什么，都返回这个';
+            },
+            set: function(value) {
+                contentNode.innerHTML += '</br>触发set</br>';
+                valueA = value;
+                arr.push({ val: valueA });
+            }
+        });
+
+        this.getArr = function() { return arr; };
+    }
+
+    var arc = new demo();
+    var resA = arc.valueA;
+    contentNode.innerHTML = resA;//不管什么，都返回这个
+    arc.valueA = 20;//触发set
+    console.log(arc.valueA);//触发get，结果为：  不管什么，都返回这个
+    arc.valueA = 13;//触发set
+    var resArr = arc.getArr();
+    console.log(resArr);//[{val:20},{val:13}]
+</script>
+
+
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">&#x2228;</div>
+<div class="m-code_content" style="display: flex;">
+
+<textarea class="u-js g-panel">
+
+var contentNode = document.querySelector('.j-content');
+function demo() {
+    var valueA = null;
+    var arr = [];
+
+    Object.defineProperty(this, 'valueA', {
+        get: function() {
+            contentNode.innerHTML += '</br>触发get</br>';
+            return '不管什么，都返回这个';
+        },
+        set: function(value) {
+            contentNode.innerHTML += '</br>触发set</br>';
+            valueA = value;
+            arr.push({ val: valueA });
+        }
+    });
+
+    this.getArr = function() { return arr; };
+}
+
+var arc = new demo();
+var resA = arc.valueA;
+contentNode.innerHTML = resA;//不管什么，都返回这个
+arc.valueA = 20;//触发set
+console.log(arc.valueA);//触发get，结果为：  不管什么，都返回这个
+arc.valueA = 13;//触发set
+var resArr = arc.getArr();
+console.log(resArr);//[{val:20},{val:13}]
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@import 'base/base';
+.m-rain {
+    width:100%;
+    height:600px;
+    background:yellow;
+    &-red {
+        width:30px;
+        height:30px;
+        background:red;
+    }
+}
+.bag {
+    animation:drop 3s linear;
+}
+@keyframes drop {
+    0% {
+        transform: translate3d(0,-34px,0);
+    }
+    100% {
+        transform: translate3d(0,634px,0);
+    }
+}

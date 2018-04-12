@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/regular-ui.default.css">
+<link rel="stylesheet" href="css/regularui_dropdown.css">
+    <!--demo模板-->
+<script id="dropdown1" type="template/regular">
+    <dropdown source={source} title='自定义标题' />
+    <dropdown source={source} disabled />
+    <dropdown source={source}>
+        <a class="u-btn u-btn-error">Error</a>
+    </dropdown>
+    <dropdown source={source}>
+        <a>Link</a>
+    </dropdown>
+    <dropdown source={source} open={open} /> 当前切换的状态：{open}
+    <dropdown source={source}
+    on-toggle={this.toggleEvent($event)}
+    on-select={this.selectEvent($event)} />
+</script>
+    <!--组件模板-->
+<script id="mydropdown" type="template/regular">
+<div class="u-mydropdown {class}" r-class='"z-dis":disabled == true'  ref="element">
+    <div class="dropdown_hd" on-click={this.toggle()}>
+        {#if this.$body}
+            {#inc this.$body}
+        {#else}
+            <a class="u-btn" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+        {/if}
+    </div>
+    <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+        <ul class="m-listview">
+            {#list source as item}
+            <li r-class='"z-dis":item.disabled == true' r-class='"z-divider":item.divider == true' title={item.name} on-click={this.select(item)}>
+                {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}
+            </li>
+            {/list}
+        </ul>
+    </div>
+</div>
+</script>
+</head>
+
+<body>
+<label for="dropdown-div2">自实现demo</label><div id="dropdown-div2"></div>
+
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+        <!--demo模板-->
+<script id="dropdown1" type="template/regular">
+    <dropdown source={source} title='自定义标题' />
+    <dropdown source={source} disabled />
+    <dropdown source={source}>
+        <a class="u-btn u-btn-error">Error</a>
+    </dropdown>
+    <dropdown source={source}>
+        <a>Link</a>
+    </dropdown>
+    <dropdown source={source} open={open} /> 当前切换的状态：{open}
+    <dropdown source={source}
+              on-toggle={this.toggleEvent($event)}
+              on-select={this.selectEvent($event)} />
+</script>
+    <!--组件模板-->
+<script id="mydropdown" type="template/regular">
+    <div class="u-mydropdown {class}" r-class='"z-dis":disabled == true'  ref="element">
+        <div class="dropdown_hd" on-click={this.toggle()}>
+            {#if this.$body}
+            {#inc this.$body}
+            {#else}
+            <a class="u-btn" title={title || '下拉菜单'}>{title || '下拉菜单'} <i class="u-icon u-icon-caret-down"></i></a>
+            {/if}
+        </div>
+        <div class="dropdown_bd" r-hide={!open} r-animation="on: enter; class: animated fadeInY fast; on: leave; class: animated fadeOutY fast;">
+            <ul class="m-listview">
+                {#list source as item}
+                <li r-class='"z-dis":item.disabled == true' r-class='"z-divider":item.divider == true' title={item.name} on-click={this.select(item)}>
+                    {#if @(itemTemplate)}{#inc @(itemTemplate)}{#else}{item.name}{/if}
+                </li>
+                {/list}
+            </ul>
+        </div>
+    </div>
+</script>
+</textarea>
+<textarea class="u-js g-panel">
+        //自定义myDropdown组件
+    var myDropdown = Regular.extend({
+        name: 'dropdown',
+        template: '#mydropdown',
+
+        toggle: function(open) {
+            if(this.data.disabled)
+                return;
+            //判断开关状态
+            if(open === undefined)
+                open = !this.data.open;
+            this.data.open = open;
+            //出发toggle事件
+            this.$emit('toggle', {
+                sender: this,
+                open: open
+            });
+        },
+
+        select: function(item) {
+            if(this.data.disabled || item.disabled || item.divider)
+                return;
+            //出发select事件
+            this.$emit('select', {
+                sender: this,
+                selected: item
+            });
+
+            this.toggle(false);
+        },
+        //toggle事件触发
+        toggleEvent:function(e){
+            console.log('on-toggle:', '$event.open:', e.open);
+        },
+        selectEvent:function(e){
+            console.log('on-select:','$event.selected:',e.selected);
+        }
+    });
+    //引用组件
+    var mydropdown1 = new myDropdown({
+        template: '#dropdown1',
+        data: {
+            source: [
+                {name: '选项1'},
+                {name: '选项2'},
+                {divider: true},
+                {name: '选项3(禁用)',disabled:true}
+            ]
+        }
+    });
+    mydropdown1.$inject('#dropdown-div2');
+</textarea>
+</div>
+
+
+
+<script src="js/regular.js"></script>
+<script src="js/regular-ui.js"></script>
+<script>
+    //自定义myDropdown组件
+    var myDropdown = Regular.extend({
+        name: 'dropdown',
+        template: '#mydropdown',
+
+        toggle: function(open) {
+            if(this.data.disabled)
+                return;
+            //判断开关状态
+            if(open === undefined)
+                open = !this.data.open;
+            this.data.open = open;
+            //出发toggle事件
+            this.$emit('toggle', {
+                sender: this,
+                open: open
+            });
+        },
+
+        select: function(item) {
+            if(this.data.disabled || item.disabled || item.divider)
+                return;
+            //出发select事件
+            this.$emit('select', {
+                sender: this,
+                selected: item
+            });
+
+            this.toggle(false);
+        },
+        //toggle事件触发
+        toggleEvent:function(e){
+            console.log('on-toggle:', '$event.open:', e.open);
+        },
+        selectEvent:function(e){
+            console.log('on-select:','$event.selected:',e.selected);
+        }
+    });
+    //引用组件
+    var mydropdown1 = new myDropdown({
+        template: '#dropdown1',
+        data: {
+            source: [
+                {name: '选项1'},
+                {name: '选项2'},
+                {divider: true},
+                {name: '选项3(禁用)',disabled:true}
+            ]
+        }
+    });
+    mydropdown1.$inject('#dropdown-div2');
+</script>
+</body>
+</html>

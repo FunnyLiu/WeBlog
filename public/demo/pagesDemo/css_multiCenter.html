@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/css_multiCenter.css"></head>
+<body>
+<div class="parent">
+    <div class="children">
+        <div class="children_inline">一行文字水平垂直居中噢！</div>
+    </div>
+</div>
+
+<div class="parent">
+    <div class="children">
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+    </div>
+</div>
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<div class="parent">
+    <div class="children">
+        <div class="children_inline">一行文字水平垂直居中噢！</div>
+    </div>
+</div>
+
+<div class="parent">
+    <div class="children">
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+        <div class="children_inline">多行文字水平垂直居中噢！</div>
+    </div>
+</div>
+</textarea>
+<textarea class="u-css g-panel">
+.parent {
+    float: left;
+    margin-right:20px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+.children {
+    position: relative;
+    left: 50%;
+    top:50%;
+    width:150px;
+    -webkit-transform : translate3d(-50%, -50%, 0);
+    transform : translate3d(-50%, -50%, 0);
+    background-color: black;
+    color:white;
+}
+</textarea>
+</div>
+</body>
+</html>

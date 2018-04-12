@@ -1,0 +1,12 @@
+<div class="m-tabs {class}" z-dis={disabled} r-hide={!visible}>
+    <ul class="tabs_hd">
+        <!--生成切换列表-->
+        {#list tabs as item}
+        <li z-crt={item == selected} z-dis={item.data.disabled} on-click={this.select(item)}>{#if @(titleTemplate)}{#inc @(titleTemplate)}{#else}{item.data.title}{/if}</li>
+        {/list}
+    </ul>
+    <div class="tabs_bd">
+        <!--引入组件内容-->
+        {#inc this.$body}
+    </div>
+</div>

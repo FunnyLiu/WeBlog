@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单例模式</title>
+<link rel="stylesheet" href="css/getSingle.css"></head>
+<body>
+<button class="j-btn">单例模式</button>
+<button class="j-btn2">非单例模式</button>
+<script>
+    var getSingle = function(fn){
+        var result;
+        return function(){
+            return result || (result = fn.apply(this,arguments));
+        }
+    };
+    var createDiv = function(){
+        var div = document.createElement('div');
+        div.innerHTML= "i am div";
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    };
+    var btn = document.querySelector('.j-btn');
+    var btn2 = document.querySelector('.j-btn2');
+    //创建单例
+    var createSingleDiv = getSingle(createDiv);
+    btn.onclick = function(){
+        var div = createSingleDiv();
+        div.style.display = 'block';
+    };
+    btn2.onclick=function(){
+        var div = createDiv();
+        div.style.display = 'block';
+    }
+</script>
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<button class="j-btn">单例模式</button>
+<button class="j-btn2">非单例模式</button>
+</textarea>
+<textarea class="u-js g-panel">
+    var getSingle = function(fn){
+        var result;
+        return function(){
+            return result || (result = fn.apply(this,arguments));
+        }
+    };
+    var createDiv = function(){
+        var div = document.createElement('div');
+        div.innerHTML= "i am div";
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    };
+    var btn = document.querySelector('.j-btn');
+    var btn2 = document.querySelector('.j-btn2');
+    //创建单例
+    var createSingleDiv = getSingle(createDiv);
+    btn.onclick = function(){
+        var div = createSingleDiv();
+        div.style.display = 'block';
+    };
+    btn2.onclick=function(){
+        var div = createDiv();
+        div.style.display = 'block';
+    }
+</textarea>
+</div>
+</body>
+</html>

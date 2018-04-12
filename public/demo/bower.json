@@ -1,0 +1,24 @@
+{
+  "name": "myDemo",
+  "homepage": "https://github.com/FunnyLiu/WeBlog",
+  "authors": [
+    "brizer <brizer@163.com>"
+  ],
+  "description": "liufang demo",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.10.1",
+    "codemirror": "^5.26.0",
+    "regularjs": "^0.5.2",
+    "requirejs": "^2.3.3",
+    "nej":"*"
+  }
+}

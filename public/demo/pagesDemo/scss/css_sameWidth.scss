@@ -1,0 +1,13 @@
+@import 'base/base';
+.parent {
+    margin-left:-25px;
+}
+.column {
+    float:left;
+    width:25%;
+    padding-left:25px;
+    box-sizing:border-box;
+}
+p {
+    background:#fe8019;
+}

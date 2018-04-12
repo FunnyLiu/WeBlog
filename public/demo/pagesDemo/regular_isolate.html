@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isolate</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<link rel="stylesheet" href="css/regular_isolate.css"></head>
+<body>
+<div id="j-demo">
+
+
+</div>
+<script type="template/regular" id="children">
+    <div>子组件children:</div>
+    <div>modalValue:</div>
+    <input type="text" r-model={modalValue}>
+    <div>dataValue:</div>
+    <div>{dataValue}</div>
+    <button on-click={this.changeValue()}>修改dataValue的值</button>
+</script>
+<script type="template/regular" id="father1">
+    <div>父亲组件father1,其中isolate为1,阻止子到父</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=1 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="father2">
+    <div>父亲组件father2,其中isolate为2,阻止父到子</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=2 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="father3">
+    <div>父亲组件father3,其中isolate为3,父子双向阻止</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=3 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="demo">
+    <ux-father1></ux-father1>
+    <ux-father2></ux-father2>
+    <ux-father3></ux-father3>
+</script>
+
+<script src="./js/regular.js"></script>
+
+<script>
+    var children = Regular.extend({
+        name:'ux-children',
+        template:'#children',
+        changeValue:function(){
+            this.data.dataValue = Math.random();
+            this.$update();
+        }
+    });
+    var father1 = Regular.extend({
+        name:'ux-father1',
+        template:'#father1',
+        data:{
+            dataValue:1,
+            modalValue:'this is modalValue'
+        }
+    });
+    var father2 = Regular.extend({
+        name:'ux-father2',
+        template:'#father2',
+        data:{
+            dataValue:2,
+            modalValue:'this is modalValue'
+        }
+    });
+    var father3 = Regular.extend({
+        name:'ux-father3',
+        template:'#father3',
+        data:{
+            dataValue:3,
+            modalValue:'this is modalValue'
+        }
+    });
+    var demo = Regular.extend({
+        name:'ux-demo',
+        template:'#demo'
+    });
+    var demoUI = new demo({
+
+    }).$inject('#j-demo');
+
+</script>
+
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">&#x2228;</div>
+<div class="m-code_content" style="display: flex;">
+
+<textarea class="u-html g-panel">
+    <div id="j-demo">
+
+
+    </div>
+<script type="template/regular" id="children">
+    <div>子组件children:</div>
+    <div>modalValue:</div>
+    <input type="text" r-model={modalValue}>
+    <div>dataValue:</div>
+    <div>{dataValue}</div>
+    <button on-click={this.changeValue()}>修改dataValue的值</button>
+</script>
+<script type="template/regular" id="father1">
+    <div>父亲组件father1,其中isolate为1,阻止子到父</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=1 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="father2">
+    <div>父亲组件father2,其中isolate为2,阻止父到子</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=2 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="father3">
+    <div>父亲组件father3,其中isolate为3,父子双向阻止</div>
+    <div>dataValue值为:{dataValue}</div>
+    <div>modalValue值为:{modalValue}</div>
+    <ux-children isolate=3 dataValue={dataValue} modalValue={modalValue}></ux-children>
+</script>
+<script type="template/regular" id="demo">
+    <ux-father1></ux-father1>
+    <ux-father2></ux-father2>
+    <ux-father3></ux-father3>
+</script>
+
+<script src="./js/regular.js"></script>
+
+<script>
+    var children = Regular.extend({
+        name:'ux-children',
+        template:'#children',
+        changeValue:function(){
+            this.data.dataValue = Math.random();
+            this.$update();
+        }
+    });
+    var father1 = Regular.extend({
+        name:'ux-father1',
+        template:'#father1',
+        data:{
+            dataValue:1,
+            modalValue:'this is modalValue'
+        }
+    });
+    var father2 = Regular.extend({
+        name:'ux-father2',
+        template:'#father2',
+        data:{
+            dataValue:2,
+            modalValue:'this is modalValue'
+        }
+    });
+    var father3 = Regular.extend({
+        name:'ux-father3',
+        template:'#father3',
+        data:{
+            dataValue:3,
+            modalValue:'this is modalValue'
+        }
+    });
+    var demo = Regular.extend({
+        name:'ux-demo',
+        template:'#demo'
+    });
+    var demoUI = new demo({
+
+    }).$inject('#j-demo');
+
+</script>
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

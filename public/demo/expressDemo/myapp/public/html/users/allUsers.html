@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户</title>
+    <link rel="stylesheet" href="/css/theme/theme.css"/>
+</head>
+<body>
+<% include ../common/head.html %>
+
+<div class="m-allUsers">
+    <div class="g-container">
+        <div class="b-10"></div>
+        <div id="j-allUsers">
+
+        </div>
+        <div class="b-10"></div>
+        <button class="btn btn-primary j-addNew">增加</button>
+        <div class="b-10"></div>
+    </div>
+</div>
+
+<% include ../common/footer.html %>
+
+<!--require模块写法-->
+<script data-main="users/page/allUsers" type="text/javascript" src="/javascripts/vendor/require.js"></script>
+</body>
+</html>

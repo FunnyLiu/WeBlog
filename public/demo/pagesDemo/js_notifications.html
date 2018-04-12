@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/js_notifications.css"></head>
+<body>
+<button class="u-btn j-signUp">报名直播,请允许通知,将在点击3秒后获得通知!</button>
+<div class="u-console j-console">这里是控制台:</div>
+<script>
+    var signUpNode = document.querySelector('.j-signUp');
+    var consoleNode = document.querySelector('.j-console');
+    //等待一段时间
+    function sleep(numberMillis) {
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)
+                return;
+        }
+    };
+    //添加节点内容
+    function addNodeContent(node,str){
+        node.innerHTML = node.innerHTML + str + '</br>';
+    }
+    signUpNode.addEventListener('click',function(){
+        //如果被允许
+        if(window.Notification && Notification.permission !== "denied") {
+            Notification.requestPermission(function(status) {    // 请求权限
+                //仅当值为 "granted" 时显示通知
+                if(status == 'granted') {
+                    sleep(3000);
+                    // 弹出一个通知
+                    var n = new Notification('该学习啦!', {
+                        body : '来自网易云课堂的直播通知',
+                        icon : 'http://s.stu.126.net/res/images/qrcode/weixin.png'
+                    });
+                    //通知显示事件
+                    n.onshow = function(){
+                        addNodeContent(consoleNode,'已经显示通知');
+                    };
+                    //通知被点击事件
+                    n.onclick = function(){
+                        addNodeContent(consoleNode,'通知被点击');
+                    };
+                    //通知被关闭事件
+                    n.onclose = function(){
+                        addNodeContent(consoleNode,'通知被关闭');
+                    };
+
+                }
+            });
+        }
+    },false);
+</script>
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+    <button class="u-btn j-signUp">报名直播,请允许通知,将在点击3秒后获得通知!</button>
+    <div class="u-console j-console">这里是控制台:</div>
+</textarea>
+<textarea class="u-js g-panel">
+    var signUpNode = document.querySelector('.j-signUp');
+    var consoleNode = document.querySelector('.j-console');
+    //等待一段时间
+    function sleep(numberMillis) {
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)
+                return;
+        }
+    };
+    //添加节点内容
+    function addNodeContent(node,str){
+        node.innerHTML = node.innerHTML + str + '</br>';
+    }
+    signUpNode.addEventListener('click',function(){
+        //如果被允许
+        if(window.Notification && Notification.permission !== "denied") {
+            Notification.requestPermission(function(status) {    // 请求权限
+                //仅当值为 "granted" 时显示通知
+                if(status == 'granted') {
+                    sleep(3000);
+                    // 弹出一个通知
+                    var n = new Notification('该学习啦!', {
+                        body : '来自网易云课堂的直播通知',
+                        icon : 'http://s.stu.126.net/res/images/qrcode/weixin.png'
+                    });
+                    //通知显示事件
+                    n.onshow = function(){
+                        addNodeContent(consoleNode,'已经显示通知');
+                    };
+                    //通知被点击事件
+                    n.onclick = function(){
+                        addNodeContent(consoleNode,'通知被点击');
+                    };
+                    //通知被关闭事件
+                    n.onclose = function(){
+                        addNodeContent(consoleNode,'通知被关闭');
+                    };
+
+                }
+            });
+        }
+    },false);
+</textarea>
+</div>
+<script src="./js/base/base.js"></script>
+
+</body>
+</html>

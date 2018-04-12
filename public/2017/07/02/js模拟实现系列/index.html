@@ -1,0 +1,680 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6A21;&amp;#x62DF;&amp;#x5B9E;&amp;#x73B0;&amp;#x7CFB;&amp;#x5217;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F1A;&amp;#x5BF9;javascript&amp;#x4E2D;&amp;#x539F;&amp;#x751F;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x65B9;&amp;#x6CD5;&amp;#x8FD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js模拟实现系列">
+<meta property="og:url" content="http://yoursite.com/2017/07/02/js模拟实现系列/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6A21;&amp;#x62DF;&amp;#x5B9E;&amp;#x73B0;&amp;#x7CFB;&amp;#x5217;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F1A;&amp;#x5BF9;javascript&amp;#x4E2D;&amp;#x539F;&amp;#x751F;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x65B9;&amp;#x6CD5;&amp;#x8FD">
+<meta property="og:updated_time" content="2017-07-02T05:51:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js模拟实现系列">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6A21;&amp;#x62DF;&amp;#x5B9E;&amp;#x73B0;&amp;#x7CFB;&amp;#x5217;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F1A;&amp;#x5BF9;javascript&amp;#x4E2D;&amp;#x539F;&amp;#x751F;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x65B9;&amp;#x6CD5;&amp;#x8FD">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> js模拟实现系列 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 田雨晴 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js模拟实现系列
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-07-02T13:28:46+08:00" content="2017-07-02">
+              2017-07-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              12345  
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><p>&#x8FD9;&#x7BC7;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x7CFB;&#x5217;&#xFF0C;&#x4E3B;&#x8981;&#x4F1A;&#x5BF9;javascript&#x4E2D;&#x539F;&#x751F;&#x7684;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x539F;&#x7406;&#x5206;&#x6790;&#xFF0C;&#x5E76;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x5176;&#x6548;&#x679C;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x7406;&#x89E3;&#x5176;&#x539F;&#x7406;&#x548C;&#x8FC7;&#x7A0B;&#x3002;<br>&#x5BF9;&#x81EA;&#x5DF1;&#x7406;&#x89E3;javascript&#x8FD9;&#x95E8;&#x8BED;&#x8A00;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x5E2E;&#x52A9;&#x3002;</p>
+<h1 id="&#x5404;&#x79CD;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x5F00;&#x59CB;&#x5566;"><a href="#&#x5404;&#x79CD;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x5F00;&#x59CB;&#x5566;" class="headerlink" title="&#x5404;&#x79CD;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x5F00;&#x59CB;&#x5566;"></a>&#x5404;&#x79CD;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x5F00;&#x59CB;&#x5566;</h1><h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><p>call&#x65B9;&#x6CD5;&#x867D;&#x7136;&#x6CA1;&#x6709;apply&#x65B9;&#x6CD5;&#x5E38;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x533A;&#x522B;&#x4E0D;&#x5927;&#xFF0C;&#x6545;&#x800C;&#x4ECE;call&#x5F00;&#x59CB;&#x7406;&#x89E3;&#x3002;<br>&#x9996;&#x5148;&#x9700;&#x8981;&#x77E5;&#x9053;call&#x65B9;&#x6CD5;&#x7684;&#x7279;&#x70B9;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x7279;&#x70B9;&#x662F;&#x4F7F;<strong>&#x7528;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684; this &#x503C;&#x548C;&#x82E5;&#x5E72;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x503C;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x8C03;&#x7528;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;</strong><br>&#x6BD4;&#x5982;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> foo = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">};</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">}</div><div class="line"> </div><div class="line">bar.call(foo); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x7B2C;&#x4E00;&#x7248;</span></div><div class="line"><span class="built_in">Function</span>.prototype.call2 = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>{</div><div class="line">    <span class="comment">// &#x9996;&#x5148;&#x8981;&#x83B7;&#x53D6;&#x8C03;&#x7528;call&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;this&#x53EF;&#x4EE5;&#x83B7;&#x53D6;</span></div><div class="line">    context.fn = <span class="keyword">this</span>;</div><div class="line">    context.fn();</div><div class="line">    <span class="keyword">delete</span> context.fn;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x7279;&#x70B9;&#x662F;<strong>&#x53EF;&#x4EE5;&#x4F20;&#x53C2;&#x6570;</strong>&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> foo = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">};</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">name, age</span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(name)</div><div class="line">    <span class="built_in">console</span>.log(age)</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">}</div><div class="line"> </div><div class="line">bar.call(foo, <span class="string">&apos;kevin&apos;</span>, <span class="number">18</span>);</div><div class="line"><span class="comment">// kevin</span></div><div class="line"><span class="comment">// 18</span></div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x7B2C;&#x4E8C;&#x7248;</span></div><div class="line"><span class="built_in">Function</span>.prototype.call2 = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>{</div><div class="line">    context.fn = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line">    <span class="comment">//&#x53D6;&#x51FA;&#x53C2;&#x6570;</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>, len = <span class="built_in">arguments</span>.length; i  len; i++) {</div><div class="line">        args.push(<span class="string">&apos;arguments[&apos;</span> + i + <span class="string">&apos;]&apos;</span>);</div><div class="line">    }</div><div class="line">    <span class="comment">//&#x901A;&#x8FC7;eval&#x6267;&#x884C;js</span></div><div class="line">    <span class="built_in">eval</span>(<span class="string">&apos;context.fn(&apos;</span> + args +<span class="string">&apos;)&apos;</span>);</div><div class="line">    <span class="keyword">delete</span> context.fn;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x7279;&#x70B9;&#xFF0C;<strong>&#x4F20;&#x53C2;&#x4E3A;null&#x65F6;&#xFF0C;&#x6307;&#x5411;window&#xFF0C;&#x518D;&#x8005;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6709;&#x8FD4;&#x56DE;&#x503C;</strong>&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> obj = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">}</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">name, age</span>) </span>{</div><div class="line">    <span class="keyword">return</span> {</div><div class="line">        <span class="attr">value</span>: <span class="keyword">this</span>.value,</div><div class="line">        <span class="attr">name</span>: name,</div><div class="line">        <span class="attr">age</span>: age</div><div class="line">    }</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(bar.call(obj, <span class="string">&apos;kevin&apos;</span>, <span class="number">18</span>));</div><div class="line"><span class="comment">// Object {</span></div><div class="line"><span class="comment">//    value: 1,</span></div><div class="line"><span class="comment">//    name: &apos;kevin&apos;,</span></div><div class="line"><span class="comment">//    age: 18</span></div><div class="line"><span class="comment">// }</span></div></pre></td></tr></table></figure></p>
+<p>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x7B2C;&#x4E09;&#x7248;</span></div><div class="line"><span class="built_in">Function</span>.prototype.call2 = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</div><div class="line">    <span class="keyword">var</span> context = context || <span class="built_in">window</span>;</div><div class="line">    context.fn = <span class="keyword">this</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> args = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>, len = <span class="built_in">arguments</span>.length; i  len; i++) {</div><div class="line">        args.push(<span class="string">&apos;arguments[&apos;</span> + i + <span class="string">&apos;]&apos;</span>);</div><div class="line">    }</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> result = <span class="built_in">eval</span>(<span class="string">&apos;context.fn(&apos;</span> + args +<span class="string">&apos;)&apos;</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">delete</span> context.fn</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply&#x548C;call&#x7C7B;&#x4F3C;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;<strong>call&#x662F;&#x5C06;&#x53C2;&#x6570;&#x4E00;&#x4E2A;&#x4E2A;&#x7684;&#x4F20;&#x5165;&#xFF0C;&#x800C;apply&#x662F;&#x5C06;&#x53C2;&#x6570;&#x4EE5;&#x6570;&#x7EC4;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x5165;</strong>&#x3002;<br>&#x6545;&#x800C;&#x53C2;&#x8003;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;call&#x65B9;&#x6CD5;&#xFF0C;&#x5F97;&#x51FA;apply&#x7684;&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.apply = <span class="function"><span class="keyword">function</span> (<span class="params">context, arr</span>) </span>{</div><div class="line">    <span class="keyword">var</span> context = <span class="built_in">Object</span>(context) || <span class="built_in">window</span>;</div><div class="line">    context.fn = <span class="keyword">this</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> result;</div><div class="line">    <span class="keyword">if</span> (!arr) {</div><div class="line">        result = context.fn();</div><div class="line">    }</div><div class="line">    <span class="keyword">else</span> {</div><div class="line">        <span class="keyword">var</span> args = [];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i  &lt; len; i++) {</div><div class="line">            args.push(<span class="string">&apos;arr[&apos;</span> + i + <span class="string">&apos;]&apos;</span>);</div><div class="line">        }</div><div class="line">        result = <span class="built_in">eval</span>(<span class="string">&apos;context.fn(&apos;</span> + args + <span class="string">&apos;)&apos;</span>)</div><div class="line">    }</div><div class="line"> </div><div class="line">    <span class="keyword">delete</span> context.fn;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p>bind&#x65B9;&#x6CD5;&#x662F;&#x5728;&#x6539;&#x53D8;this&#x6307;&#x5411;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;<br>&#x9996;&#x5148;&#x9700;&#x8981;&#x6E05;&#x695A;bind&#x65B9;&#x6CD5;&#x7684;&#x51E0;&#x4E2A;&#x7279;&#x70B9;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#xFF0C;bind&#x65B9;&#x6CD5;&#x4F1A;<strong>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</strong>&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> foo = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">};</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">// &#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</span></div><div class="line"><span class="keyword">var</span> bindFoo = bar.bind(foo);</div><div class="line"> </div><div class="line">bindFoo(); <span class="comment">// 1</span></div></pre></td></tr></table></figure></p>
+<p>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype.bind2 = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">        self.apply(context);</div><div class="line">    }</div><div class="line"> </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x7279;&#x70B9;&#xFF0C;bind&#x65B9;&#x6CD5;<strong>&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x53C2;&#x6570;</strong>&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> foo = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">};</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">name, age</span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">    <span class="built_in">console</span>.log(name);</div><div class="line">    <span class="built_in">console</span>.log(age);</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">var</span> bindFoo = bar.bind(foo, <span class="string">&apos;daisy&apos;</span>);</div><div class="line">bindFoo(<span class="string">&apos;18&apos;</span>);</div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// daisy</span></div><div class="line"><span class="comment">// 18</span></div></pre></td></tr></table></figure></p>
+<p>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x7B2C;&#x4E8C;&#x7248;</span></div><div class="line"><span class="built_in">Function</span>.prototype.bind2 = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="comment">// &#x83B7;&#x53D6;bind2&#x51FD;&#x6570;&#x4ECE;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;</span></div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">        <span class="comment">// &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x7684;arguments&#x662F;&#x6307;bind&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;18</span></div><div class="line">        <span class="keyword">var</span> bindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">        self.apply(context, args.concat(bindArgs));</div><div class="line">    }</div><div class="line"> </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>bind&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x590D;&#x6742;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5C31;&#x662F;<strong>&#x5F53; bind &#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;bind &#x65F6;&#x6307;&#x5B9A;&#x7684; this &#x503C;&#x4F1A;&#x5931;&#x6548;</strong>&#xFF0C;&#x4F46;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4F9D;&#x7136;&#x751F;&#x6548;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> value = <span class="number">2</span>;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> foo = {</div><div class="line">    <span class="attr">value</span>: <span class="number">1</span></div><div class="line">};</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">name, age</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.habit = <span class="string">&apos;shopping&apos;</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value);</div><div class="line">    <span class="built_in">console</span>.log(name);</div><div class="line">    <span class="built_in">console</span>.log(age);</div><div class="line">}</div><div class="line"> </div><div class="line">bar.prototype.friend = <span class="string">&apos;kevin&apos;</span>;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> bindFoo = bar.bind(foo, <span class="string">&apos;daisy&apos;</span>);</div><div class="line"> </div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> bindFoo(<span class="string">&apos;18&apos;</span>);</div><div class="line"><span class="comment">// undefined</span></div><div class="line"><span class="comment">// daisy</span></div><div class="line"><span class="comment">// 18</span></div><div class="line"><span class="built_in">console</span>.log(obj.habit);</div><div class="line"><span class="built_in">console</span>.log(obj.friend);</div><div class="line"><span class="comment">// shopping</span></div><div class="line"><span class="comment">// kevin</span></div></pre></td></tr></table></figure></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;value&#x53D6;&#x4E0D;&#x5230;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;this&#x5DF2;&#x7ECF;&#x7531;&#x4E8E;new&#x64CD;&#x4F5C;&#x800C;&#x6307;&#x5411;&#x4E86;obj&#x3002;<br>&#x6545;&#x800C;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype.bind2 = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>{</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{};</div><div class="line"> </div><div class="line">    <span class="keyword">var</span> fbound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">        <span class="keyword">var</span> bindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">        self.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> self ? <span class="keyword">this</span> : context, args.concat(bindArgs));</div><div class="line">    }</div><div class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x7A7A;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x4E2D;&#x8F6C;</span></div><div class="line">    fNOP.prototype = <span class="keyword">this</span>.prototype;</div><div class="line">    fbound.prototype = <span class="keyword">new</span> fNOP();</div><div class="line">    <span class="keyword">return</span> fbound;</div><div class="line"> </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x7B2C;&#x4E09;&#x79CD;&#x5C31;&#x8003;&#x8651;&#x7684;&#x8F83;&#x4E3A;&#x5168;&#x9762;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x3002;</p>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>&#x5148;&#x6765;&#x770B;&#x770B;new&#x7684;&#x529F;&#x80FD;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Otaku &#x5FA1;&#x5B85;&#x65CF;&#xFF0C;&#x7B80;&#x79F0;&#x5B85;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Otaku</span> (<span class="params">name, age</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line"> </div><div class="line">    <span class="keyword">this</span>.habit = <span class="string">&apos;Games&apos;</span>;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">// &#x56E0;&#x4E3A;&#x7F3A;&#x4E4F;&#x953B;&#x70BC;&#x7684;&#x7F18;&#x6545;&#xFF0C;&#x8EAB;&#x4F53;&#x5F3A;&#x5EA6;&#x8BA9;&#x4EBA;&#x62C5;&#x5FE7;</span></div><div class="line">Otaku.prototype.strength = <span class="number">60</span>;</div><div class="line"> </div><div class="line">Otaku.prototype.sayYourName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;I am &apos;</span> + <span class="keyword">this</span>.name);</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Otaku(<span class="string">&apos;Kevin&apos;</span>, <span class="string">&apos;18&apos;</span>);</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// Kevin</span></div><div class="line"><span class="built_in">console</span>.log(person.habit) <span class="comment">// Games</span></div><div class="line"><span class="built_in">console</span>.log(person.strength) <span class="comment">// 60</span></div><div class="line"> </div><div class="line">person.sayYourName(); <span class="comment">// I am Kevin</span></div></pre></td></tr></table></figure></p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Otaku</span> (<span class="params"></span>) </span>{</div><div class="line">    &#x2026;&#x2026;</div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">// &#x4F7F;&#x7528; new</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Otaku(&#x2026;&#x2026;);</div><div class="line"><span class="comment">// &#x4F7F;&#x7528; objectFactory</span></div><div class="line"><span class="keyword">var</span> person = objectFactory(Otaku, &#x2026;&#x2026;)</div></pre></td></tr></table></figure></p>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="comment">//&#x9996;&#x5148;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span></div><div class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(),</div><div class="line">    <span class="comment">//&#x53D6;&#x51FA;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;</span></div><div class="line">    Constructor = [].shift.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">//&#x5C06;obj&#x7684;&#x539F;&#x578B;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;obj&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x51FD;&#x6570;&#x539F;&#x578B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E86;</span></div><div class="line">    obj.prototype = Constructor.prototype;</div><div class="line">    <span class="comment">//&#x4FEE;&#x6539;this&#x7684;&#x6307;&#x5411;</span></div><div class="line">    <span class="keyword">var</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">//&#x5982;&#x679C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x503C;&#xFF0C;&#x4E5F;&#x9700;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">&apos;object&apos;</span> ? ret : obj;</div><div class="line"> </div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p>&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Object&#xFF0C;&#x5C06;&#x539F;&#x578B;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/17/使用socket-io与express结合，体验websocket/" rel="next" title="使用socket.io与express结合，体验websocket">
+                <i class="fa fa-chevron-left"></i> 使用socket.io与express结合，体验websocket
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/07/socket-io使用实践/" rel="prev" title="socket.io使用实践">
+                socket.io使用实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/13150056?v=3&s=460"
+               alt="田雨晴" />
+          <p class="site-author-name" itemprop="name">田雨晴</p>
+          <p class="site-description motion-element" itemprop="description">网易测试开发 seven_tyq@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">127</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#各种模拟实现开始啦"><span class="nav-number">2.</span> <span class="nav-text">各种模拟实现开始啦</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#call"><span class="nav-number">2.1.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">2.2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">2.3.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-number">2.4.</span> <span class="nav-text">new</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

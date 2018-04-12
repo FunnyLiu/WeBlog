@@ -1,0 +1,25 @@
+<div class="m-userList">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {#if users}
+            {#list users as item}
+            <div class="f-dn">{item._id}</div>
+            <tr>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td><button class="btn btn-success" on-click={this.editUser(item.name)}>编辑</button><button class="btn btn-danger" on-click={this.removeUser(item.name)}>删除</button></td>
+            </tr>
+            {/list}
+        {#else}
+            <tr><td>没有数据!!</td></tr>
+        {/if}
+        </tbody>
+    </table>
+</div>

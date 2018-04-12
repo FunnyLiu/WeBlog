@@ -1,0 +1,23 @@
+@import 'base/base';
+.ux-list {
+    width:100%;
+    font-size:0;
+    .ux-item {
+        display:inline-block;
+        width:50%;
+        overflow:hidden;
+        i {
+            width:100%;
+            padding-top:60%;
+        }
+        img {
+            width:100%;
+        }
+        &:nth-of-type(2n){
+            background:red;
+        }
+        &:nth-of-type(2n+1){
+            background:yellow;
+        }
+    }
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<link rel="stylesheet" href="css/js_uploader.css"></head>
+<body>
+<h1>表单配合iframe无刷新上传,兼容ie10-</h1>
+<form method="POST" action="php/upload.php" target="iframe_1" enctype="multipart/form-data">
+    <input type="file" id="file1" name="file">
+    <input type="submit" value="提交">
+</form>
+<!--form提交后返回的内容到其target,即该iframe-->
+<iframe name="iframe_1" id="iframe_1" /></iframe>
+<div class="b-30"></div>
+<h1>使用xhr2，通过FormData模拟表单提交，通过FileReader读取文件内容,兼容现代浏览器</h1>
+<input class="f-db" type="file" id="file2" name="file2" multiple>
+<div class="j-content"></div>
+
+<div class="b-30"></div>
+<h1>拖拽文件上传</h1>
+<div id="dropArea" class="dropArea"></div>
+
+<script>
+    //表单配合iframe无刷新上传
+    var iframe1 = document.querySelector('#iframe_1');
+    iframe1.onload = function(){
+        // 获取iframe的内容，即服务返回的数据
+        var resData = this.contentDocument.body.textContent || this.contentWindow.document.body.textContent;
+        // 处理数据 。。。
+        console.log(resData);
+    }
+    //使用xhr2，通过FormData模拟表单提交，通过FileReader读取文件内容,兼容现代浏览
+    var input2 = document.querySelector('#file2');
+    input2.addEventListener('change',function(){
+        var fileList = this.files;
+        var formdata = new FormData();
+        for(var i = 0; i < fileList.length; i++){
+            var file = fileList[i];  //或者 fileList.item(0);
+            formdata.append('photos[]',file,file.name);
+            document.querySelector('.j-content').innerHTML = file.name;
+
+            //缩略图预览
+            var imageType = /^image\//;
+            if(!imageType.test(file.type))  continue;
+            var img = document.createElement('img');
+            img.file = file;
+            img.style.width="100px";
+            document.body.appendChild(img);
+
+            var reader = new FileReader();
+            reader.onload = function(e){
+                img.src=e.target.result;
+            };
+            reader.readAsDataURL(file);
+
+        }
+    },false);
+
+    //通过h5的api进行拖拽上传
+    var dropArea;
+
+    dropArea = document.getElementById("dropArea");
+    dropArea.addEventListener("dragenter", handleDragenter, false);
+    dropArea.addEventListener("dragover", handleDragover, false);
+    dropArea.addEventListener("drop", handleDrop, false);
+
+    // 阻止dragenter和dragover的默认行为，这样才能使drop事件被触发
+    function handleDragenter(e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function handleDragover(e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function handleDrop(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        var dt = e.dataTransfer;
+        var files = dt.files;
+
+        // 对文件进行处理逻辑
+        var message = "一共有 " + files.length + " 个文件";
+        // 显示文件基本信息
+        message += "<ol>";
+        [].forEach.call(files, function(file) {
+            message += "<li>";
+            message += "<strong>" + file.name + "</strong> ";
+            message += "(<em>" + file.type + "</em>) : ";
+            message += "size: " + file.size + " bytes - ";
+            message += "modified: " + file.lastModifiedDate;
+            message += "</li>";
+        });
+        message += "</ol>";
+        dropArea.innerHTML = message;
+    }
+</script>
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">∨</div>
+<div class="m-code_content" style="display: flex;">
+<textarea class="u-html g-panel">
+<h1>表单配合iframe无刷新上传,兼容ie10-</h1>
+<form method="POST" action="php/upload.php" target="iframe_1" enctype="multipart/form-data">
+    <input type="file" id="file1" name="file">
+    <input type="submit" value="提交">
+</form>
+<!--form提交后返回的内容到其target,即该iframe-->
+<iframe name="iframe_1" id="iframe_1" /></iframe>
+<div class="b-30"></div>
+<h1>使用xhr2，通过FormData模拟表单提交，通过FileReader读取文件内容,兼容现代浏览器</h1>
+<input class="f-db" type="file" id="file2" name="file2" multiple>
+<div class="j-content"></div>
+
+<div class="b-30"></div>
+<h1>拖拽文件上传</h1>
+<div id="dropArea" class="dropArea"></div>
+</textarea>
+<textarea class="u-js g-panel">
+//表单配合iframe无刷新上传
+var iframe1 = document.querySelector('#iframe_1');
+iframe1.onload = function(){
+    // 获取iframe的内容，即服务返回的数据
+    var resData = this.contentDocument.body.textContent || this.contentWindow.document.body.textContent;
+    // 处理数据 。。。
+    console.log(resData);
+}
+//使用xhr2，通过FormData模拟表单提交，通过FileReader读取文件内容,兼容现代浏览
+var input2 = document.querySelector('#file2');
+input2.addEventListener('change',function(){
+    var fileList = this.files;
+    var formdata = new FormData();
+    for(var i = 0; i < fileList.length; i++){
+        var file = fileList[i];  //或者 fileList.item(0);
+        formdata.append('photos[]',file,file.name);
+        document.querySelector('.j-content').innerHTML = file.name;
+
+        //缩略图预览
+        var imageType = /^image\//;
+        if(!imageType.test(file.type))  continue;
+        var img = document.createElement('img');
+        img.file = file;
+        img.style.width="100px";
+        document.body.appendChild(img);
+
+        var reader = new FileReader();
+        reader.onload = function(e){
+            img.src=e.target.result;
+        };
+        reader.readAsDataURL(file);
+
+    }
+},false);
+
+//通过h5的api进行拖拽上传
+var dropArea;
+
+dropArea = document.getElementById("dropArea");
+dropArea.addEventListener("dragenter", handleDragenter, false);
+dropArea.addEventListener("dragover", handleDragover, false);
+dropArea.addEventListener("drop", handleDrop, false);
+
+// 阻止dragenter和dragover的默认行为，这样才能使drop事件被触发
+function handleDragenter(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+
+function handleDragover(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+
+function handleDrop(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    var dt = e.dataTransfer;
+    var files = dt.files;
+
+    // 对文件进行处理逻辑
+    var message = "一共有 " + files.length + " 个文件";
+    // 显示文件基本信息
+    message += "<ol>";
+    [].forEach.call(files, function(file) {
+        message += "<li>";
+        message += "<strong>" + file.name + "</strong> ";
+        message += "(<em>" + file.type + "</em>) : ";
+        message += "size: " + file.size + " bytes - ";
+        message += "modified: " + file.lastModifiedDate;
+        message += "</li>";
+    });
+    message += "</ol>";
+    dropArea.innerHTML = message;
+}
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

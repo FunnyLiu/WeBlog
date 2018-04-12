@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/svg_infinite_animate.css"></head>
+<script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+<script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<body>
+<svg width="120" height="120"  viewBox="0 0 120 120"
+     xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+    <path d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"
+          stroke="lightgrey" stroke-width="2"
+          fill="none" id="theMotionPath"/>
+    <circle cx="10" cy="110" r="3" fill="lightgrey"  />
+    <circle cx="110" cy="10" r="3" fill="lightgrey"  />
+
+    <circle cx="" cy="" r="5" fill="red">
+
+
+        <animateTransform begin="myanim.end" id="pause" dur="3s" type="translate" attributeType="XML" attributeName="transform"/>
+
+
+        <animateMotion id="myanim" dur="6s" begin="0; pause.end" fill="freeze">
+            <mpath xlink:href="#theMotionPath"/>
+        </animateMotion>
+    </circle>
+</svg>
+
+
+
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<svg width="120" height="120"  viewBox="0 0 120 120"
+         xmlns="http://www.w3.org/2000/svg" version="1.1"
+         xmlns:xlink="http://www.w3.org/1999/xlink" >
+    <path d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"
+          stroke="lightgrey" stroke-width="2"
+          fill="none" id="theMotionPath"/>
+    <circle cx="10" cy="110" r="3" fill="lightgrey"  />
+    <circle cx="110" cy="10" r="3" fill="lightgrey"  />
+    <circle cx="" cy="" r="5" fill="red">
+        <animateTransform begin="myanim.end" id="pause" dur="3s" type="translate" attributeType="XML" attributeName="transform"/>
+        <animateMotion id="myanim" dur="6s" begin="0; pause.end" fill="freeze">
+            <mpath xlink:href="#theMotionPath"/>
+        </animateMotion>
+    </circle>
+</svg>
+</textarea>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>

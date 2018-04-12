@@ -1,0 +1,27 @@
+<ul class="m-pager m-pager-{@(position)} {class}" z-dis={disabled} r-hide={!visible}>
+    <!--上一页-->
+    <li class="pager_prev" z-dis={current <= 1} on-click={this.select(current - 1)}><a>上一页</a></li>
+    <!--判断是否需要省略号-->
+    {#if total - middle > side * 2 + 1}
+        {#list 1..side as i}
+        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+        <!--如果中部可选部分起始位置和左边side间距一个以上,则出现省略号-->
+        {#if _start > side + 1}<li><span>...</span></li>{/if}
+        {#list _start.._end as i}
+        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+        <!--如果中部可选部分终止位置和右边side间距一个以上,则出现省略号-->
+        {#if _end < total - side}<li><span>...</span></li>{/if}
+        {#list (total - side + 1)..total as i}
+        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+    {#else}
+        <!--不需要省略号-->
+        {#list 1..total as i}
+        <li z-crt={current == i} on-click={this.select(i)}><a>{i}</a></li>
+        {/list}
+    {/if}
+    <!--下一页-->
+    <li class="pager_next" z-dis={current >= total} on-click={this.select(current + 1)}><a>下一页</a></li>
+</ul>

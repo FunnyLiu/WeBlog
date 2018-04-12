@@ -1,0 +1,19 @@
+@import 'base/base';
+
+.parent {
+    float: left;
+    margin-right:20px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+.children {
+    position: relative;
+    left: 50%;
+    top:50%;
+    width:150px;
+    -webkit-transform : translate3d(-50%, -50%, 0);
+    transform : translate3d(-50%, -50%, 0);
+    background-color: black;
+    color:white;
+}

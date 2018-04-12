@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼三列布局</title>
+    <link rel="stylesheet" href="css/css_ghreeColumn.css">
+</head>
+<body>
+<div id="bd-1">
+    <div id="main-1">main</div>
+    <div id="sub-1">sunb</div>
+    <div id="extra-1">extra</div>
+</div>
+<div class="m-code f-pa">
+    <textarea class="u-html g-panel">
+        <div id="bd-1">
+            <div id="main-1">main</div>
+            <div id="sub-1">sunb</div>
+            <div id="extra-1">extra</div>
+        </div>
+    </textarea>
+    <textarea class="u-css g-panel">
+#bd-1{
+    padding: 0 160px 0 160px;
+}
+#main-1{
+    float:left;
+    width:100%;
+    background-color: #d6d6d6;
+}
+#sub-1{
+    float:left;
+    width:160px;
+    background-color: #e79f6d;
+    margin-left:-100%;
+    position:relative;
+    left:-160px;
+}
+#extra-1{
+    float:left;
+    width:160px;
+    background-color: #77bbdd;
+    margin-left:-160px;
+    position:relative;
+    left:160px;
+}
+    </textarea>
+    <textarea class="u-js g-panel"></textarea>
+</div>
+</body>
+</html>

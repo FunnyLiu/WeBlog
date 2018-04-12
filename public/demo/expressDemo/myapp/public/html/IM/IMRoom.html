@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+    <link rel="stylesheet" href="/css/theme/theme.css"/>
+</head>
+<body>
+<% include ../common/head.html %>
+
+<div class="m-allUsers">
+    <div class="g-container container">
+        <div class="b-10"></div>
+        <div class="rom">
+            <input class="form-control input-sm col-md-4 j-send" type="text">
+            <button class="btn btn-primary j-btn">发送,3s后返回到客户端</button>
+        </div>
+        <textarea class="form-control j-content" name="content" id="" cols="30" rows="10"></textarea>
+    </div>
+</div>
+
+<% include ../common/footer.html %>
+
+<!--require模块写法-->
+<script data-main="IM/page/IMRoom" type="text/javascript" src="/javascripts/vendor/require.js"></script>
+</body>
+</html>

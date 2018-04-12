@@ -1,0 +1,744 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6536;&amp;#x96C6;&amp;#x6709;&amp;#x7528;&amp;#x7684;javascript&amp;#x76F8;&amp;#x5173;&amp;#x4EE3;&amp;#x7801;&amp;#x7247;&amp;#x6BB5;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x65E5;&amp;#x540E;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;
+
+&amp;#x5143;&amp;#x7D20;&amp;#x6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript实用代码片段">
+<meta property="og:url" content="http://yoursite.com/2016/05/02/javascript实用代码片段/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6536;&amp;#x96C6;&amp;#x6709;&amp;#x7528;&amp;#x7684;javascript&amp;#x76F8;&amp;#x5173;&amp;#x4EE3;&amp;#x7801;&amp;#x7247;&amp;#x6BB5;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x65E5;&amp;#x540E;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;
+
+&amp;#x5143;&amp;#x7D20;&amp;#x6">
+<meta property="og:updated_time" content="2017-08-04T01:50:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript实用代码片段">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6536;&amp;#x96C6;&amp;#x6709;&amp;#x7528;&amp;#x7684;javascript&amp;#x76F8;&amp;#x5173;&amp;#x4EE3;&amp;#x7801;&amp;#x7247;&amp;#x6BB5;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x65E5;&amp;#x540E;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;
+
+&amp;#x5143;&amp;#x7D20;&amp;#x6">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> javascript实用代码片段 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 田雨晴 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript实用代码片段
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-02T20:55:10+08:00" content="2016-05-02">
+              2016-05-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              12345  
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x6536;&#x96C6;&#x6709;&#x7528;&#x7684;javascript&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#xFF0C;&#x65B9;&#x4FBF;&#x65E5;&#x540E;&#x4F7F;&#x7528;&#x3002;</p>
+<hr>
+<h1 id="&#x5143;&#x7D20;&#x662F;&#x5426;&#x4F4D;&#x4E8E;&#x5F53;&#x524D;&#x89C6;&#x7A97;"><a href="#&#x5143;&#x7D20;&#x662F;&#x5426;&#x4F4D;&#x4E8E;&#x5F53;&#x524D;&#x89C6;&#x7A97;" class="headerlink" title="&#x5143;&#x7D20;&#x662F;&#x5426;&#x4F4D;&#x4E8E;&#x5F53;&#x524D;&#x89C6;&#x7A97;"></a><strong>&#x5143;&#x7D20;&#x662F;&#x5426;&#x4F4D;&#x4E8E;&#x5F53;&#x524D;&#x89C6;&#x7A97;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInViewport</span>(<span class="params">el</span>) </span>{</div><div class="line">    <span class="keyword">var</span> rect = el.getBoundingClientRect();s</div><div class="line"></div><div class="line">    <span class="keyword">return</span> rect.bottom &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">        rect.right &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">        rect.left &lt; (<span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>. documentElement.clientWidth) &amp;&amp;</div><div class="line">        rect.top &lt; (<span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>. documentElement.clientHeight);</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x8F6C;&#x4E49;"><a href="#&#x8F6C;&#x4E49;" class="headerlink" title="&#x8F6C;&#x4E49;"></a><strong>&#x8F6C;&#x4E49;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEntities</span>(<span class="params">str</span>) </span>{</div><div class="line">    <span class="keyword">return</span> <span class="built_in">String</span>(str)</div><div class="line">      .replace(<span class="regexp">/&amp;/g</span>, <span class="string">&apos;&amp;amp;&apos;</span>)</div><div class="line">      .replace(<span class="regexp">/&lt;/g</span>, <span class="string">&apos;&amp;lt;&apos;</span>)</div><div class="line">      .replace(<span class="regexp">/&gt;/g</span>, <span class="string">&apos;&amp;gt;&apos;</span>)</div><div class="line">      .replace(<span class="regexp">/&quot;/g</span>, <span class="string">&apos;&amp;quot;&apos;</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x6309;&#x5B57;&#x8282;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;"><a href="#&#x6309;&#x5B57;&#x8282;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x6309;&#x5B57;&#x8282;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;"></a><strong>&#x6309;&#x5B57;&#x8282;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">subSt</span>(<span class="params">str, len</span>)</span>{</div><div class="line">  <span class="keyword">var</span> newLength = <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> newStr = <span class="string">&quot;&quot;</span>;</div><div class="line">  <span class="keyword">var</span> chineseRegex = <span class="regexp">/[^\x00-\xff]/g</span>;</div><div class="line">  <span class="keyword">var</span> singleChar = <span class="string">&quot;&quot;</span>;</div><div class="line">  <span class="keyword">var</span> strLength = str.replace(chineseRegex,<span class="string">&quot;**&quot;</span>).length;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; strLength;i++) {</div><div class="line">      singleChar = str.charAt(i).toString();</div><div class="line">      <span class="keyword">if</span>(singleChar.match(chineseRegex) != <span class="literal">null</span>) {</div><div class="line">          newLength += <span class="number">2</span>;</div><div class="line">      } <span class="keyword">else</span>  {</div><div class="line">          newLength++;</div><div class="line">      }</div><div class="line">      <span class="keyword">if</span>(newLength &gt; len) {</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">      }</div><div class="line">      newStr += singleChar;</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> newStr;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p></p><p data-height="266" data-theme-id="0" data-slug-hash="EKOwBz" data-default-tab="js,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/EKOwBz/" target="_blank" rel="external">&#x6309;&#x5B57;&#x8282;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x6307;&#x5B9A;&#x503C;&#x7684;&#x9879;"><a href="#&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x6307;&#x5B9A;&#x503C;&#x7684;&#x9879;" class="headerlink" title="&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x6307;&#x5B9A;&#x503C;&#x7684;&#x9879;"></a><strong>&#x5220;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x6307;&#x5B9A;&#x503C;&#x7684;&#x9879;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*&#x83B7;&#x53D6;index*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">indexOfArray</span> (<span class="params">val,arr</span>)</span>{</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>,len = arr.length;i&lt;len;i++){</div><div class="line">        <span class="keyword">if</span>(arr[i] == val) <span class="keyword">return</span> i;</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">}</div><div class="line"><span class="comment">/*&#x5220;&#x9664;&#x8282;&#x70B9;*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeFromArray</span>(<span class="params">val,arr</span>)</span>{   </div><div class="line">    <span class="keyword">var</span> _index = indexOfArray(val,arr);</div><div class="line">    <span class="keyword">if</span>(_index &gt;<span class="number">-1</span>){</div><div class="line">        arr.splice(_index,<span class="number">1</span>);</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">};</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="for&#x5FAA;&#x73AF;&#x7B80;&#x5199;"><a href="#for&#x5FAA;&#x73AF;&#x7B80;&#x5199;" class="headerlink" title="for&#x5FAA;&#x73AF;&#x7B80;&#x5199;"></a><strong>for&#x5FAA;&#x73AF;&#x7B80;&#x5199;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,c;c=array[i++];){</div><div class="line">    <span class="built_in">document</span>.write(c);<span class="comment">//1,2,3,4,5</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x751F;&#x6210;&#x968F;&#x673A;&#x5B57;&#x6BCD;&#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;"><a href="#&#x751F;&#x6210;&#x968F;&#x673A;&#x5B57;&#x6BCD;&#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x751F;&#x6210;&#x968F;&#x673A;&#x5B57;&#x6BCD;&#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;"></a><strong>&#x751F;&#x6210;&#x968F;&#x673A;&#x5B57;&#x6BCD;&#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;</strong></h1><p>36&#x8FDB;&#x5236;&#x662F;&#x6307;26&#x4E2A;&#x5B57;&#x7B26;&#x52A0;10&#x4E2A;&#x6570;&#x5B57;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRandomAlphaNum</span>(<span class="params">len</span>) </span>{</div><div class="line">    <span class="keyword">var</span> rdmString = <span class="string">&quot;&quot;</span>;</div><div class="line">    <span class="keyword">for</span>( ; rdmString.length &lt; len; rdmString  += <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substr(<span class="number">2</span>));</div><div class="line">    <span class="keyword">return</span>  rdmString.substr(<span class="number">0</span>, len);</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;"><a href="#&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;" class="headerlink" title="&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;"></a><strong>&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;</strong></h1><p>&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;img id=&quot;j-img&quot; src=&quot;https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png&quot; alt=&quot;&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">&apos;j-img&apos;</span>);</div><div class="line"><span class="comment">//ie9&#x4EE5;&#x4E0A;</span></div><div class="line"><span class="keyword">var</span> _height = img.naturalHeight;</div><div class="line"><span class="keyword">var</span> _width = img.naturalWidth;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">&apos;&#x9AD8;&#x5EA6;:&apos;</span>+_height+<span class="string">&apos;,&#x5BBD;&#x5EA6;&apos;</span>+_width);<span class="comment">//&#x9AD8;&#x5EA6;:38,&#x5BBD;&#x5EA6;117</span></div><div class="line"></div><div class="line"><span class="comment">//&#x517C;&#x5BB9;ie9&#x4EE5;&#x4E0B;</span></div><div class="line"><span class="keyword">var</span> imgObj = <span class="keyword">new</span> Image();</div><div class="line">imgObj.src = <span class="string">&apos;https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png&apos;</span>;</div><div class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;&#x9AD8;&#x5EA6;:&apos;</span>+<span class="keyword">this</span>.height+<span class="string">&apos;,&#x5BBD;&#x5EA6;&apos;</span>+<span class="keyword">this</span>.width);<span class="comment">//&#x9AD8;&#x5EA6;:38,&#x5BBD;&#x5EA6;117</span></div><div class="line">}</div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;"></a><strong>&#x6784;&#x9020;&#x51FD;&#x6570;</strong></h1><p>&#x5B9A;&#x4E49;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5B9A;&#x4E49;&#x5728;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;<br><strong>&#x5B9A;&#x4E49;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x65B9;&#x6CD5;,&#x4F1A;&#x5728;&#x5B83;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E0A;&#x90FD;&#x514B;&#x9686;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;;&#x5B9A;&#x4E49;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x5C5E;&#x6027;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x8BA9;&#x5B83;&#x7684;&#x6240;&#x6709;&#x793A;&#x4F8B;&#x90FD;&#x5171;&#x4EAB;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;,&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x5728;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5185;&#x90E8;&#x91CD;&#x65B0;&#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;. &#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x5F88;&#x591A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;,&#x5E76;&#x4E14;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x8FD8;&#x6709;&#x8BB8;&#x591A;&#x7684;&#x65B9;&#x6CD5;,&#x4E3A;&#x4E86;&#x8282;&#x7701;&#x5185;&#x5B58;,&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x628A;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x90FD;&#x5B9A;&#x4E49;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x5C5E;&#x6027;&#x4E0A;&#x3002;</strong></p>
+<p>&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x4E5F;&#x662F;&#x5982;&#x6B64;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, family</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.family = family;</div><div class="line">    <span class="comment">/*&#x79C1;&#x6709;&#x53D8;&#x91CF;*/</span></div><div class="line">    <span class="keyword">var</span> records = [{<span class="attr">type</span>: <span class="string">&quot;in&quot;</span>, <span class="attr">amount</span>: <span class="number">0</span>}];</div><div class="line">    <span class="comment">/*&#x79C1;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x4E0D;&#x5230;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFun</span>(<span class="params"></span>)</span>{</div><div class="line">        <span class="comment">//todo...</span></div><div class="line">    };</div><div class="line">    <span class="comment">/*&#x7279;&#x6743;&#x65B9;&#x6CD5;*/</span></div><div class="line">    <span class="keyword">this</span>.addTransaction = <span class="function"><span class="keyword">function</span>(<span class="params">trans</span>) </span>{</div><div class="line">        <span class="keyword">if</span>(trans.hasOwnProperty(<span class="string">&quot;type&quot;</span>) &amp;&amp; trans.hasOwnProperty(<span class="string">&quot;amount&quot;</span>)) {</div><div class="line">           records.push(trans);</div><div class="line">        }</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.balance = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">       <span class="keyword">var</span> total = <span class="number">0</span>;</div><div class="line"></div><div class="line">       records.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">record</span>) </span>{</div><div class="line">           <span class="keyword">if</span>(record.type === <span class="string">&quot;in&quot;</span>) {</div><div class="line">             total += record.amount;</div><div class="line">           }</div><div class="line">           <span class="keyword">else</span> {</div><div class="line">             total -= record.amount;</div><div class="line">           }</div><div class="line">       });</div><div class="line"></div><div class="line">        <span class="keyword">return</span> total;</div><div class="line">    };</div><div class="line">};</div><div class="line"><span class="comment">/*&#x516C;&#x5171;&#x65B9;&#x6CD5;*/</span></div><div class="line">Person.prototype.getFull = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">&quot; &quot;</span> + <span class="keyword">this</span>.family;</div><div class="line">};</div><div class="line"></div><div class="line">Person.prototype.getProfile = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.getFull() + <span class="string">&quot;, total balance: &quot;</span> + <span class="keyword">this</span>.balance();</div><div class="line">};</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x9762;&#x5411;&#x6A21;&#x5757;"><a href="#&#x9762;&#x5411;&#x6A21;&#x5757;" class="headerlink" title="&#x9762;&#x5411;&#x6A21;&#x5757;"></a><strong>&#x9762;&#x5411;&#x6A21;&#x5757;</strong></h1><p>&#x901A;&#x8FC7;&#x547D;&#x540D;&#x89C4;&#x8303;&#x533A;&#x5206;&#x79C1;&#x6709;&#x548C;&#x516C;&#x6709;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _$$myModule = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="comment">/*&#x79C1;&#x6709;&#x53D8;&#x91CF;*/</span></div><div class="line">    <span class="keyword">var</span> __privateCounter = <span class="number">0</span>;</div><div class="line">    <span class="comment">/*&#x79C1;&#x6709;&#x65B9;&#x6CD5;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__privateFunction</span>(<span class="params"></span>)</span>{</div><div class="line">        _privateCounter++;</div><div class="line">    }</div><div class="line">    <span class="comment">/*&#x516C;&#x6709;&#x65B9;&#x6CD5;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_$addCounter</span>(<span class="params"></span>)</span>{</div><div class="line">        __privateFunction();</div><div class="line">    }</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_$getCounter</span>(<span class="params"></span>)</span>{</div><div class="line">        <span class="keyword">return</span> __privateCounter;</div><div class="line">    }</div><div class="line">    <span class="comment">/*&#x66B4;&#x9732;&#x51FA;&#x53BB;*/</span></div><div class="line">    <span class="keyword">return</span> {</div><div class="line">        <span class="attr">addCounter</span>:_$addCounter,</div><div class="line">        <span class="attr">getCounter</span>:_$getCounter</div><div class="line">    };</div><div class="line">}();</div><div class="line"></div><div class="line"><span class="comment">/*&#x76F4;&#x63A5;&#x4F7F;&#x7528;*/</span></div><div class="line">_&amp;&amp;myModule.getCounter();</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><a href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"></a><strong>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>{</div><div class="line">  <span class="keyword">var</span> result;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="keyword">return</span> result || (result = fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>));</div><div class="line">  }</div><div class="line">};</div></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> createDiv = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">  <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">&apos;div&apos;</span>);</div><div class="line">  div.innerHTML= <span class="string">&quot;i am div&quot;</span>;</div><div class="line">  div.style.display = <span class="string">&apos;none&apos;</span>;</div><div class="line">  <span class="built_in">document</span>.body.appendChild(div);</div><div class="line">  <span class="keyword">return</span> div;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> createSingleDiv = getSingle(createDiv);</div><div class="line"></div><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">  <span class="keyword">var</span> div = createSingleDiv();</div><div class="line">  div.style.display = <span class="string">&apos;block&apos;</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x83B7;&#x53D6;url&#x4E2D;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;"><a href="#&#x83B7;&#x53D6;url&#x4E2D;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;" class="headerlink" title="&#x83B7;&#x53D6;url&#x4E2D;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;"></a><strong>&#x83B7;&#x53D6;url&#x4E2D;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getUrlSearchObj = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">    <span class="keyword">var</span> _search = <span class="built_in">window</span>.location.search;</div><div class="line">    <span class="keyword">if</span>(_search.length &gt; <span class="number">1</span>){</div><div class="line">        <span class="comment">//&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x7684;&#x5BF9;&#x8C61;</span></div><div class="line">        <span class="keyword">var</span> _objs = {};</div><div class="line">        _search = _search.substring(<span class="number">1</span>);</div><div class="line">        <span class="keyword">var</span> items = [];</div><div class="line">        items = _search.split(<span class="string">&apos;&amp;&apos;</span>);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=items.length;i&lt;len;i++){</div><div class="line">            <span class="keyword">var</span> _item = items[i].split(<span class="string">&apos;=&apos;</span>);</div><div class="line">            <span class="keyword">var</span> _name = <span class="built_in">decodeURIComponent</span>(_item[<span class="number">0</span>]);</div><div class="line">            <span class="keyword">var</span> _value = <span class="built_in">decodeURIComponent</span>(_item[<span class="number">1</span>]);</div><div class="line">            _objs[_name] = _value;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> _objs;</div><div class="line">    }   </div><div class="line">}  </div><div class="line"><span class="keyword">var</span> objs = getUrlSearchObj();</div><div class="line"><span class="comment">//http://localhost:4000/demo/getUrlSearchObj.html?a=123&amp;b=456#hashisme</span></div><div class="line"><span class="built_in">document</span>.write(<span class="built_in">JSON</span>.stringify(objs));<span class="comment">//{&quot;a&quot;:&quot;123&quot;,&quot;b&quot;:&quot;456&quot;}</span></div></pre></td></tr></table></figure>
+<p>&#x67E5;&#x770B;&#x4F8B;&#x5B50;&#xFF1A;<a href="/demo/pagesDemo/jquery_url.html?page=12&amp;num=3#main">demo</a></p>
+<hr>
+<h1 id="trim"><a href="#trim" class="headerlink" title="trim"></a><strong>trim</strong></h1><p>&#x5220;&#x9664;&#x4E24;&#x4FA7;&#x7684;&#x7A7A;&#x683C;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p._$trim =<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>{</div><div class="line">     <span class="keyword">return</span> (str || <span class="string">&apos;&apos;</span>).replace(<span class="regexp">/(^\s*)|(\s*$)/g</span>, <span class="string">&quot;&quot;</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;"><a href="#&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;" class="headerlink" title="&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;"></a><strong>&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;</strong></h1><p>&#x6A21;&#x62DF;java&#x4E2D;&#x7684;sleep.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">numberMillis</span>) </span>{</div><div class="line">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">var</span> exitTime = now.getTime() + numberMillis;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) {</div><div class="line">        now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">        <span class="keyword">if</span> (now.getTime() &gt; exitTime)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">};</div><div class="line"><span class="comment">//&#x4F7F;&#x7528;,&#x7B49;&#x5F85;3s:</span></div><div class="line">sleep(<span class="number">3000</span>);</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x51FD;&#x6570;&#x8282;&#x6D41;"><a href="#&#x51FD;&#x6570;&#x8282;&#x6D41;" class="headerlink" title="&#x51FD;&#x6570;&#x8282;&#x6D41;"></a><strong>&#x51FD;&#x6570;&#x8282;&#x6D41;</strong></h1><p>&#x907F;&#x514D;&#x591A;&#x6B21;&#x8FDE;&#x7EED;&#x89E6;&#x53D1;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x7B80;&#x5355;&#x7684;&#x8282;&#x6D41;&#x51FD;&#x6570;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait, mustRun</span>) </span>{</div><div class="line">	<span class="keyword">var</span> timeout,</div><div class="line">		startTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">		<span class="keyword">var</span> context = <span class="keyword">this</span>,</div><div class="line">			args = <span class="built_in">arguments</span>,</div><div class="line">			curTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line">		clearTimeout(timeout);</div><div class="line">		<span class="comment">// &#x5982;&#x679C;&#x8FBE;&#x5230;&#x4E86;&#x89C4;&#x5B9A;&#x7684;&#x89E6;&#x53D1;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF0C;&#x89E6;&#x53D1; handler</span></div><div class="line">		<span class="keyword">if</span>(curTime - startTime &gt;= mustRun){</div><div class="line">			func.apply(context,args);</div><div class="line">			startTime = curTime;</div><div class="line">		<span class="comment">// &#x6CA1;&#x8FBE;&#x5230;&#x89E6;&#x53D1;&#x95F4;&#x9694;&#xFF0C;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;</span></div><div class="line">		}<span class="keyword">else</span>{</div><div class="line">			timeout = setTimeout(func, wait);</div><div class="line">		}</div><div class="line">	};</div><div class="line">};</div><div class="line"><span class="comment">// &#x5B9E;&#x9645;&#x60F3;&#x7ED1;&#x5B9A;&#x5728; scroll &#x4E8B;&#x4EF6;&#x4E0A;&#x7684; handler</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">realFunc</span>(<span class="params"></span>)</span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;Success&quot;</span>);</div><div class="line">}</div><div class="line"><span class="comment">// &#x91C7;&#x7528;&#x4E86;&#x8282;&#x6D41;&#x51FD;&#x6570;,&#x5982;&#x679C;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185; scroll &#x89E6;&#x53D1;&#x7684;&#x95F4;&#x9694;</span></div><div class="line"><span class="comment">// &#x4E00;&#x76F4;&#x77ED;&#x4E8E; 500ms &#xFF0C;&#x90A3;&#x4E48;&#x80FD;&#x4FDD;&#x8BC1;&#x4E8B;&#x4EF6;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x8C03;&#x7528;&#x7684; handler </span></div><div class="line"><span class="comment">// &#x81F3;&#x5C11;&#x5728; 1000ms &#x5185;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x3002;</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&apos;scroll&apos;</span>,throttle(realFunc,<span class="number">500</span>,<span class="number">1000</span>));</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x4E0B;&#x8F7D;"><a href="#&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x4E0B;&#x8F7D;" class="headerlink" title="&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x4E0B;&#x8F7D;"></a><strong>&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x4E0B;&#x8F7D;</strong></h1><p>&#x6709;&#x65F6;&#x5019;&#x9700;&#x8981;&#x901A;&#x8FC7;js&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x7684;url&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x7528;window.open&#x7684;&#x8BDD;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x6D4F;&#x89C8;&#x5668;&#x62E6;&#x622A;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x540E;&#x7EDF;&#x4E00;&#x7528;window.location.href&#x3002;&#x8FD9;&#x91CC;&#x4E0D;&#x9700;&#x8981;&#x62C5;&#x5FC3;&#x5F53;&#x524D;&#x9875;&#x9762;&#x4F1A;&#x88AB;&#x53D6;&#x4EE3;&#x3002;&#x56E0;&#x4E3A;&#x6307;&#x5411;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x6D4F;&#x89C8;&#x5668;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;pdf&#x6587;&#x4EF6;&#x4F8B;&#x5916;&#x3002;</p>
+<h1 id="&#x5C0F;&#x6570;&#x8FD0;&#x7B97;"><a href="#&#x5C0F;&#x6570;&#x8FD0;&#x7B97;" class="headerlink" title="&#x5C0F;&#x6570;&#x8FD0;&#x7B97;"></a><strong>&#x5C0F;&#x6570;&#x8FD0;&#x7B97;</strong></h1><p>JavaScript &#x4E2D;&#x7684;&#x6D6E;&#x70B9;&#x6570;&#x91C7;&#x7528;IEEE-754 &#x683C;&#x5F0F;&#x7684;&#x89C4;&#x5B9A;,&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x6CD5;,&#x8BA1;&#x7B97;&#x4E0D;&#x7CBE;&#x786E;.<br>&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5148;&#x5347;&#x5E42;&#x518D;&#x964D;&#x5E42;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1, num2</span>)</span>{</div><div class="line">    <span class="keyword">let</span> r1, r2, m;</div><div class="line">    r1 = (<span class="string">&apos;&apos;</span>+num1).split(<span class="string">&apos;.&apos;</span>)[<span class="number">1</span>].length;</div><div class="line">    r2 = (<span class="string">&apos;&apos;</span>+num2).split(<span class="string">&apos;.&apos;</span>)[<span class="number">1</span>].length;</div><div class="line">    </div><div class="line">    m = <span class="built_in">Math</span>.pow(<span class="number">10</span>,<span class="built_in">Math</span>.max(r1,r2));</div><div class="line">    <span class="keyword">return</span> (num1 * m + num2 * m) / m;</div><div class="line">}</div><div class="line"><span class="built_in">console</span>.log(add(<span class="number">0.1</span>,<span class="number">0.2</span>));   <span class="comment">//0.3</span></div><div class="line"><span class="built_in">console</span>.log(add(<span class="number">0.15</span>,<span class="number">0.2256</span>)); <span class="comment">//0.3756</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x52A8;&#x6001;&#x52A0;&#x8F7D;css"><a href="#&#x52A8;&#x6001;&#x52A0;&#x8F7D;css" class="headerlink" title="&#x52A8;&#x6001;&#x52A0;&#x8F7D;css"></a><strong>&#x52A8;&#x6001;&#x52A0;&#x8F7D;css</strong></h1><p>&#x975E;&#x9996;&#x5C4F;&#x7684;css&#x6587;&#x4EF6;&#x91C7;&#x7528;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4EE3;&#x7801;&#x53D6;&#x81EA;seaJs&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">* @function &#x52A8;&#x6001;&#x52A0;&#x8F7D;css&#x6587;&#x4EF6;</div><div class="line">* @param {string} options.url -- css&#x8D44;&#x6E90;&#x8DEF;&#x5F84;</div><div class="line">* @param {function} options.callback -- &#x52A0;&#x8F7D;&#x540E;&#x56DE;&#x8C03;&#x51FD;&#x6570;</div><div class="line">* @param {string} options.id -- link&#x6807;&#x7B7E;id</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadCss</span>(<span class="params">options</span>)</span>{</div><div class="line">    <span class="keyword">var</span> url = options.url,</div><div class="line">        callback = <span class="keyword">typeof</span> options.callback == <span class="string">&quot;function&quot;</span> ? options.callback : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},</div><div class="line">        id = options.id,</div><div class="line">        node = <span class="built_in">document</span>.createElement(<span class="string">&quot;link&quot;</span>),</div><div class="line">        supportOnload = <span class="string">&quot;onload&quot;</span> <span class="keyword">in</span> node,</div><div class="line">        isOldWebKit = +navigator.userAgent.replace(<span class="regexp">/.*(?:AppleWebKit|AndroidWebKit)\/?(\d+).*/i</span>, <span class="string">&quot;$1&quot;</span>) &lt; <span class="number">536</span>, <span class="comment">// webkit&#x65E7;&#x5185;&#x6838;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;</span></div><div class="line">        protectNum = <span class="number">300000</span>; <span class="comment">// &#x9608;&#x503C;10&#x5206;&#x949F;&#xFF0C;&#x4E00;&#x79D2;&#x949F;&#x6267;&#x884C;pollCss 500&#x6B21;</span></div><div class="line"></div><div class="line">    node.rel = <span class="string">&quot;stylesheet&quot;</span>;</div><div class="line">    node.type = <span class="string">&quot;text/css&quot;</span>;</div><div class="line">    node.href = url;</div><div class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span> id !== <span class="string">&quot;undefined&quot;</span> ){</div><div class="line">        node.id = id;</div><div class="line">    }</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(node);</div><div class="line"></div><div class="line">    <span class="comment">// for Old WebKit and Old Firefox</span></div><div class="line">    <span class="keyword">if</span> (isOldWebKit || !supportOnload) {</div><div class="line">        <span class="comment">// Begin after node insertion</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">            pollCss(node, callback, <span class="number">0</span>);</div><div class="line">        }, <span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(supportOnload){</div><div class="line">        node.onload = onload;</div><div class="line">        node.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">            <span class="comment">// &#x52A0;&#x8F7D;&#x5931;&#x8D25;(404)</span></div><div class="line">            onload();</div><div class="line">        }</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        node.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">            <span class="keyword">if</span> (<span class="regexp">/loaded|complete/</span>.test(node.readyState)) {</div><div class="line">                onload();</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onload</span>(<span class="params"></span>) </span>{</div><div class="line">        <span class="comment">// &#x786E;&#x4FDD;&#x53EA;&#x8DD1;&#x4E00;&#x6B21;&#x4E0B;&#x8F7D;&#x64CD;&#x4F5C;</span></div><div class="line">        node.onload = node.onerror = node.onreadystatechange = <span class="literal">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">// &#x6E05;&#x7A7A;node&#x5F15;&#x7528;&#xFF0C;&#x5728;&#x4F4E;&#x7248;&#x672C;IE&#xFF0C;&#x4E0D;&#x6E05;&#x9664;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x9732;</span></div><div class="line">        node = <span class="literal">null</span>;</div><div class="line"></div><div class="line">        callback();</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// &#x5FAA;&#x73AF;&#x5224;&#x65AD;css&#x662F;&#x5426;&#x5DF2;&#x52A0;&#x8F7D;&#x6210;&#x529F;</span></div><div class="line">    <span class="comment">/*</span></div><div class="line">    * @param node -- link&#x8282;&#x70B9;</div><div class="line">    * @param callback -- &#x56DE;&#x8C03;&#x51FD;&#x6570;</div><div class="line">    * @param step -- &#x8BA1;&#x6B65;&#x5668;&#xFF0C;&#x907F;&#x514D;&#x65E0;&#x9650;&#x5FAA;&#x73AF;</div><div class="line">    */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">pollCss</span>(<span class="params">node, callback, step</span>)</span>{</div><div class="line">        <span class="keyword">var</span> sheet = node.sheet,</div><div class="line">            isLoaded;</div><div class="line"></div><div class="line">        step += <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="comment">// &#x4FDD;&#x62A4;&#xFF0C;&#x5927;&#x4E8E;10&#x5206;&#x949F;&#xFF0C;&#x5219;&#x4E0D;&#x518D;&#x8F6E;&#x8BE2;</span></div><div class="line">        <span class="keyword">if</span>(step &gt; protectNum){</div><div class="line">            isLoaded = <span class="literal">true</span>;</div><div class="line"></div><div class="line">            <span class="comment">// &#x6E05;&#x7A7A;node&#x5F15;&#x7528;</span></div><div class="line">            node = <span class="literal">null</span>;</div><div class="line"></div><div class="line">            callback();</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(isOldWebKit){</div><div class="line">            <span class="comment">// for WebKit &lt; 536</span></div><div class="line">            <span class="keyword">if</span>(sheet){</div><div class="line">                isLoaded = <span class="literal">true</span>;</div><div class="line">            }</div><div class="line">        }<span class="keyword">else</span> <span class="keyword">if</span>(sheet){</div><div class="line">            <span class="comment">// for Firefox &lt; 9.0</span></div><div class="line">            <span class="keyword">try</span>{</div><div class="line">                <span class="keyword">if</span>(sheet.cssRules){</div><div class="line">                    isLoaded = <span class="literal">true</span>;</div><div class="line">                }</div><div class="line">            }<span class="keyword">catch</span>(ex){</div><div class="line">                <span class="comment">// &#x706B;&#x72D0;&#x7279;&#x6B8A;&#x7248;&#x672C;&#xFF0C;&#x901A;&#x8FC7;&#x7279;&#x5B9A;&#x503C;&#x83B7;&#x77E5;&#x662F;&#x5426;&#x4E0B;&#x8F7D;&#x6210;&#x529F;</span></div><div class="line">                <span class="comment">// The value of `ex.name` is changed from &quot;NS_ERROR_DOM_SECURITY_ERR&quot;</span></div><div class="line">                <span class="comment">// to &quot;SecurityError&quot; since Firefox 13.0. But Firefox is less than 9.0</span></div><div class="line">                <span class="comment">// in here, So it is ok to just rely on &quot;NS_ERROR_DOM_SECURITY_ERR&quot;</span></div><div class="line">                <span class="keyword">if</span>(ex.name === <span class="string">&quot;NS_ERROR_DOM_SECURITY_ERR&quot;</span>){</div><div class="line">                    isLoaded = <span class="literal">true</span>;</div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line"></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">            <span class="keyword">if</span>(isLoaded){</div><div class="line">                <span class="comment">// &#x5EF6;&#x8FDF;20ms&#x662F;&#x4E3A;&#x4E86;&#x7ED9;&#x4E0B;&#x8F7D;&#x7684;&#x6837;&#x5F0F;&#x7559;&#x591F;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x95F4;</span></div><div class="line">                callback();</div><div class="line">            }<span class="keyword">else</span>{</div><div class="line">                pollCss(node, callback, step);</div><div class="line">            }</div><div class="line">        }, <span class="number">20</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x52A8;&#x6001;&#x52A0;&#x8F7D;js"><a href="#&#x52A8;&#x6001;&#x52A0;&#x8F7D;js" class="headerlink" title="&#x52A8;&#x6001;&#x52A0;&#x8F7D;js"></a><strong>&#x52A8;&#x6001;&#x52A0;&#x8F7D;js</strong></h1><p>&#x975E;&#x9996;&#x5C4F;&#x7684;js&#x91C7;&#x7528;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">* @function &#x52A8;&#x6001;&#x52A0;&#x8F7D;js&#x6587;&#x4EF6;</div><div class="line">* @param {string} options.loadUrl -- js&#x8D44;&#x6E90;&#x8DEF;&#x5F84;</div><div class="line">* @param {function} options.callMyFun -- &#x52A0;&#x8F7D;&#x540E;&#x56DE;&#x8C03;&#x51FD;&#x6570;</div><div class="line">* @param {string} options.argObj -- &#x4F20;&#x9012;&#x53C2;&#x6570;</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJs</span>(<span class="params">loadUrl,callMyFun,argObj</span>)</span>{</div><div class="line">    <span class="keyword">var</span> loadScript=<span class="built_in">document</span>.createElement(<span class="string">&apos;script&apos;</span>);</div><div class="line">    loadScript.setAttribute(<span class="string">&quot;type&quot;</span>,<span class="string">&quot;text/javascript&quot;</span>);</div><div class="line">    loadScript.setAttribute(<span class="string">&apos;src&apos;</span>,loadUrl);</div><div class="line">    <span class="built_in">console</span>.log(loadUrl)</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(loadScript);</div><div class="line">    <span class="comment">//&#x5224;&#x65AD;&#x670D;&#x52A1;&#x5668;</span></div><div class="line">    <span class="keyword">if</span>(navigator.userAgent.indexOf(<span class="string">&quot;IE&quot;</span>) &gt;=<span class="number">0</span>){</div><div class="line">        <span class="comment">//IE&#x4E0B;&#x7684;&#x4E8B;&#x4EF6;</span></div><div class="line">        loadScript.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">            <span class="keyword">if</span>(loadScript &amp;&amp; (loadScript.readyState == <span class="string">&quot;loaded&quot;</span> || loadScript.readyState == <span class="string">&quot;complete&quot;</span>)){</div><div class="line">                <span class="comment">//&#x8868;&#x793A;&#x52A0;&#x8F7D;&#x6210;&#x529F;</span></div><div class="line">                loadScript.onreadystatechange=<span class="literal">null</span>;</div><div class="line">                callMyFun()<span class="comment">//&#x6267;&#x884C;&#x56DE;&#x8C03;</span></div><div class="line">            }</div><div class="line">        }      </div><div class="line">    }</div><div class="line">    <span class="keyword">else</span>{</div><div class="line">        loadScript.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">            loadScript.onload=<span class="literal">null</span>;</div><div class="line">            callMyFun();</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="built_in">console</span>.log(argObj);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x79FB;&#x52A8;&#x7AEF;&#x52A8;&#x6001;&#x8BA1;&#x7B97;rem"><a href="#&#x79FB;&#x52A8;&#x7AEF;&#x52A8;&#x6001;&#x8BA1;&#x7B97;rem" class="headerlink" title="&#x79FB;&#x52A8;&#x7AEF;&#x52A8;&#x6001;&#x8BA1;&#x7B97;rem"></a><strong>&#x79FB;&#x52A8;&#x7AEF;&#x52A8;&#x6001;&#x8BA1;&#x7B97;rem</strong></h1><p>&#x7F51;&#x6613;&#x8003;&#x62C9;&#x6D77;&#x8D2D;&#x65B9;&#x6848;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>) </span>{</div><div class="line">    <span class="keyword">var</span> remCalc = {};</div><div class="line">    <span class="keyword">var</span> docEl = win.document.documentElement,</div><div class="line">        tid;</div><div class="line">    <span class="comment">/*&#x6839;&#x636E;&#x8BBE;&#x5907;&#x5C4F;&#x5E55;&#x8BA1;&#x7B97;rem*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>) </span>{</div><div class="line"></div><div class="line">        <span class="keyword">var</span> width = docEl.getBoundingClientRect().width;</div><div class="line">        <span class="comment">/*&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#xFF0C;&#x5DF2;&#x6700;&#x5927;&#x6A21;&#x5F0F;&#x5448;&#x73B0;*/</span></div><div class="line">        <span class="keyword">if</span> (width &gt; <span class="number">640</span>) { width = <span class="number">640</span> }</div><div class="line"> </div><div class="line">        <span class="keyword">var</span> rem = width /<span class="number">640</span> * <span class="number">100</span>;</div><div class="line">        docEl.style.fontSize = rem + <span class="string">&quot;px&quot;</span>;</div><div class="line">        remCalc.rem = rem;</div><div class="line">        <span class="comment">/*&#x89E3;&#x51B3;&#x8BEF;&#x5DEE;*/</span></div><div class="line">        <span class="keyword">var</span> actualSize = <span class="built_in">parseFloat</span>(<span class="built_in">window</span>.getComputedStyle(<span class="built_in">document</span>.documentElement)[<span class="string">&quot;font-size&quot;</span>]);</div><div class="line">        <span class="keyword">if</span> (actualSize !== rem &amp;&amp; actualSize &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Math</span>.abs(actualSize - rem) &gt; <span class="number">1</span>) {</div><div class="line">            <span class="keyword">var</span> remScaled = rem * rem / actualSize;</div><div class="line">            docEl.style.fontSize = remScaled + <span class="string">&quot;px&quot;</span></div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/*&#x8282;&#x6D41;*/</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dbcRefresh</span>(<span class="params"></span>) </span>{</div><div class="line">        clearTimeout(tid);</div><div class="line">        tid = setTimeout(refreshRem, <span class="number">100</span>)</div><div class="line">    }</div><div class="line"></div><div class="line">    win.addEventListener(<span class="string">&quot;resize&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ dbcRefresh() }, <span class="literal">false</span>);</div><div class="line">    <span class="comment">/*&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x9875;&#x5230;&#x8FBE;&#x8BE5;&#x9875;&#x540E;&#x6FC0;&#x6D3B;&#x8BA1;&#x7B97;*/</span></div><div class="line">    win.addEventListener(<span class="string">&quot;pageshow&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</div><div class="line">        <span class="keyword">if</span> (e.persisted) { dbcRefresh() }</div><div class="line">    }, <span class="literal">false</span>);</div><div class="line">    refreshRem();</div><div class="line">    remCalc.refreshRem = refreshRem;</div><div class="line">    <span class="comment">/*&#x8F6C;&#x6362;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x4FBF;&#x5DE5;&#x7A0B;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x4E34;&#x65F6;&#x5224;&#x65AD;*/</span></div><div class="line">    remCalc.rem2px = <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{</div><div class="line">        <span class="keyword">var</span> val = <span class="built_in">parseFloat</span>(d) * <span class="keyword">this</span>.rem;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> d === <span class="string">&quot;string&quot;</span> &amp;&amp; d.match(<span class="regexp">/rem$/</span>)) { val += <span class="string">&quot;px&quot;</span> }</div><div class="line">        <span class="keyword">return</span> val</div><div class="line">    };</div><div class="line">    remCalc.px2rem = <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{</div><div class="line">        <span class="keyword">var</span> val = <span class="built_in">parseFloat</span>(d) / <span class="keyword">this</span>.rem;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> d === <span class="string">&quot;string&quot;</span> &amp;&amp; d.match(<span class="regexp">/px$/</span>)) { val += <span class="string">&quot;rem&quot;</span> }</div><div class="line">        <span class="keyword">return</span> val</div><div class="line">    };</div><div class="line">    win.remCalc = remCalc</div><div class="line">})(<span class="built_in">window</span>);</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;"><a href="#&#x52A8;&#x753B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;" class="headerlink" title="&#x52A8;&#x753B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;"></a><strong>&#x52A8;&#x753B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="NrWZYB" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/NrWZYB/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x5E73;&#x79FB;"><a href="#&#x52A8;&#x753B;&#x5E73;&#x79FB;" class="headerlink" title="&#x52A8;&#x753B;&#x5E73;&#x79FB;"></a><strong>&#x52A8;&#x753B;&#x5E73;&#x79FB;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="LZYKmR" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/LZYKmR/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x5E73;&#x79FB;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x629B;&#x7269;&#x7EBF;"><a href="#&#x52A8;&#x753B;&#x629B;&#x7269;&#x7EBF;" class="headerlink" title="&#x52A8;&#x753B;&#x629B;&#x7269;&#x7EBF;"></a><strong>&#x52A8;&#x753B;&#x629B;&#x7269;&#x7EBF;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="gMONzo" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/gMONzo/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x629B;&#x7269;&#x7EBF;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x5706;&#x5468;&#x8FD0;&#x52A8;"><a href="#&#x52A8;&#x753B;&#x5706;&#x5468;&#x8FD0;&#x52A8;" class="headerlink" title="&#x52A8;&#x753B;&#x5706;&#x5468;&#x8FD0;&#x52A8;"></a><strong>&#x52A8;&#x753B;&#x5706;&#x5468;&#x8FD0;&#x52A8;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="jrOjxX" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/jrOjxX/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x5706;&#x5468;&#x8FD0;&#x52A8;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x77E9;&#x5F62;&#x8FD0;&#x52A8;"><a href="#&#x52A8;&#x753B;&#x77E9;&#x5F62;&#x8FD0;&#x52A8;" class="headerlink" title="&#x52A8;&#x753B;&#x77E9;&#x5F62;&#x8FD0;&#x52A8;"></a><strong>&#x52A8;&#x753B;&#x77E9;&#x5F62;&#x8FD0;&#x52A8;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="ezYwPO" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/ezYwPO/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x77E9;&#x5F62;&#x8FD0;&#x52A8;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h1 id="&#x52A8;&#x753B;&#x5F39;&#x52A8;&#x7684;&#x5C0F;&#x7403;"><a href="#&#x52A8;&#x753B;&#x5F39;&#x52A8;&#x7684;&#x5C0F;&#x7403;" class="headerlink" title="&#x52A8;&#x753B;&#x5F39;&#x52A8;&#x7684;&#x5C0F;&#x7403;"></a><strong>&#x52A8;&#x753B;&#x5F39;&#x52A8;&#x7684;&#x5C0F;&#x7403;</strong></h1><p></p><p data-height="265" data-theme-id="0" data-slug-hash="BzagqV" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/BzagqV/" target="_blank" rel="external">js&#x52A8;&#x753B;&#x5F39;&#x52A8;&#x7684;&#x5C0F;&#x7403;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/02/HTML实用代码片段/" rel="next" title="HTML实用代码片段">
+                <i class="fa fa-chevron-left"></i> HTML实用代码片段
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/清除浮动解决方案/" rel="prev" title="清除浮动解决方案">
+                清除浮动解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/13150056?v=3&s=460"
+               alt="田雨晴" />
+          <p class="site-author-name" itemprop="name">田雨晴</p>
+          <p class="site-description motion-element" itemprop="description">网易测试开发 seven_tyq@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">127</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元素是否位于当前视窗"><span class="nav-number">2.</span> <span class="nav-text">元素是否位于当前视窗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转义"><span class="nav-number">3.</span> <span class="nav-text">转义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按字节截取字符串"><span class="nav-number">4.</span> <span class="nav-text">按字节截取字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除数组中指定值的项"><span class="nav-number">5.</span> <span class="nav-text">删除数组中指定值的项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for循环简写"><span class="nav-number">6.</span> <span class="nav-text">for循环简写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成随机字母数字字符串"><span class="nav-number">7.</span> <span class="nav-text">生成随机字母数字字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取图片宽高"><span class="nav-number">8.</span> <span class="nav-text">获取图片宽高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数"><span class="nav-number">9.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向模块"><span class="nav-number">10.</span> <span class="nav-text">面向模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">11.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取url中参数构建对象"><span class="nav-number">12.</span> <span class="nav-text">获取url中参数构建对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trim"><span class="nav-number">13.</span> <span class="nav-text">trim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#等待一段时间"><span class="nav-number">14.</span> <span class="nav-text">等待一段时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数节流"><span class="nav-number">15.</span> <span class="nav-text">函数节流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打开文件地址下载"><span class="nav-number">16.</span> <span class="nav-text">打开文件地址下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小数运算"><span class="nav-number">17.</span> <span class="nav-text">小数运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态加载css"><span class="nav-number">18.</span> <span class="nav-text">动态加载css</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态加载js"><span class="nav-number">19.</span> <span class="nav-text">动态加载js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端动态计算rem"><span class="nav-number">20.</span> <span class="nav-text">移动端动态计算rem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画正弦曲线"><span class="nav-number">21.</span> <span class="nav-text">动画正弦曲线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画平移"><span class="nav-number">22.</span> <span class="nav-text">动画平移</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画抛物线"><span class="nav-number">23.</span> <span class="nav-text">动画抛物线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画圆周运动"><span class="nav-number">24.</span> <span class="nav-text">动画圆周运动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画矩形运动"><span class="nav-number">25.</span> <span class="nav-text">动画矩形运动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画弹动的小球"><span class="nav-number">26.</span> <span class="nav-text">动画弹动的小球</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

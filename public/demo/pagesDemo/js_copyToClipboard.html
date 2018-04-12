@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+<link rel="stylesheet" href="css/js_copyToClipboard.css"></head>
+<style>
+    textarea {
+        border:1px solid #eee!important;
+    }
+</style>
+<body>
+<div class="j-click">点击</div>
+<textarea class="j-txt">1234312341234</textarea>
+<div class="j-click2">点击2</div>
+<div class="j-txt2">aaaaaaaaaaaaaaaaaaaa</div>
+
+<script>
+    /*复制代码到剪切板*/
+    function copyToClipboard(elem) {
+        // create hidden text element, if it doesn't already exist
+        var targetId = "_hiddenCopyText_";
+        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+        var origSelectionStart, origSelectionEnd;
+        if (isInput) {
+            // can just use the original source element for the selection and copy
+            target = elem;
+            origSelectionStart = elem.selectionStart;
+            origSelectionEnd = elem.selectionEnd;
+        } else {
+            // must use a temporary form element for the selection and copy
+            target = document.getElementById(targetId);
+            if (!target) {
+                var target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = targetId;
+                document.body.appendChild(target);
+            }
+            target.textContent = elem.textContent;
+        }
+        // select the content
+        var currentFocus = document.activeElement;
+        target.focus();
+        target.setSelectionRange(0, target.value.length);
+
+        // copy the selection
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch(e) {
+            succeed = false;
+        }
+        // restore original focus
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        if (isInput) {
+            // restore prior selection
+            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+        } else {
+            // clear temporary content
+            target.textContent = "";
+        }
+        return succeed;
+    }
+
+    var click = document.querySelector('.j-click');
+    var txt = document.querySelector('.j-txt');
+    click.onclick = function(){
+        copyToClipboard(txt);
+    }
+    var click2 = document.querySelector('.j-click2');
+    var txt2 = document.querySelector('.j-txt2');
+    click2.onclick = function(){
+        copyToClipboard(txt2);
+    }
+
+</script>
+<div class="m-code f-pa">
+<textarea class="u-html g-panel">
+<div class="j-click">点击</div>
+<div class="j-txt">1234312341234</div>
+<div class="j-click2">点击2</div>
+<div class="j-txt2">aaaaaaaaaaaaaaaaaaaa</div>
+</textarea>
+<textarea class="u-js g-panel">
+    /*复制代码到剪切板*/
+    function copyToClipboard(elem) {
+        var targetId = "_hiddenCopyText_";
+        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+        var origSelectionStart, origSelectionEnd;
+        if (isInput) {
+            // 如果是input标签或textarea，则直接指定该节点
+            target = elem;
+            origSelectionStart = elem.selectionStart;
+            origSelectionEnd = elem.selectionEnd;
+        } else {
+            // 如果不是，则使用节点的textContent
+            target = document.getElementById(targetId);
+            if (!target) {
+                //如果不存在，则创建一个
+                var target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = targetId;
+                document.body.appendChild(target);
+            }
+            target.textContent = elem.textContent;
+        }
+        // 聚焦目标节点，选中它的内容
+        var currentFocus = document.activeElement;
+        target.focus();
+        target.setSelectionRange(0, target.value.length);
+
+        // 进行复制操作
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch(e) {
+            succeed = false;
+        }
+        // 不再聚焦
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        if (isInput) {
+            // 清空临时数据
+            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+        } else {
+            // 清空临时数据
+            target.textContent = "";
+        }
+        return succeed;
+    }
+
+    var click = document.querySelector('.j-click');
+    var txt = document.querySelector('.j-txt');
+    click.onclick = function(){
+        copyToClipboard(txt);
+    }
+    var click2 = document.querySelector('.j-click2');
+    var txt2 = document.querySelector('.j-txt2');
+    click2.onclick = function(){
+        copyToClipboard(txt2);
+    }
+
+</textarea>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>
