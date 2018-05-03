@@ -1,0 +1,19 @@
+{
+  "name": "koa-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-compose": "^4.0.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.4",
+    "node-debug": "^0.1.0"
+  }
+}
