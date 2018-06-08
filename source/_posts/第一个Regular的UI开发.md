@@ -23,7 +23,7 @@ categories: "Regular"
  * --------------------------------------------
  * 微专业详情页课程信息UI
  * @version  1.0
- * @author   hzliufang(hzliufang@corp.netease.com)
+ * @author   
  * --------------------------------------------
  */
 
