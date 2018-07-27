@@ -1,0 +1,101 @@
+@import 'bourbon/bourbon';
+
+//bourbon
+//一些常用的，单纯增加浏览器兼容前缀
+.box-shadow {
+    @include box-shadow(0 2px 4px red);
+}
+.opacity {
+    @include opacity(0.3);
+}
+.backface-visibility {
+    @include backface-visibility(hidden);
+}
+//背景渐变加前缀
+.background {
+    @include linear-gradient(#1e5799, #2989d8);
+
+    @include radial-gradient(#1e5799, #3dc3d1);
+
+}
+//移动端可用的flex布局
+.flex {
+    @include display(flex);
+
+
+}
+.flex-1 {
+    @include flex(1);
+}
+//帧动画
+.keyframe {
+    @include keyframes(fadeIn) {
+        from {
+          @include transform(scale(0));
+        }
+        to {
+          @include transform(scale(1));
+        }
+      }
+}
+.transition {
+    @include transition(opacity 1.0s ease-in 0s, width 2.0s ease-in 2s);
+}
+.animation {
+    @include animation(scale 1s ease-in, slide 2s ease);
+}
+
+
+//一些偏功能性的
+
+//解决text-indent:-9999px 在ipad下失效
+.txt-hide {
+    @include hide-text;
+}
+//高度和行高统一
+.line-height {
+    @include line-height(20px);
+}
+//圆角带方向缩写
+.border-radius-top {
+    @include border-radius(10px,top);
+}
+//定位
+.position {
+    @include position(absolute,0 2px 4px 6px);
+    @include position(relative,10px 0);
+    @include position(fixed,0 null null null);
+}
+
+.retina {
+    @include retina-image(home-icon, 32px 20px,jpg);
+}
+//尺寸
+.size {
+    @include size(300px 20px);
+    @include size(rem(300px) rem(20px));
+}
+//小三角
+.triangle-1 {
+    @include triangle(12px,red, up-left);
+}
+.triangle-2 {
+    @include triangle(24px 12px,red, down);
+}
+.triangle-3 {
+    @include triangle(12px,red, right);
+}
+
+.word-wrap { 
+    @include word-wrap; 
+}
+//高像素比下 边框宽度过粗的问题
+.hidpi {
+    @include hidpi(2){
+        border:0.5px solid red;
+    }
+}
+
+
+
+@import 'base/base';

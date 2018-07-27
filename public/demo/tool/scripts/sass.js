@@ -18,7 +18,7 @@ gulp.task('scss',function(){
 	return gulp.src(srcPath)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-            'outputStyle': 'compressed',
+            //'outputStyle': 'compressed',
             'errLogToConsole': true			
 		}).on('error',sass.logError))
 		.pipe(sourcemaps.write('./map'))
