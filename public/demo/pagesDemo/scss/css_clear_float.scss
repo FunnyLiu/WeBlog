@@ -1,0 +1,14 @@
+@import 'base/base';
+.d {
+    width:200px;
+    .a {
+        display:inline-block;
+    }
+    .b {
+        float:right;
+        height:30px;
+    }
+    .c {
+        overflow:hidden;
+    }
+}
