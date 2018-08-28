@@ -1,0 +1,22 @@
+<head>
+    <title>Minimal PWA</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link type="text/css" rel="stylesheet" href="http://edu-cms.nosdn.127.net/topics/css/cms_specialWebCommonStyle_cf01670edc575f0121f75e6c7f7ec1e6.css">
+    <script type="javascript" src="http://edu-cms.nosdn.127.net/topics/js/cms_regular_76c69a11a888b7f7c728f6feb2e87831.js"></script>
+    <script charset="utf-8" src="http://edu-cms.nosdn.127.net/topics/js/cms_wap_1a36f5fe9c15c63f84ac89103ecc6bcc.js"></script>
+    <script type="text/javascript" src="http://edu-cms.nosdn.127.net/topics/js/cms_specialWebCommon_js_f26c710bd7cd055a64b67456192ed32a.js"></script>
+
+
+</head>
+<body>
+hello PWA
+<script>
+    (function() {
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
+        }
+    })()
+</script>
+</body>

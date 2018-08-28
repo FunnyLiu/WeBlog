@@ -1,0 +1,18 @@
+{
+    "name": "hello brizer PWA",
+    "short_name": "BPWA",
+    "description": "BRIZER的pwa应用描述",
+    "display": "standalone",
+    "start_url": "/",
+    "theme_color": "#313131",
+    "background_color": "#313131",
+    "icons": [
+        {
+            "src": "./logo_48.png",
+            "sizes": "48x48"
+        },{
+            "src": "./logo_144.png",
+            "sizes": "144x144"
+        }
+    ]
+}
