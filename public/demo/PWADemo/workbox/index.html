@@ -1,7 +1,7 @@
 <head>
     <title>Workbox PWA</title>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="./main.css">
     <link type="text/css" rel="stylesheet" href="https://edu-cms.nosdn.127.net/topics/css/cms_specialWebCommonStyle_cf01670edc575f0121f75e6c7f7ec1e6.css">
     <script type="javascript"  src="https://edu-cms.nosdn.127.net/topics/js/cms_regular_76c69a11a888b7f7c728f6feb2e87831.js"></script>
     <script charset="utf-8"  src="https://edu-cms.nosdn.127.net/topics/js/cms_wap_1a36f5fe9c15c63f84ac89103ecc6bcc.js"></script>
@@ -14,7 +14,7 @@
 hello PWA
 <img src="https://edu-image.nosdn.127.net/5d9cc572-0403-445a-bdc3-39785161c790.png?imageView&quality=100&thumbnail=225y214&type=webp" alt="">
 <img src="https://edu-image.nosdn.127.net/A716E8A377A42E1E2AA32C58488FDC0B.png?imageView&quality=100&thumbnail=225y125&type=webp" alt="">
-
+<img src="./logo_48.png" alt="">
 
 <script>
     if('serviceWorker' in navigator ){
@@ -22,6 +22,8 @@ hello PWA
             navigator.serviceWorker.register('./sw.js');
         })
     }
+    //作用域
+//    navigator.serviceWorker.register('/topics/sw2.js');
         //网易新闻注册sw的源码
 //    "serviceWorker" in navigator && window.addEventListener("load",
 //            function() {

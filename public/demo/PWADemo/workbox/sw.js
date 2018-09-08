@@ -21,7 +21,7 @@ if (workbox) {
     console.log('workbox加载失败');
 }
 
-//我们的nos资源不能跨域,所以不能用改方法
+//我们的nos资源不能跨域,所以不能用该方法
 var fileList = [
     //{
     //    url:'https://edu-cms.nosdn.127.net/topics/css/cms_specialWebCommonStyle_cf01670edc575f0121f75e6c7f7ec1e6.css'
@@ -64,6 +64,9 @@ workbox.precaching.precacheAndRoute(fileList, {
 });
 
 
+workbox.precaching.precacheAndRoute([
+    './main.css'
+]);
 
 
 
