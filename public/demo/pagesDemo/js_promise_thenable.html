@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+    <script src="/demo/pagesDemo/js/util.js"></script>
+<link rel="stylesheet" href="css/js_promise_thenable.css"></head>
+<body>
+
+<script>
+    //thenAble工厂函数
+    function thenFac(){
+        var thenAble={thenAbleFlag:true};
+        var handleObj={thenAble:thenAble};
+        // 除了handle必须定义在handleObj上,其他then和thenAbleFlag都可以定义在一个thenAble对象上, 最后返回这个对象
+        thenAble.then=function(cb){
+            var nextHandleObj = thenFac();
+            handleObj.handle = function(){
+                var p = cb.apply(this,arguments);
+                // handle不仅将会被上一次异步所调用, 还会设置好下一步handle----即本次调用产生的新handleObj的handle
+                if(p && typeof p.then==='function'){
+                    p.then(function(){
+                        //p && p.thenAbleFlag && (p.handle=function(){ 当handleObj和thenAble为同一对象直接这样处理
+                        nextHandleObj.handle && nextHandleObj.handle.apply(this,arguments);
+                    });
+                    // 上一个异步返回不是异步句柄, 下一个then接续直接取返回值
+                }else if(nextHandleObj.handle){
+                    nextHandleObj.handle && nextHandleObj.handle.call(this,p);
+                }
+            };
+            // 将设置给下一步的handle还未知, 返回一个nextHandleObj来给使用者定义
+            return nextHandleObj.thenAble;
+        };
+        return handleObj;
+    }
+
+
+    //demo
+    function ajax(x){
+        var  core = thenFac();
+        setTimeout(function(){
+            core.handle.call(this,x);
+        },2000);
+        return core.thenAble;
+    }
+
+    //通过链式调用来
+    ajax(1).then(function(result){
+        Util.dw(result);
+        return ajax(2);
+    }).then(function(result){
+        Util.dw(result);
+
+        return ajax(3);
+    }).then(function(result){
+        Util.dw(result);
+
+    });
+
+
+
+
+
+</script>
+
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">&#x2228;</div>
+<div class="m-code_content" style="display: flex;">
+
+<textarea class="u-js g-panel">
+        //thenAble工厂函数
+    function thenFac(){
+        var thenAble={thenAbleFlag:true};
+        var handleObj={thenAble:thenAble};
+        // 除了handle必须定义在handleObj上,其他then和thenAbleFlag都可以定义在一个thenAble对象上, 最后返回这个对象
+        thenAble.then=function(cb){
+            var nextHandleObj = thenFac();
+            handleObj.handle = function(){
+                var p = cb.apply(this,arguments);
+                // handle不仅将会被上一次异步所调用, 还会设置好下一步handle----即本次调用产生的新handleObj的handle
+                if(p && typeof p.then==='function'){
+                    p.then(function(){
+                        //p && p.thenAbleFlag && (p.handle=function(){ 当handleObj和thenAble为同一对象直接这样处理
+                        nextHandleObj.handle && nextHandleObj.handle.apply(this,arguments);
+                    });
+                    // 上一个异步返回不是异步句柄, 下一个then接续直接取返回值
+                }else if(nextHandleObj.handle){
+                    nextHandleObj.handle && nextHandleObj.handle.call(this,p);
+                }
+            };
+            // 将设置给下一步的handle还未知, 返回一个nextHandleObj来给使用者定义
+            return nextHandleObj.thenAble;
+        };
+        return handleObj;
+    }
+
+
+    //demo
+    function ajax(x){
+        var  core = thenFac();
+        setTimeout(function(){
+            core.handle.call(this,x);
+        },2000);
+        return core.thenAble;
+    }
+
+    //通过链式调用来
+    ajax(1).then(function(result){
+        console.warn(result);
+        return ajax(2);
+    }).then(function(result){
+        console.warn(result);
+        return ajax(3);
+    }).then(function(result){
+        console.warn(result);
+    });
+
+
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>
