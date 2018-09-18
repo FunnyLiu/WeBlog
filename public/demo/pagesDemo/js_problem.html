@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<link rel="stylesheet" href="css/js_problem.css"></head>
+    <style>
+    .container {
+        margin: 0 40px;
+        border: 1px solid #ebedf0;
+        font-size: 12px;
+    }
+    .tip-all{
+        margin: 10px 40px;
+        font-size: 16px;
+        color: #39a030;
+    }
+    .info {
+        padding: 0 10px;
+    }
+    .info__ttl {
+        border-bottom: 1px solid #ebedf0;
+        font-weight: bold;
+        line-height: 39px;
+    }
+    .info__item {
+        border-bottom: 1px solid #ebedf0;
+        padding-bottom: 19px;
+    }
+    .info__plugin {
+        margin-right: 20px;
+    }
+    .info__item>div {
+        margin-top: 20px;
+    }
+    .info__item-ttl {
+        font-weight: bold;
+    }
+    .info__item-bd {
+        overflow: hidden;
+    }
+    .info__item-bd li {
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .info__item-bd li+li {
+        margin-left: 30px;
+    }
+    .info__item-status,
+    .info__item-delay {
+        margin-left: 20px;
+    }
+    .info__item-delay {
+        color: green;
+    }
+    .info__item-ttl {
+        line-height: 40px;
+    }
+    .cdn-info>* {
+        margin-top: 20px;
+    }
+    .loading {
+        color: #2987e6;
+    }
+    .loaded {
+        color: green;
+    }
+    .error {
+        color: #f20000;
+    }
+</style>
+<body>
+<div id="app"></div>
+    <textarea id="container" style="display: none;">
+        <div class="tip-all">
+            亲爱的用户，请将以下信息截图发送给客服或者老师，帮助我们排查问题哦，笔芯❤❤❤
+        </div>
+        <div class="container">
+            <div class="info">
+                <h3 class="info__ttl">当前登录用户信息</h3>
+                <div class="info__item">
+                    {#if webUser}
+                    <div><label>用户id：</label><span>{webUser.id}</span></div>
+                    <div><label>loginType：</label><span>{webUser.loginType}</span></div>
+                    <div><label>loginAccount：</label><span>{webUser.loginId}</span></div>
+                    <div><label>nickName：</label><span>{webUser.nickName}(昵称)</span></div>
+                    <div><label>phoneNumber：</label><span>{webUser.phoneNumber}(常用手机号)</span></div>
+                    {#else}
+                    <div>未登录</div>
+                    {/if}
+                </div>
+            </div>
+            <div class="info">
+                <h3 class="info__ttl">浏览器信息</h3>
+                <div class="info__item">
+                    <div><label>UA：</label><span>{ua}</span></div>
+                    <div><label>分辨率：</label><span>{screenWidth}*{screenHeight}</span></div>
+                    <div><label>device-dpr：</label><span>{dpr}</span></div>
+                    <div><label>客户端时间：</label><span>{currentTime}</span></div>
+                    <div>
+                        <label>插件信息：</label>
+                        <div>
+                            {#list plugins as plugin}
+                            <span class="info__plugin">{plugin}</span>
+                            {/list}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <h3 class="info__ttl">用户网络信息</h3>
+                <div class="info__item">
+                    <div><label>用户ip：</label><span>{ip}</span></div>
+                    <div><label>地理位置：</label><span>{address}</span></div>
+                    <div><label>运营商：</label><span>{isp}</span></div>
+                    <div><label>DNS：</label><span>{dnsIp}</span></div>
+                    <div><label>DNS地理位置：</label><span>{dnsAddress}</span></div>
+                </div>
+            </div>
+            <div class="info">
+                <h3 class="info__ttl">域名连通性及连通时长</h3>
+                <div class="info__item">
+                    <h3 class="info__item-ttl">服务器连通性：</h3>
+                    <ul class="info__item-bd">
+                        {#list mainHost as host}
+                        <li>
+                            <a target="_blank" href="{host.url}">{host.value}</a>
+                            <span class="info__item-status {host.status}">{statusMap[host.status]}</span>
+                            <span class="info__item-delay" r-hide="host.delay == null">{host.delay}ms</span>
+                        </li>
+                        {/list}
+                    </ul>
+                </div>
+                <div class="info__item">
+                    <h3 class="info__item-ttl">js资源连通性：</h3>
+                    <ul class="info__item-bd">
+                        {#list jsHost as host}
+                        <li>
+                            <a target="_blank" href="{host.url}">{host.value}</a>
+                            <span class="info__item-status {host.status}">{statusMap[host.status]}</span>
+                            <span class="info__item-delay" r-hide="host.delay == null">{host.delay}ms</span>
+                        </li>
+                        {/list}
+                    </ul>
+                </div>
+                <div class="info__item">
+                    <h3 class="info__item-ttl">图片视频资源连通性：</h3>
+                    <ul class="info__item-bd">
+                        {#list imgHost as host}
+                        <li>
+                            <a target="_blank" href="{host.url}">{host.value}</a>
+                            <span class="info__item-status {host.status}">{statusMap[host.status]}</span>
+                            <span class="info__item-delay" r-hide="host.delay == null">{host.delay}ms</span>
+                        </li>
+                        {/list}
+                    </ul>
+                </div>
+            </div>
+            <div class="info">
+                <h3 class="info__ttl">CDN网络链路信息获取</h3>
+                <div class="info__item">
+                    <div><label>IP：</label><span>{ip}</span></div>
+                    <div><label>出口DNS：</label><span>{dnsIp}</span></div>
+                </div>
+                <div class="cdn-info">
+                    {#list cdnInfo as infoItem}
+                    <h3 class="info__ttl">{infoItem.domain}</h3>
+                    <div>
+                        <span>DNS出口IP：</span><span>{infoItem.info.dnsOutIp}</span>
+                    </div>
+                    <div>
+                        <span>DNS地理位置：</span><span>{infoItem.info.dnsOutLocation}</span>
+                    </div>
+                    <div>
+                        <span>DNS运营商：</span><span>{infoItem.info.dnsOutIpIsp}</span>
+                    </div>
+                    <div>DNS链路信息：</div>
+                    {#list infoItem.info.listDnsAnswers as dnsItem}
+                    <div>
+                        <span>{dnsItem.result}</span>
+                    </div>
+                    {/list}
+                    <p>{infoItem.info.dnsTip}</p>
+                    {/list}
+                </div>
+            </div>
+        </div>
+    </textarea>
+<script src="//cst.stu.126.net/u/js/cms/regular.0.5.2.js"></script>
+<!-- ip相关信息 -->
+<script src="//nstool.netease.com/info.js" charset="GBK"></script>
+<script id="j-encode-container"></script>
+<script>
+    //创建请求进行测试联通性
+    var createReq = (function () {
+        function clearIframe(id) {
+            setTimeout(function () {
+                var iframe = document.getElementsByName('iframe' + id)[0]
+                var form = document.getElementById('form' + id)
+                iframe && document.body.removeChild(iframe)
+                form && document.body.removeChild(form)
+            }, 60000)
+        }
+        var id = 0
+        return function (opt) {
+            var doc = document
+                    , iframeName = 'iframe' + id
+                    , bd = doc.body
+                    , form = document.createElement('form')
+            form.target = iframeName
+            form.id = 'form' + id
+            form.method = opt.method
+            form.action = opt.url
+            form.style.display = 'none'
+            var param = opt.data
+            for (var key in param) {
+                if (param.hasOwnProperty(key)) {
+                    var input = doc.createElement('input')
+                    input.name = key
+                    input.value = param[key]
+                    form.appendChild(input)
+                }
+            }
+            var iframe
+            var onloadCb = (function (current) {
+                return function () {
+                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document
+                    var res = iframeDoc.body.innerHTML
+                    if (res) {
+                        res = eval('(' + res + ')')
+                    }
+                    opt.onload(res)
+                    clearIframe(current)
+                }
+            })(id)
+            var onerrorCb = (function (current) {
+                return function () {
+                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document
+                    var res = iframeDoc.body.innerHTML
+                    res = res && eval('(' + res + ')')
+                    opt.onerror(res)
+                    clearIframe(current)
+                }
+            }(id))
+            try {// IE6, IE7
+                iframe = document.createElement('<iframe name="'+ iframeName +'">');
+                iframe.attachEvent('onload', onloadCb)
+                iframe.attachEvent('onerror', onerrorCb)
+            } catch(e) {
+                iframe = document.createElement('iframe');
+                iframe.name = iframeName
+                iframe.onload = onloadCb
+                iframe.onerror = onerrorCb
+            }
+            id++
+            iframe.style.display = 'none'
+            bd.appendChild(form)
+            bd.appendChild(iframe)
+            return form
+        }
+    })()
+
+    var x = {
+        get: function (opt) {
+            opt.method = 'get'
+            createReq(opt).submit()
+        },
+        post: function (opt) {
+            opt.method = 'post'
+            createReq(opt).submit()
+        },
+        getImg: function (opt) {
+            var doc = document
+            var img = doc.createElement('img')
+            img.onload = opt.onload
+            img.onerror = opt.onerror
+            img.src = opt.url
+        }
+    }
+    function copyArr(source) {
+        var result = []
+        for (var i = 0, len = source.length;i < len;i++) {
+            result.push(source[i])
+        }
+        return result
+    }
+    function getRegularPlugins () {
+        var plugins = []
+        var pluginsArray = copyArr(navigator.plugins)
+
+        for (var i = 0, len = pluginsArray.length;i < len;i++) {
+            var plugin = pluginsArray[i]
+            var pluginArr = copyArr(plugin)
+            var mimeTypes = []
+            for (var j = 0, len2 = pluginArr.length;j < len2;j++) {
+                mimeTypes.push([pluginArr[j].type, pluginArr[j].suffixes].join('~'))
+            }
+            plugins.push([plugin.name, plugin.description, mimeTypes.join(',')].join('::'))
+        }
+        return plugins
+    }
+    //获取当前浏览器使用扩展的情况
+    function getPlugins () {
+        var plugins = []
+        if ((Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(window, 'ActiveXObject')) || 'ActiveXObject' in window) {
+            var names = [
+                'AcroPDF.PDF', // Adobe PDF reader 7+
+                'Adodb.Stream',
+                'AgControl.AgControl', // Silverlight
+                'DevalVRXCtrl.DevalVRXCtrl.1',
+                'MacromediaFlashPaper.MacromediaFlashPaper',
+                'Msxml2.DOMDocument',
+                'Msxml2.XMLHTTP',
+                'PDF.PdfCtrl', // Adobe PDF reader 6 and earlier, brrr
+                'QuickTime.QuickTime', // QuickTime
+                'QuickTimeCheckObject.QuickTimeCheck.1',
+                'RealPlayer',
+                'RealPlayer.RealPlayer(tm) ActiveX Control (32-bit)',
+                'RealVideo.RealVideo(tm) ActiveX Control (32-bit)',
+                'Scripting.Dictionary',
+                'SWCtl.SWCtl', // ShockWave player
+                'Shell.UIHelper',
+                'ShockwaveFlash.ShockwaveFlash', // flash plugin
+                'Skype.Detection',
+                'TDCCtl.TDCCtl',
+                'WMPlayer.OCX', // Windows media player
+                'rmocx.RealPlayer G2 Control',
+                'rmocx.RealPlayer G2 Control.1'
+            ]
+
+            for (var i = 0, len = names.length;i < len;i++) {
+                try {
+                    new ActiveXObject(names[i])
+                    plugins.push(names[i])
+                } catch (e) {}
+            }
+        }
+        if (navigator.plugins) {
+            plugins = plugins.concat(getRegularPlugins())
+        }
+        return plugins
+    }
+
+    function addPrefixZero(value) {
+        return value < 10 ? '0' + value : value.toString()
+    }
+
+    function getCurrentTime() {
+        var date = new Date()
+                , yyyy = date.getFullYear()
+                , MM = addPrefixZero(date.getMonth() + 1)
+                , dd = addPrefixZero(date.getDate())
+                , HH = addPrefixZero(date.getHours())
+                , mm = addPrefixZero(date.getMinutes())
+                , ss = addPrefixZero(date.getSeconds())
+        return yyyy + '-' + MM + '-' + dd + ' ' + HH + ':' + mm + ':' + ss
+    }
+
+    var app = new Regular({
+        config: function (data) {
+            // 用户信息
+            data.webUser = window.webUser;
+
+            // 浏览器信息
+            data.ua = navigator.userAgent
+            data.dpr = window.devicePixelRatio
+            data.plugins = getPlugins()
+            data.currentTime = getCurrentTime()
+            // 其他信息
+            data.ip = window.ip
+            data.address = window.ip_province + ' ' + window.ip_city
+            data.isp = window.ip_isp
+            data.dnsIp = window.dns
+            data.dnsAddress = window.dns_province + ' ' + window.dns_city
+            data.mainHost = [
+                {
+                    status: 'loading',
+                    value: 'https://study.163.com'
+                },
+                {
+                    status: 'loading',
+                    value: 'https://m.study.163.com'
+                },
+                {
+                    status: 'loading',
+                    value: 'https://mooc.study.163.com'
+                }
+            ]
+            data.jsHost = [
+                {
+                    status: 'loading',
+                    value: 'https://s.stu.126.net'
+                },
+                {
+                    status: 'loading',
+                    value: 'https://s2.stu.126.net'
+                },
+                {
+                    status: 'loading',
+                    value: 'https://yc.stu.126.net'
+                }
+            ]
+
+            data.imgHost = [
+                {
+                    status: 'loading',
+                    value: 'https://edu-image.nosdn.127.net'
+                },
+                {
+                    status: 'loading',
+                    value: 'https://video.study.163.com/'
+                }
+            ]
+
+            data.statusMap = {
+                loading: '测试中...',
+                loaded: '连接成功',
+                error: '连接失败'
+            }
+            data.cdnInfo = [
+                // {domain: 'ursdoccdn.nosdn.127.net'}
+            ]
+            this.doFetch()
+        },
+        doFetch: function () {
+            this.fetchCdnInfo()
+            this.fetchMainHost()
+            this.fetchJs()
+            this.fetchImg()
+        },
+        fetchCdnInfo: function () {
+            var data = this.data
+            var domainList = data.cdnInfo
+            var ctx = this
+            for (var i = 0, len = domainList.length;i < len;i++) {
+                x.get({
+                    url: '//c.dun.163yun.com/dns/tracert',
+                    data: {
+                        domain: domainList[i].domain,
+                        dnsOutIp: data.dnsIp,
+                        ip: data.ip
+                    },
+                    onload: (function (current) {
+                        return function (res) {
+                            if (res) {
+                                current.info = res.resultObj
+                            }
+                            ctx.$update()
+                        }
+                    })(domainList[i]),
+                    onerror: function (err) {
+                        alert(err)
+                        // console.error(err)
+                    }
+                })
+            }
+        },
+        fetchHostList: function (list, path) {
+            var ctx = this
+            var filePath = path ? path : '/favicon.ico'
+            for (var i = 0, len = list.length;i < len;i++) {
+                (function (current) {
+                    var startTime = new Date().getTime()
+                    current.status = 'loading'
+                    var _url = current.value;
+                    if (current.value.indexOf('.png')<0){
+                        _url = current.value + filePath
+                    }
+                    var _time = new Date();
+                    // 分钟级的缓存
+                    _time = _time.getFullYear()+'-'+_time.getMonth()+'-'+_time.getDate()+'-'+_time.getHours()+'-'+_time.getMinutes();
+                    _url = _url+'?time='+_time;
+                    x.getImg({
+                        url: _url,
+                        onload: function () {
+                            current.status = 'loaded'
+                            current.url = _url;
+                            current.delay = new Date().getTime() - startTime
+                            ctx.$update()
+                        },
+                        onerror: function () {
+                            current.url = _url;
+                            current.status = 'error'
+                            ctx.$update()
+                        }
+                    })
+                })(list[i])
+            }
+        },
+        fetchMainHost: function () {
+            this.fetchHostList(this.data.mainHost);
+        },
+        fetchJs: function () {
+            this.fetchHostList(this.data.jsHost,'/res/component-editor/images/richEditor.png');
+        },
+        fetchImg: function () {
+            this.fetchHostList(this.data.imgHost);
+        },
+        template: document.getElementById('container').value
+    })
+
+    app.$on('$inject', function () {
+        var data = this.data
+        var screen = window.screen
+        data.screenWidth = screen.width
+        data.screenHeight = screen.height
+    })
+
+    app.$inject('#app')
+</script>
+
+
+
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">&#x2228;</div>
+<div class="m-code_content" style="display: flex;">
+
+<textarea class="u-js g-panel">
+        //创建请求进行测试联通性
+    var createReq = (function () {
+        function clearIframe(id) {
+            setTimeout(function () {
+                var iframe = document.getElementsByName('iframe' + id)[0]
+                var form = document.getElementById('form' + id)
+                iframe && document.body.removeChild(iframe)
+                form && document.body.removeChild(form)
+            }, 60000)
+        }
+        var id = 0
+        return function (opt) {
+            var doc = document
+                    , iframeName = 'iframe' + id
+                    , bd = doc.body
+                    , form = document.createElement('form')
+            form.target = iframeName
+            form.id = 'form' + id
+            form.method = opt.method
+            form.action = opt.url
+            form.style.display = 'none'
+            var param = opt.data
+            for (var key in param) {
+                if (param.hasOwnProperty(key)) {
+                    var input = doc.createElement('input')
+                    input.name = key
+                    input.value = param[key]
+                    form.appendChild(input)
+                }
+            }
+            var iframe
+            var onloadCb = (function (current) {
+                return function () {
+                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document
+                    var res = iframeDoc.body.innerHTML
+                    if (res) {
+                        res = eval('(' + res + ')')
+                    }
+                    opt.onload(res)
+                    clearIframe(current)
+                }
+            })(id)
+            var onerrorCb = (function (current) {
+                return function () {
+                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document
+                    var res = iframeDoc.body.innerHTML
+                    res = res && eval('(' + res + ')')
+                    opt.onerror(res)
+                    clearIframe(current)
+                }
+            }(id))
+            try {// IE6, IE7
+                iframe = document.createElement('<iframe name="'+ iframeName +'">');
+    iframe.attachEvent('onload', onloadCb)
+    iframe.attachEvent('onerror', onerrorCb)
+    } catch(e) {
+    iframe = document.createElement('iframe');
+    iframe.name = iframeName
+    iframe.onload = onloadCb
+    iframe.onerror = onerrorCb
+    }
+    id++
+    iframe.style.display = 'none'
+    bd.appendChild(form)
+    bd.appendChild(iframe)
+    return form
+    }
+    })()
+
+    var x = {
+    get: function (opt) {
+    opt.method = 'get'
+    createReq(opt).submit()
+    },
+    post: function (opt) {
+    opt.method = 'post'
+    createReq(opt).submit()
+    },
+    getImg: function (opt) {
+    var doc = document
+    var img = doc.createElement('img')
+    img.onload = opt.onload
+    img.onerror = opt.onerror
+    img.src = opt.url
+    }
+    }
+    function copyArr(source) {
+    var result = []
+    for (var i = 0, len = source.length;i < len;i++) {
+    result.push(source[i])
+    }
+    return result
+    }
+    function getRegularPlugins () {
+    var plugins = []
+    var pluginsArray = copyArr(navigator.plugins)
+
+    for (var i = 0, len = pluginsArray.length;i < len;i++) {
+    var plugin = pluginsArray[i]
+    var pluginArr = copyArr(plugin)
+    var mimeTypes = []
+    for (var j = 0, len2 = pluginArr.length;j < len2;j++) {
+    mimeTypes.push([pluginArr[j].type, pluginArr[j].suffixes].join('~'))
+    }
+    plugins.push([plugin.name, plugin.description, mimeTypes.join(',')].join('::'))
+    }
+    return plugins
+    }
+    //获取当前浏览器使用扩展的情况
+    function getPlugins () {
+    var plugins = []
+    if ((Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(window, 'ActiveXObject')) || 'ActiveXObject' in window) {
+    var names = [
+    'AcroPDF.PDF', // Adobe PDF reader 7+
+    'Adodb.Stream',
+    'AgControl.AgControl', // Silverlight
+    'DevalVRXCtrl.DevalVRXCtrl.1',
+    'MacromediaFlashPaper.MacromediaFlashPaper',
+    'Msxml2.DOMDocument',
+    'Msxml2.XMLHTTP',
+    'PDF.PdfCtrl', // Adobe PDF reader 6 and earlier, brrr
+    'QuickTime.QuickTime', // QuickTime
+    'QuickTimeCheckObject.QuickTimeCheck.1',
+    'RealPlayer',
+    'RealPlayer.RealPlayer(tm) ActiveX Control (32-bit)',
+    'RealVideo.RealVideo(tm) ActiveX Control (32-bit)',
+    'Scripting.Dictionary',
+    'SWCtl.SWCtl', // ShockWave player
+    'Shell.UIHelper',
+    'ShockwaveFlash.ShockwaveFlash', // flash plugin
+    'Skype.Detection',
+    'TDCCtl.TDCCtl',
+    'WMPlayer.OCX', // Windows media player
+    'rmocx.RealPlayer G2 Control',
+    'rmocx.RealPlayer G2 Control.1'
+    ]
+
+    for (var i = 0, len = names.length;i < len;i++) {
+    try {
+    new ActiveXObject(names[i])
+    plugins.push(names[i])
+    } catch (e) {}
+    }
+    }
+    if (navigator.plugins) {
+    plugins = plugins.concat(getRegularPlugins())
+    }
+    return plugins
+    }
+
+    function addPrefixZero(value) {
+    return value < 10 ? '0' + value : value.toString()
+    }
+
+    function getCurrentTime() {
+    var date = new Date()
+    , yyyy = date.getFullYear()
+    , MM = addPrefixZero(date.getMonth() + 1)
+    , dd = addPrefixZero(date.getDate())
+    , HH = addPrefixZero(date.getHours())
+    , mm = addPrefixZero(date.getMinutes())
+    , ss = addPrefixZero(date.getSeconds())
+    return yyyy + '-' + MM + '-' + dd + ' ' + HH + ':' + mm + ':' + ss
+    }
+
+    var app = new Regular({
+    config: function (data) {
+    // 用户信息
+    data.webUser = window.webUser;
+
+    // 浏览器信息
+    data.ua = navigator.userAgent
+    data.dpr = window.devicePixelRatio
+    data.plugins = getPlugins()
+    data.currentTime = getCurrentTime()
+    // 其他信息
+    data.ip = window.ip
+    data.address = window.ip_province + ' ' + window.ip_city
+    data.isp = window.ip_isp
+    data.dnsIp = window.dns
+    data.dnsAddress = window.dns_province + ' ' + window.dns_city
+    data.mainHost = [
+    {
+    status: 'loading',
+    value: 'https://study.163.com'
+    },
+    {
+    status: 'loading',
+    value: 'https://m.study.163.com'
+    },
+    {
+    status: 'loading',
+    value: 'https://mooc.study.163.com'
+    }
+    ]
+    data.jsHost = [
+    {
+    status: 'loading',
+    value: 'https://s.stu.126.net'
+    },
+    {
+    status: 'loading',
+    value: 'https://s2.stu.126.net'
+    },
+    {
+    status: 'loading',
+    value: 'https://yc.stu.126.net'
+    }
+    ]
+
+    data.imgHost = [
+    {
+    status: 'loading',
+    value: 'https://edu-image.nosdn.127.net'
+    },
+    {
+    status: 'loading',
+    value: 'https://video.study.163.com/'
+    }
+    ]
+
+    data.statusMap = {
+    loading: '测试中...',
+    loaded: '连接成功',
+    error: '连接失败'
+    }
+    data.cdnInfo = [
+    // {domain: 'ursdoccdn.nosdn.127.net'}
+    ]
+    this.doFetch()
+    },
+    doFetch: function () {
+    this.fetchCdnInfo()
+    this.fetchMainHost()
+    this.fetchJs()
+    this.fetchImg()
+    },
+    fetchCdnInfo: function () {
+    var data = this.data
+    var domainList = data.cdnInfo
+    var ctx = this
+    for (var i = 0, len = domainList.length;i < len;i++) {
+    x.get({
+    url: '//c.dun.163yun.com/dns/tracert',
+    data: {
+    domain: domainList[i].domain,
+    dnsOutIp: data.dnsIp,
+    ip: data.ip
+    },
+    onload: (function (current) {
+    return function (res) {
+    if (res) {
+    current.info = res.resultObj
+    }
+    ctx.$update()
+    }
+    })(domainList[i]),
+    onerror: function (err) {
+    alert(err)
+    // console.error(err)
+    }
+    })
+    }
+    },
+    fetchHostList: function (list, path) {
+    var ctx = this
+    var filePath = path ? path : '/favicon.ico'
+    for (var i = 0, len = list.length;i < len;i++) {
+    (function (current) {
+    var startTime = new Date().getTime()
+    current.status = 'loading'
+    var _url = current.value;
+    if (current.value.indexOf('.png')<0){
+    _url = current.value + filePath
+    }
+    var _time = new Date();
+    // 分钟级的缓存
+    _time = _time.getFullYear()+'-'+_time.getMonth()+'-'+_time.getDate()+'-'+_time.getHours()+'-'+_time.getMinutes();
+    _url = _url+'?time='+_time;
+    x.getImg({
+    url: _url,
+    onload: function () {
+    current.status = 'loaded'
+    current.url = _url;
+    current.delay = new Date().getTime() - startTime
+    ctx.$update()
+    },
+    onerror: function () {
+    current.url = _url;
+    current.status = 'error'
+    ctx.$update()
+    }
+    })
+    })(list[i])
+    }
+    },
+    fetchMainHost: function () {
+    this.fetchHostList(this.data.mainHost);
+    },
+    fetchJs: function () {
+    this.fetchHostList(this.data.jsHost,'/res/component-editor/images/richEditor.png');
+    },
+    fetchImg: function () {
+    this.fetchHostList(this.data.imgHost);
+    },
+    template: document.getElementById('container').value
+    })
+
+    app.$on('$inject', function () {
+    var data = this.data
+    var screen = window.screen
+    data.screenWidth = screen.width
+    data.screenHeight = screen.height
+    })
+
+    app.$inject('#app')
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>
