@@ -1,5 +1,6 @@
 const program = require('commander');
 const exec = require('child_process').exec;
+const shell = require('shelljs');
 
 // 命令行参数配置
 program
@@ -24,17 +25,7 @@ if(!!program.name){
     process.exit(1);
 }
 
-
-let child = exec(Config[cmdName], {
-    maxBuffer: 1024 * 1024
-});
-
-child.stdout.on('data', function(data) {
-    console.log(data);
-});
-child.stderr.on('data', function(data) {
-    console.log(data);
-});
-child.on('close', function(code) {
-    console.log('done!');
-});
+if (shell.exec(Config[cmdName]).code !== 0) {
+    shell.echo('Error: Wrong');
+    shell.exit(1);
+}

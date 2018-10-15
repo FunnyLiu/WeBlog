@@ -4,5 +4,7 @@ db.json
 *.log
 node_modules/
 .deploy*/
-.idea/
+.idea/*.*
 .deploy_git/
+.vscode/
+egg-init/
