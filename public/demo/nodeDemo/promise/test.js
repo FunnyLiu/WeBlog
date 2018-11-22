@@ -52,8 +52,6 @@ promiseAsync.then(function(value) {
  * value: 123
  * value1: 123
  * value2: 456
- * value1: 1234
- * value2: 1234
  */
 let promiseChain = new Promise((resolve, reject) => {
         resolve(123);
@@ -66,6 +64,14 @@ promiseChain.then((value) => {
     console.log('value2', value);
 });
 
+//5.2 异常捕获
+/**
+ * 控制台结果为
+ * state
+ * value: 123
+ * value1: 123
+ * value2: 456
+ */
 
 let promiseError = new Promise((resolve, reject) => {
         resolve(123);
