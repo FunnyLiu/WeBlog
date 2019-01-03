@@ -174,7 +174,9 @@ this.workbox.core = (function () {
     See the License for the specific language governing permissions and
     limitations under the License.
   */
-
+  /**
+   * 异常文案对象，策略
+   */
   var messages = {
     'invalid-value': ({ paramName, validValueDescription, value }) => {
       if (!paramName || !validValueDescription) {
@@ -357,7 +359,11 @@ this.workbox.core = (function () {
     See the License for the specific language governing permissions and
     limitations under the License.
   */
-
+  /**
+   * 根据不同的值返回不同的内容
+   * @param {} code 
+   * @param  {...any} args 
+   */
   const generatorFunction = (code, ...args) => {
     const message = messages[code];
     if (!message) {
@@ -394,6 +400,9 @@ this.workbox.core = (function () {
    *
    * @private
    */
+  /**
+   * 定义通用异常类
+   */
   class WorkboxError extends Error {
     /**
      *
@@ -404,6 +413,7 @@ this.workbox.core = (function () {
      * be added as a key on the context object.
      */
     constructor(errorCode, details) {
+      //获取到对应异常的消息
       let message = exportedValue(errorCode, details);
 
       super(message);
@@ -462,7 +472,12 @@ this.workbox.core = (function () {
         moduleName, className, funcName });
     }
   };
-
+  /**
+   * 封装类型判断的函数
+   * @param {Object} object 
+   * @param {*} expectedType 
+   * @param {*} param2 
+   */
   const isType = (object, expectedType, { moduleName, className, funcName, paramName }) => {
     if (typeof object !== expectedType) {
       throw new WorkboxError('incorrect-type', { paramName, expectedType,
@@ -591,6 +606,9 @@ this.workbox.core = (function () {
    * wraps the most commonly used features in a way that's much simpler to use.
    *
    * @private
+   */
+  /**
+   * 封装indexdb操作类
    */
   class DBWrapper {
     /**
@@ -1190,6 +1208,8 @@ this.workbox.core = (function () {
       matchOptions,
       plugins = [] }) {
       const cache = yield caches.open(cacheName);
+      //MDN:https://developer.mozilla.org/zh-CN/docs/Web/API/CacheStorage/match
+      //cache.match 寻找cache中是否有匹配项
       let cachedResponse = yield cache.match(request, matchOptions);
       {
         if (cachedResponse) {
@@ -1558,6 +1578,10 @@ this.workbox.core = (function () {
    * @memberof workbox.core
    * @private
    */
+
+  /**
+   * 定义核心类，对外暴露api
+   */
   class WorkboxCore {
     /**
      * You should not instantiate this object directly.
@@ -1628,6 +1652,10 @@ this.workbox.core = (function () {
      *
      * @alias workbox.core.setCacheNameDetails
      */
+    /**
+     * 设置cacheStorage的名字
+     * @param {Object} details 
+     */
     setCacheNameDetails(details) {
       {
         Object.keys(details).forEach(key => {
@@ -1638,7 +1666,7 @@ this.workbox.core = (function () {
             paramName: `details.${key}`
           });
         });
-
+        //对几个关键词进行保护
         if ('precache' in details && details.precache.length === 0) {
           throw new WorkboxError('invalid-cache-name', {
             cacheNameId: 'precache',

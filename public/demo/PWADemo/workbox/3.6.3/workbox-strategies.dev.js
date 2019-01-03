@@ -208,6 +208,12 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
      * @return {Promise<Response>}
      *
      * @private
+     */  
+
+    /**
+     * 获取请求，并put到cache中
+     * @param {} request 
+     * @param {*} event 
      */
     _getFromNetwork(request, event) {
       var _this3 = this;
@@ -546,6 +552,7 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
         let timeoutId;
 
         if (_this2._networkTimeoutSeconds) {
+          //如果设置了超时，走超时的方法，在setTimeout后reject该promise，强制返回
           const { id, promise } = _this2._getTimeoutPromise({ request, event, logs });
           timeoutId = id;
           promises.push(promise);
@@ -587,6 +594,11 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
      *
      * @private
      */
+
+    /**
+     * 设有超时时间的请求方式
+     * @param {} param0 
+     */ 
     _getTimeoutPromise({ request, logs, event }) {
       var _this3 = this;
 
@@ -597,7 +609,7 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
             {
               logs.push(`Timing out the network response at ` + `${_this3._networkTimeoutSeconds} seconds.`);
             }
-
+            //超时直接resolve，
             resolve((yield _this3._respondFromCache({ request, event })));
           });
 
@@ -655,6 +667,7 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
         }
 
         if (error || !response) {
+          //如果没有返回则从cache中取
           response = yield _this4._respondFromCache({ request, event });
           {
             if (response) {
@@ -664,6 +677,7 @@ this.workbox.strategies = (function (logger_mjs,assert_mjs,cacheNames_mjs,cacheW
             }
           }
         } else {
+          //如果有返回，将cache更新
           // Keep the service worker alive while we put the request in the cache
           const responseClone = response.clone();
           const cachePut = cacheWrapper_mjs.cacheWrapper.put({

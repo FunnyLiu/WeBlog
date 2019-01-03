@@ -28,6 +28,9 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
    * @private
    * @memberof module:workbox-precaching
    */
+  /**
+   * 定义 precache入口类
+   */
   class PrecacheEntry {
     /**
      * This class ensures all cache list entries are consistent and
@@ -42,6 +45,8 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
       this._originalInput = originalInput;
       this._entryId = url;
       this._revision = revision;
+      //mdn上关于request的介绍：https://developer.mozilla.org/zh-CN/docs/Web/API/Request/Request
+      //credentials，在Chrome中，Chrome 47 之前的版本默认值为 same-origin ，自Chrome 47起，默认值为include。
       const requestAsCacheKey = new Request(url, { credentials: 'same-origin' });
       this._cacheRequest = requestAsCacheKey;
       this._networkRequest = shouldCacheBust ? this._cacheBustRequest(requestAsCacheKey) : requestAsCacheKey;
@@ -106,6 +111,10 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
    *
    * @private
    */
+  /**
+   * 定义precache对应的model
+   */
+
   class PrecachedDetailsModel {
     /**
      * Construct a new model for a specific cache.
@@ -581,6 +590,12 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
      *     and caching during install.
      * @return {Promise<workbox.precaching.InstallResult>}
      */
+
+    /**
+     * 对外暴露安装的api
+     * @param {} param0 
+     */
+
     install({ suppressWarnings = false, event, plugins } = {}) {
       var _this = this;
 
@@ -606,6 +621,9 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
         // resulting in unexpected behavior of being deletect when all references
         // are dropped.
         // https://github.com/GoogleChrome/workbox/issues/1368
+
+
+        //删除caches
         const tempCache = yield caches.open(_this._getTempCacheName());
         const requests = yield tempCache.keys();
         yield Promise.all(requests.map(function (request) {
@@ -651,6 +669,11 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
      * Resolves with an object containing details of the deleted cache requests
      * and precache revision details.
      */
+
+    /**
+     * 激活的api
+     * @param {} options 
+     */
     activate(options = {}) {
       var _this2 = this;
 
@@ -662,6 +685,7 @@ this.workbox.precaching = (function (DBWrapper_mjs,logger_mjs,cacheNames_mjs,Wor
         // when done, to help avoid triggering quota errors.
         for (const request of requests) {
           const response = yield tempCache.match(request);
+          //使用真正操作cache的api，进行cache操作
           yield cacheWrapper_mjs.cacheWrapper.put({
             cacheName: _this2._cacheName,
             request,
