@@ -84,7 +84,7 @@ var json2html = {
 				elements = json2html._append(elements,json2html._apply(json[j], transform, j, options));
 			}
 
-		} else if(typeof json === 'object') {
+		} else if(typeof json == 'object') {
 
 			//Apply the transform to this object and append it to the results
 			elements = json2html._append(elements,json2html._apply(json, transform, undefined, options));
