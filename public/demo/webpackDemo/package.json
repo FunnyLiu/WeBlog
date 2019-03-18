@@ -30,6 +30,7 @@
     "build12": "cd demo12_commonChunk && webpack -p",
     "start13": "cd demo13_externals && node server",
     "build13": "cd demo13_externals && webpack -p",
+    "build14": "cd demo14_chunkHash && webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
