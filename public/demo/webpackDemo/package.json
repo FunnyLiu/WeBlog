@@ -31,6 +31,12 @@
     "start13": "cd demo13_externals && node server",
     "build13": "cd demo13_externals && webpack -p",
     "build14": "cd demo14_chunkHash && webpack -p",
+    "start15": "cd demo15_HMR_express && node server",
+    "build15": "cd demo15_HMR_express && webpack -p",
+    "start16": "cd demo16_HMR_cli && webpack-dev-server --inline --watch --hot",
+    "build16": "cd demo16_HMR_cli && webpack -p",
+    "start17": "cd demo17_HMR_api && node server",
+    "build17": "cd demo17_HMR_api && webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -55,7 +61,8 @@
     "vue-template-compiler": "^2.6.8",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-middleware": "^3.6.1"
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -64,6 +71,7 @@
     "babel-loader": "^8.0.5",
     "bundle-loader": "^0.5.6",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "webpack-hot-middleware": "^2.24.3"
   }
 }

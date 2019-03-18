@@ -461,3 +461,158 @@ module.exports = {
 };
 ```
 
+---
+
+## 热更新 by eppress 中间件 demo15_HMR_express
+使用express的中间件webpack-hot-middleware，来实现热更新
+
+main1.js
+``` javascript
+import css from './app.css';
+console.warn('this is console1');
+if (module.hot) {
+    module.hot.accept();
+}
+```
+
+webpack.config.js
+
+``` javascript
+const  webpack = require('webpack') 
+
+module.exports = {
+  entry: {
+    bundle1: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000','./main1.js'],
+    bundle2: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000','./main2.js']
+  },
+  output: {
+    filename: '[name].js'
+  },
+  module: {
+    rules:[
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      },
+    ]
+  },
+  plugins:[
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};
+
+```
+
+启动的server.js
+``` javascript
+
+    
+const express = require('express')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const WebpackConfig = require(`./webpack.config`)
+
+const app = express()
+const compiler = webpack(WebpackConfig)
+
+
+app.use(webpackDevMiddleware(compiler, {
+  stats: {
+    colors: true,
+    chunks: false
+  }
+}))
+
+//启用模块热更新
+app.use(webpackHotMiddleware(compiler, {
+  path: '/__webpack_hmr',
+  heartbeat: 10 * 1000
+}));
+
+app.use(express.static(__dirname))
+
+const port = process.env.PORT || 8081
+module.exports = app.listen(port, () => {
+  console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
+})
+
+```
+
+---
+
+## 热更新 by webpack-dev-server cli demo16_HMR_cli
+
+不需要啥额外的配置，只需要启动server时设置一定的参数就好了。
+
+package.json
+``` json
+    "start16": "cd demo16_HMR_cli && webpack-dev-server --inline --watch --hot",
+```
+
+main.js
+``` javascript
+    "start16": "cd demo16_HMR_cli && webpack-dev-server --inline --watch --hot",
+```
+
+webpack.config.js
+``` javascript
+
+module.exports = {
+  entry: {
+    bundle1: './main1.js',
+    bundle2: './main2.js'
+  },
+  output: {
+    filename: '[name].js'
+  },
+  module: {
+    rules:[
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader']
+      },
+    ]
+  }
+};
+
+```
+
+---
+
+## 热更新 by webpack-dev-server api demo17_HMR_api
+还是通过webpack-dev-server,但是不是cli而是api，来启用热更新
+
+main1.js
+``` javascript
+import css from './app.css';
+console.warn('this is console2');
+if (module.hot) {
+    module.hot.accept();
+}
+```
+
+server.js
+``` javascript
+
+const webpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack');
+
+const config = require('./webpack.config.js');
+const options = {
+    hot: true,
+    host: 'localhost',
+    stats: {
+        colors: true
+    }
+};
+//设置配置
+webpackDevServer.addDevServerEntrypoints(config, options);
+
+var compiler = webpack(config);
+var server = new webpackDevServer(compiler, options);
+
+server.listen(8081, 'localhost', () => {
+    console.log('dev server listening on port 8081');
+});
+```
