@@ -1,0 +1,8 @@
+.h1 {
+  color:red;
+}
+
+/* 全局通用的需要额外标识 */
+:global(.h2) {
+  color: blue;
+}
