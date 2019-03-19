@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="/demo/bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/demo/bower_components/codemirror/mode/css/css.js"></script>
+<link rel="stylesheet" href="css/js_event_bus.css"></head>
+<body>
+<script type="module">
+import EventBus from './js/eventBus/eventBus.js';
+
+const eventBus = new EventBus();
+eventBus.subscribe('myEvent',(arg)=>{
+    console.warn(arg);
+});
+
+eventBus.publish('myEvent','hhe');
+</script>
+
+
+<div class="m-code f-pa">
+<div class="m-code_hidBtn">&#x2228;</div>
+<div class="m-code_content" style="display: flex;">
+
+<textarea class="u-html g-panel">
+    <script type="module">
+        import EventBus from './js/eventBus/eventBus.js';
+        
+        const eventBus = new EventBus();
+        eventBus.subscribe('myEvent',(arg)=>{
+            console.warn(arg);
+        });
+        
+        eventBus.publish('myEvent','hhe');
+    </script>
+</textarea>
+<textarea class="u-js g-panel">
+
+    
+let EventBus = function() {
+    //订阅对象
+    const subscriptions = { };
+  
+    //订阅
+    this.subscribe = (eventType, callback)=> {
+      const id = Symbol('id');
+      //初始化订阅对象，将id指向回调函数
+      if (!subscriptions[eventType]) subscriptions[eventType] = { };
+      subscriptions[eventType][id] = callback;
+      return {
+        //返回取消订阅的方法
+        unsubscribe: function unsubscribe() {
+          delete subscriptions[eventType][id];
+          if (Object.getOwnPropertySymbols(subscriptions[eventType]).length === 0) {
+            delete subscriptions[eventType];
+          }
+        },
+      };
+    };
+    
+    //发布
+    this.publish = (eventType, arg)=> {
+      if (!subscriptions[eventType]) return;
+        
+      //拿到对应的订阅者，指向挂载的回调函数
+      Object.getOwnPropertySymbols(subscriptions[eventType])
+        .forEach(key => subscriptions[eventType][key](arg));
+    };
+  }
+  
+  export default EventBus;
+</textarea>
+</div>
+</div>
+<script src="./js/base/base.js"></script>
+</body>
+</html>
