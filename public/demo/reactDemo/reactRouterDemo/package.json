@@ -1,0 +1,32 @@
+{
+  "name": "reactrouterdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "babel-loader": "^8.0.5",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-loader": "^2.4.5",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-transition-group": "^2.7.0",
+    "shelljs": "^0.8.3",
+    "webpack": "^4.29.6",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-react": "^7.0.0",
+    "webpack-cli": "^3.3.0"
+  }
+}
