@@ -37,3 +37,16 @@ mock返回值mockReturnValueOnce和mockReturnValue
 ## demo03snapshot
 
 快照测试，toMatchSnapshot；对比两次结果的不同，通过jest -u去更新
+
+## demo04timer
+
+定时器相关处理方式
+
+### allTimer
+掉过所有定时器，模拟执行完毕状态
+
+### recursiveTime
+递归调用定时器的情况
+
+### timerGame
+最基本的定时器验证
