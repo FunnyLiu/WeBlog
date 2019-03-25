@@ -32,3 +32,8 @@ mock相关demo
 ### returnValue
 
 mock返回值mockReturnValueOnce和mockReturnValue
+
+
+## demo03snapshot
+
+快照测试，toMatchSnapshot；对比两次结果的不同，通过jest -u去更新
