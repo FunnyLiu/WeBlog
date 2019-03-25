@@ -24,3 +24,11 @@ expect相关比较值的语法
 
 一个最简单的demo
 
+
+## demo02mock
+
+mock相关demo
+
+### returnValue
+
+mock返回值mockReturnValueOnce和mockReturnValue
